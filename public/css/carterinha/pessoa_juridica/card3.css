@@ -1,0 +1,97 @@
+/* estilo das carterinhas customizadas */
+
+/* font padrão para todos os cards */
+.card .font-10-pt {
+        font-size: 10pt;
+ }
+
+.card .font-9-pt {
+        font-size: 9pt;
+ }
+ 
+ /* padding padrão para todas os card */
+ 
+ .card .padding-bottom-03-cm {
+     padding-bottom: 0.3cm;
+ }
+
+/* caixa_modelo */ 
+.caixa-modelo {
+    width: 8.7cm; 
+    float: left;
+}
+
+.caixa-modelo:nth-child(2n+2) {
+    margin: 0 0.2cm 0 0.2cm;
+}
+
+ /* caixa opção padrão para todas as cards */
+ .caixa-modelo > .caixa-opcao {
+        width: 99%;
+        margin-left: 0.5%;
+        float: left;
+        background: #f1f1f1;
+        text-align: center;
+        margin-bottom: 0.1cm;
+ }
+
+
+.card {
+    width: 8.7cm; 
+    height: 5.5cm;
+    float: left;
+    padding-top: 0.5cm;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0.5px solid #000000;
+ }
+ 
+ /* customizando individualmente o card 3 */
+
+ .card > .caixa-empresa {
+   width: 100%; 
+   float: left;
+   padding-left: 5px; 
+   line-height: 12px;
+   margin-top: -0.2cm  /* descontando o padding do car */
+}
+ 
+.card > .caixa-foto {
+   width: 2.7cm; 
+   height: 4.9cm;
+   float: right;
+   padding-right: 5px; 
+   line-height: 12px;
+ 
+}
+	
+.card > .caixa-foto > img {
+   width: 100%; 
+   height: 3cm;
+   margin-bottom: 5px
+}
+
+.card > .caixa-linha {
+   width: 5.9cm;
+   height: 4.9cm;
+   float: left;
+   padding: 0 0.1cm 0 0.1cm;
+   line-height: 12px;
+}
+
+.card > .caixa-linha > .linha{
+   width: 100%;
+   float: left;
+   padding-bottom: 0.3cm;
+}
+
+.card > .caixa-linha .linha > .coluna-1 {
+   width: 100%;
+   float: left;
+}
+
+.card > .caixa-linha > .linha > .coluna-2 {
+   width: 33.3%;
+   float: left;
+}

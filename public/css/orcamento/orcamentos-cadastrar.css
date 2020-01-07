@@ -1,0 +1,66 @@
+/* ---------------------------------------------------- */
+/* Desenvolvido por Clínica Rio de Janeiro              */
+/* Clínica Rio de Janeiro © 2019                        */
+/* ---------------------------------------------------- */
+
+/* Customização do CSS do plugin autocomplete */
+.autocomplete-suggestion:hover { background: #d1d4d6; }
+
+#qtd {
+    /*background-color:rgba(0,0,0,0) !important;*/
+    border:none !important;
+    background-color: transparent !important;
+    box-shadow:none !important;
+    font-size: 40px;
+    font-weight: 400;
+    color: #31708f;
+    font-weight: bold;
+}
+#numero_orcamento {
+    /*background-color:rgba(0,0,0,0) !important;*/
+    border:none !important;
+    background-color: transparent !important;
+    box-shadow:none !important;
+    font-size: 20px;
+    font-weight: 400;
+    color: #31708f;
+    font-weight: bold;
+}
+#total_a_pagar_caso_adimplente_simulador {
+   /*background-color:rgba(0,0,0,0) !important;*/
+    border:none !important;
+    background-color: transparent !important;
+    box-shadow:none !important;
+    font-size: 20px;
+    /*font-weight: 400;*/
+    color: #32CD32;
+    text-align: left;
+    font-weight: bold;
+    /*padding-top: -5px;*/
+    /*margin-top: -4px;*/
+}
+
+#price {
+    background-color: transparent;
+    font-size: 40px;
+    font-weight: 400;
+    color: #31708f;
+    font-weight: bold;
+}
+#clear {
+    background:#B0C4DE;
+    color:white;
+    font-weight:bold;
+    text-align:center;
+    cursor:pointer;
+    float:right;
+    position:relative;
+    right:5px;
+    top:-25px;
+    width:20px;
+    height:20px;
+    border-radius:20px;
+}
+#clear:hover {
+    background:#DC143C;
+}

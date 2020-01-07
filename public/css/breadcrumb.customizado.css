@@ -1,0 +1,59 @@
+/* ---------------------------------------------------- */
+/* CSS CUSTOMIZADO DO BREADCRUMB                        */
+/* ---------------------------------------------------- */
+
+.breadcrumb {
+	margin: 65px 0px 10px 0px; /* superior, direito, inferior e esquerdo */
+	padding: 6px 0px 5px 0px;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+}
+
+.breadcrumb i {
+	font-size: 15px;
+}
+
+.breadcrumb > li {
+	text-shadow: 0 1px 0 #FFF;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 0px 20px 0px 20px;
+	position: relative;
+	white-space: nowrap;
+}
+
+.breadcrumb > li + li:before {
+	content: '';
+	padding: 0;
+}
+
+.breadcrumb > li:after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: -3px;
+	right: -5px;
+	width: 22px;
+	height: 24px;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+}
+
+.breadcrumb li.ativo, .breadcrumb li.active {
+	color: #bec1c5; /* Opções de cor: #bec1c5 ou #d2a815 */
+}
+
+.breadcrumb li a {
+	text-decoration: none;
+	color: #777777;
+}
+
+.breadcrumb li a:hover {
+	text-decoration: none;
+	color: #329965;
+}

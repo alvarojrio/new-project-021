@@ -1,0 +1,298 @@
+/* ---------------------------------------------------- */
+/* CSS CUSTOMIZADO DE DATATABLE                         */
+/* ---------------------------------------------------- */
+
+/**
+=================================
+LARGE DESKTOP > 1200px
+=================================
+**/
+@media (min-width: 1200px) {
+
+/* ------- ESTILOS PARA DATA TABLE --------------------------------------------------- */	
+.table-responsive {
+	min-height: .01%;
+	overflow-x: hidden;
+}
+
+.dataTables_wrapper .dataTables_filter {
+	float: none;
+	text-align: left;
+}
+
+.dataTables_wrapper .dataTables_length {
+	float: none;
+	text-align: center;
+}
+
+.dataTables_wrapper .exportar {
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.dataTables_wrapper .exportar .exportar_tb {
+	float: none;
+ 	text-align: right;
+}
+
+.dataTables_wrapper .exportar .exportar_tb table {
+	margin: 0 auto;
+	margin-right: 0px;
+}
+
+}
+
+
+
+
+
+/**
+=================================
+STANDARD DESKTOP 992px <> 1200px
+=================================
+**/
+@media (min-width: 992px) and (max-width: 1199px) {
+
+/* ------- ESTILOS PARA DATA TABLE ---------------------------------------------------- */	
+.table-responsive {
+	min-height: .01%;
+	overflow-x: hidden;
+}
+
+.dataTables_wrapper .dataTables_filter {
+	float: none;
+	text-align: left;
+}
+
+.dataTables_wrapper .dataTables_length {
+	float: none;
+	text-align: center;
+}
+
+.dataTables_wrapper .exportar {
+	margin-right: 0px;
+	padding-right: 0px;
+}
+
+.dataTables_wrapper .exportar .exportar_tb {
+	float: none;
+ 	text-align: right;
+}
+
+.dataTables_wrapper .exportar .exportar_tb table {
+	margin: 0 auto;
+	margin-right: 0px;
+}
+
+}
+
+
+
+
+
+/**
+=================================
+TABLET < 1025px
+=================================
+**/
+@media (max-width: 1025px) {
+	
+}
+
+
+
+
+
+/**
+=================================
+SMALL DESKTOP 768px <> 991px
+=================================
+**/
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+
+
+
+
+/**
+=================================
+TABLET < 800px
+=================================
+**/
+@media (max-width: 800px) {
+
+}
+
+
+
+
+
+/**
+=================================
+TABLET < 767px
+=================================
+**/
+@media (max-width: 767px) {
+	
+/* ------- ESTILOS PARA TOPO ---------------------------------------------------------- */
+.botao-de-logout {
+	color: #ffffff;
+}
+
+/* ------- ESTILOS PARA DATA TABLE ---------------------------------------------------- */
+.dataTables_wrapper .dataTables_filter {
+	float: none;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.dataTables_wrapper .dataTables_length {
+	float: none;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.dataTables_wrapper .exportar .exportar_tb {
+	float: none;
+ 	text-align: center;
+ 	margin-bottom: 1.5em;
+}
+
+.dataTables_wrapper .exportar .exportar_tb table {
+	margin: 0 auto;
+}
+
+}
+
+
+
+
+
+/**
+=================================
+PHONE < 640px
+=================================
+**/
+@media (max-width: 640px){
+
+/* ------- ESTILOS PARA TOPO --------------------------------------------------------- */
+.botao-de-logout {
+	color: #ffffff;
+}
+
+/* ------- ESTILOS PARA DATA TABLE ---------------------------------------------------- */
+.dataTables_wrapper .dataTables_filter {
+	float: none;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.dataTables_wrapper .dataTables_length {
+	float: none;
+	text-align: center;
+	margin-bottom: 1.5em;
+}
+
+.dataTables_wrapper .exportar .exportar_tb {
+	float: none;
+ 	text-align: center;
+ 	margin-bottom: 1.5em;
+}
+
+.dataTables_wrapper .exportar .exportar_tb table {
+	margin: 0 auto;
+}
+
+}
+
+
+
+
+
+/**
+=================================
+PHONE < 600px
+=================================
+**/
+@media (max-width: 600px){
+
+/* ------- ESTILOS PARA TOPO ------------------------------------------------------------------ */
+.botao-de-logout {
+	color: #ffffff;
+}
+	
+}
+
+
+
+
+
+/**
+=================================
+PHONE < 548px
+=================================
+**/
+@media (max-width: 548px){
+
+/* ------- ESTILOS PARA TOPO ------------------------------------------------------------------ */
+.botao-de-logout {
+	color: #ffffff;
+}
+	
+}
+
+
+
+
+
+/**
+=================================
+PHONE < 480px
+=================================
+**/
+@media (max-width: 480px){
+
+/* ------- ESTILOS PARA TOPO ------------------------------------------------------------------ */
+.botao-de-logout {
+	color: #ffffff;
+}
+	
+}
+
+
+
+
+
+/**
+=================================
+PHONE < 360px
+=================================
+**/
+@media (max-width: 360px){
+
+/* ------- ESTILOS PARA TOPO ------------------------------------------------------------------ */
+.botao-de-logout {
+	color: #ffffff;
+}
+
+}
+
+
+
+
+
+/**
+=================================
+PHONE < 320px
+=================================
+**/
+@media (max-width: 320px){
+
+/* ------- ESTILOS PARA TOPO ------------------------------------------------------------------ */
+.botao-de-logout {
+	color: #ffffff;
+}
+	
+}

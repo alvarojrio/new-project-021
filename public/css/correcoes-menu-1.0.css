@@ -1,0 +1,41 @@
+/* INICIO AJUSTE NA LARGURA DA SIDEBAR */
+.nav-sm .container.body .col-md-3.left_col {
+    width: 85px;
+}
+
+.nav-sm .navbar.nav_title {
+    width: 85px;
+}
+
+.nav-sm .container.body .right_col {
+    margin-left: 85px;
+}
+
+.nav-sm footer {
+    margin-left: 85px;
+}
+
+.toggle {
+    padding-left: 18px;
+}
+/* FIM AJUSTE NA LARGURA DA SIDEBAR  */
+
+
+/* INICIO AJUSTE DO TAMANHO DOS ICONES E DO TEXTO NO MENU DA SIDEBAR */
+.nav-sm .nav.side-menu li a i {
+    font-size: 18px !important;
+}
+.nav-sm .nav.side-menu li span.texto-menu {
+    font-size: 11px !important;
+}
+/* FIM AJUSTE DO TAMANHO DOS ICONES E DO TEXTO NO MENU DA SIDEBAR */
+
+
+/* INICIO CORREÇÃO DA SETA QUE ACOMPANHA A OPÇÃO DO MENU */
+.nav-sm .navegacao-chevron {
+    top: 48px;
+    right: 45%;
+    margin-bottom: 0px;
+    position: absolute;
+}
+/* FIM CORREÇÃO DA SETA QUE ACOMPANHA A OPÇÃO DO MENU */

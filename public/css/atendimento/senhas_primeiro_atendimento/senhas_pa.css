@@ -1,0 +1,46 @@
+/* --------------------------------------------------------- */
+/* CSS DO COMPONENTE GERENCIAR SENHAS PRIMEIRO ATENDIMENTO   */
+/* --------------------------------------------------------- */
+
+.box_faixa_fundo {
+    width: 100%;
+    height: 65px;
+    padding: 3px;
+    background: #ececec;
+    margin-top: 40px;
+    margin-left: 1px;
+}
+
+.box_ultima_senha {
+    width: 140px;
+    background-color: #ffffff;
+    z-index: 800;
+    position: inherit;
+    margin: 0 auto;
+    margin-top: -28px;
+    border: 1px solid green;
+}
+
+.msg_ultima_senha_pa {
+    font-size: 42px;
+}
+
+.box_senha_pa {
+    width: 73px;
+    background-color: #ffffff;
+    border: 1px solid rgba(52,73,94,.44);
+    margin-right: 10px;
+    margin-bottom: 8px;
+}
+
+.box_senha_pa_green {
+    width: 73px;
+    background-color: #aee5a2;
+    border: 1px solid rgba(52,73,94,.44);
+    margin-right: 10px;
+    margin-bottom: 8px;
+}
+
+.txt_senha_pa {
+    font-size: 23px;
+}

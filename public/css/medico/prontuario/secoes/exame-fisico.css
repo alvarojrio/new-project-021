@@ -1,0 +1,39 @@
+/* ---------------------------------------------------- */
+/* CSS DE PÁGINA                                        */
+/* ---------------------------------------------------- */
+
+/* === CAIXA DE ERROS === */
+.erro_prontuario_secao {
+    display: none;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.erro_prontuario_secao h4 {
+    margin-top: 0px;
+}
+
+/* === CAIXA ESPAÇO-EXAME === */
+.espaco-exame {
+	margin-bottom: 20px;
+}
+
+/* === CUSTOMIZAÇÃO DO JQUERY BAR RATING === */
+.br-theme-bars-1to10 .br-widget a {
+    background-color: #b0d9f2;
+}
+
+.br-theme-bars-1to10 .br-widget a.br-active,
+.br-theme-bars-1to10 .br-widget a.br-selected {
+    background-color: #448eff;
+}
+
+.br-theme-bars-1to10 .br-widget .br-current-rating {
+    color: #44b7ff;
+    font-size: 20px;  
+}

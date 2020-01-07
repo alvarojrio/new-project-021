@@ -1,0 +1,16 @@
+/* ---------------------------------------------------- */
+/* CSS DA PÁGINA INDEX.BLADE.PHP               */
+/* ---------------------------------------------------- */
+
+/* Customização do CSS do plugin autocomplete */
+.autocomplete-suggestion:hover { background: #d1d4d6; }
+
+/* estilo para caixa amarela */
+.box_pendencias_cliente_agendamento {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #666;
+    background-color: #ffffcc;
+    border: 1px solid #ffcc00;
+    position: relative;
+}

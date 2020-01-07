@@ -1,0 +1,47 @@
+/* ---------------------------------------------------- */
+/* CSS DE PÁGINA                                        */
+/* ---------------------------------------------------- */
+
+/* === CAIXA DE ERROS === */
+.erro_prontuario_secao {
+    display: none;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.erro_prontuario_secao h4 {
+    margin-top: 0px;
+}
+
+/* === CAIXA COM DESCRIÇÃO DO FILTRO ATIVO DAS CONSULTAS === */
+.descricao_filtro_consulta {
+	margin-bottom: 10px;
+}
+
+/* === CUSTOMIZAÇÃO DE PANELS DE SEÇÕES DO RESUMO === */
+.panel-heading .btn-group {
+    margin-top: 0px;
+}
+
+/* === TITULO GRANDE PARA PANELS === */
+.panel-heading .heading_de_secao {
+    font-size: 21px;
+}
+
+/* === CUSTOMIZAÇÃO DE TITULOS (HEADINGS) DENTRO DOS PANELS DE SEÇÃO === */
+.titulo_secao_ex_fisico {
+    margin-top: 30px;
+}
+
+.titulo_secao_ex_fisico.primeiro {
+    margin-top: 0px;
+}
+
+.titulo_subsecao_ex_fisico {
+    text-decoration: underline;
+}

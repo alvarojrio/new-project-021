@@ -1,0 +1,1359 @@
+.page-title {
+    height: auto;
+    padding: 0px;
+}
+
+.nav-sm .container.body .col-md-3.left_col {
+    z-index: 99; /* original:; 9999 */
+}
+
+.breadcrumb{
+	margin: 0px 0px;
+}
+
+.child_menu{
+	margin-bottom:5px;
+}
+
+.fc-content{
+	cursor:pointer;
+}
+
+.width-100{
+	width:100% !important;
+}
+
+.font-size-11{
+	font-size: 11px;
+}
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+div .orcamento{
+  width:100%;
+  padding:10px;
+  color:black;
+  border: 1px solid #E6E9ED;
+}
+
+.orcamento h3{
+  font-weight:200;
+  font-family: Georgia;
+  font-size:14px;
+}
+
+.orcamento h2{
+  font-weight:200;
+  font-family: Georgia;
+}
+
+.orcamento p{
+  font-size:12px;
+}
+
+.orcamento small{
+  font-size:9px;
+}
+
+.orcamento span{
+  line-height: 14px;
+}
+
+div .carteirinha{
+	width:100%;
+	padding:10px;
+	color:black;
+	border: 1px solid #E6E9ED;
+}
+
+.carteirinha h3{
+	font-weight:200;
+	font-family: Georgia;
+}
+
+.carteirinha h2{
+	font-weight:200;
+	font-family: Georgia;
+}
+
+.carteirinha p{
+	font-size:12px;
+}
+
+.carteirinha small{
+	font-size:9px;
+}
+
+.height-100{
+	height: 100%;
+}
+
+.site_title{
+	padding-left:0px;
+}
+
+.menu_section > ul{
+	margin-top:0px;
+}
+
+.preview-imagem{
+	height: 160px; /* 180px */
+	cursor: pointer;
+}
+
+#imagem, #imagem_dependente_thumb, #imagem_dependente{
+	/*background-image: url("../images/imagem_padrao.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;*/
+}
+
+.preview-imagem img{
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.required-red{
+	color:red;
+}
+
+.btn{
+	border-radius:0px;
+}
+
+.btn-reajustar{
+	background-color: #d6a76f;
+    color: #ffffff;
+}
+
+.btn-reajustar:hover {
+    background-color: #af8757;
+    color: #ffffff;
+}
+
+.webcam-grid{
+	position: absolute;
+	height: 75px;
+	width: 40px;
+}
+
+.webcam, .webcam-foto-alterar, .webcam-dependente{
+	/*width: 37px;*/
+}
+
+.clear-foto, .clear-foto-dependente, .clear-foto-alterar-dependente{
+	display: none;
+}
+
+#my_camera, #my_camera_2, #my_camera_3, #my_camera_documento {
+	border: 3px solid #ccc;
+	border-radius: 2px;
+}
+
+.modal-content{
+	border-radius: 0px !important;
+}
+
+.fc-day-grid-event{
+	border-radius:0px;
+}
+
+.div_checkboxes_list{
+	height:330px;
+	overflow-y: scroll;
+
+}
+
+.ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  cursor:pointer;
+  float: left;
+  display: none;
+  min-width: 160px;
+  _width: 160px;
+  padding: 8px 6px;
+  margin: 2px 0 0 0;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+}
+
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+}
+
+.ui-state-hover, .ui-state-active {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #0088cc;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  background-image: none;
+}
+
+.info_consulta div h4{
+  font-weight:bold; 
+  font-size:14px; 
+  display: inline;
+}
+
+.info_consulta h3{
+  font-weight:bold; 
+  font-size:18px;
+}
+
+.info_consulta span{
+  margin-bottom: 10px;
+}
+
+.info_consulta div{
+  margin-bottom:5px;
+}
+
+.info_consulta .horario_consulta h3{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.info_consulta hr{
+  margin:0px;
+}
+
+.image_alinhada_vertical {
+    vertical-align: middle
+}
+
+/* Estilos para botão back to top (voltar ao topo) */
+#back-top{
+    color: #fff;
+    background: #434A54;
+    font-size: 18px;
+    line-height: 100%;
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 10001;
+}
+#back-top.primary       {background: #34BC9B;}
+#back-top.success       {background: #8EC051;}
+#back-top.warning       {background: #F6BB43;}
+#back-top.danger        {background: #E7573E;}
+#back-top.info          {background: #3EAFDB;}
+
+#back-top a,
+#back-top a:hover,
+#back-top a:focus{
+    color: #fff;
+    padding: 10px;
+    display: block;
+}
+
+/* ######################################################################################## */
+
+/* inicio botão bootstrap customizado [BTN-PRIMARY-DARKER] */
+.btn-primary-darker { 
+  color: #FFFFFF; 
+  background-color: #45607a; 
+  border-color: #3e566d; 
+} 
+ 
+.btn-primary-darker:hover, 
+.btn-primary-darker:focus, 
+.btn-primary-darker:active, 
+.btn-primary-darker.active, 
+.open .dropdown-toggle.btn-primary-darker { 
+  color: #FFFFFF; 
+  background-color: #3e566d; 
+  border-color: #45607a; 
+} 
+ 
+.btn-primary-darker:active, 
+.btn-primary-darker.active, 
+.open .dropdown-toggle.btn-primary-darker { 
+  background-image: none; 
+} 
+
+.btn-primary-darker.disabled, 
+.btn-primary-darker[disabled], 
+fieldset[disabled] .btn-primary-darker, 
+.btn-primary-darker.disabled:hover, 
+.btn-primary-darker[disabled]:hover, 
+fieldset[disabled] .btn-primary-darker:hover, 
+.btn-primary-darker.disabled:focus, 
+.btn-primary-darker[disabled]:focus, 
+fieldset[disabled] .btn-primary-darker:focus, 
+.btn-primary-darker.disabled:active, 
+.btn-primary-darker[disabled]:active, 
+fieldset[disabled] .btn-primary-darker:active, 
+.btn-primary-darker.disabled.active, 
+.btn-primary-darker[disabled].active, 
+fieldset[disabled] .btn-primary-darker.active { 
+  background-color: #45607a; 
+  border-color: #45607a; 
+} 
+ 
+.btn-primary-darker .badge { 
+  color: #45607a; 
+  background-color: #FFFFFF; 
+}
+/* fim botão bootstrap customizado [BTN-PRIMARY-DARKER] */
+
+/* inicio botão bootstrap customizado [BTN-SUCCESS-DARKER] */
+.btn-success-darker { 
+  color: #FFFFFF; 
+  background-color: #358251; 
+  border-color: #2d7246; 
+} 
+ 
+.btn-success-darker:hover, 
+.btn-success-darker:focus, 
+.btn-success-darker:active, 
+.btn-success-darker.active, 
+.open .dropdown-toggle.btn-success-darker { 
+  color: #FFFFFF; 
+  background-color: #2d7246; 
+  border-color: #358251; 
+} 
+ 
+.btn-success-darker:active, 
+.btn-success-darker.active, 
+.open .dropdown-toggle.btn-success-darker { 
+  background-image: none; 
+} 
+
+.btn-success-darker.disabled, 
+.btn-success-darker[disabled], 
+fieldset[disabled] .btn-success-darker, 
+.btn-success-darker.disabled:hover, 
+.btn-success-darker[disabled]:hover, 
+fieldset[disabled] .btn-success-darker:hover, 
+.btn-success-darker.disabled:focus, 
+.btn-success-darker[disabled]:focus, 
+fieldset[disabled] .btn-success-darker:focus, 
+.btn-success-darker.disabled:active, 
+.btn-success-darker[disabled]:active, 
+fieldset[disabled] .btn-success-darker:active, 
+.btn-success-darker.disabled.active, 
+.btn-success-darker[disabled].active, 
+fieldset[disabled] .btn-success-darker.active { 
+  background-color: #F7AD36; 
+  border-color: #F7AD36; 
+} 
+ 
+.btn-success-darker .badge { 
+  color: #F7AD36; 
+  background-color: #FFFFFF; 
+}
+/* fim botão bootstrap customizado [BTN-SUCCESS-DARKER] */
+
+/* inicio botão bootstrap customizado [BTN-DANGER-DARKER] */
+.btn-danger-darker { 
+  color: #FFFFFF; 
+  background-color: #45607a; 
+  border-color: #3e566d; 
+} 
+ 
+.btn-danger-darker:hover, 
+.btn-danger-darker:focus, 
+.btn-danger-darker:active, 
+.btn-danger-darker.active, 
+.open .dropdown-toggle.btn-danger-darker { 
+  color: #FFFFFF; 
+  background-color: #3e566d; 
+  border-color: #45607a; 
+} 
+ 
+.btn-danger-darker:active, 
+.btn-danger-darker.active, 
+.open .dropdown-toggle.btn-danger-darker { 
+  background-image: none; 
+} 
+
+.btn-danger-darker.disabled, 
+.btn-danger-darker[disabled], 
+fieldset[disabled] .btn-danger-darker, 
+.btn-danger-darker.disabled:hover, 
+.btn-danger-darker[disabled]:hover, 
+fieldset[disabled] .btn-danger-darker:hover, 
+.btn-danger-darker.disabled:focus, 
+.btn-danger-darker[disabled]:focus, 
+fieldset[disabled] .btn-danger-darker:focus, 
+.btn-danger-darker.disabled:active, 
+.btn-danger-darker[disabled]:active, 
+fieldset[disabled] .btn-danger-darker:active, 
+.btn-danger-darker.disabled.active, 
+.btn-danger-darker[disabled].active, 
+fieldset[disabled] .btn-danger-darker.active { 
+  background-color: #45607a; 
+  border-color: #45607a; 
+} 
+ 
+.btn-danger-darker .badge { 
+  color: #45607a; 
+  background-color: #FFFFFF; 
+}
+/* fim botão bootstrap customizado [BTN-DANGER-DARKER] */
+
+/* inicio botão bootstrap customizado [BTN-TERCIARY] */
+.btn-terciary { 
+  color: #FFFFFF; 
+  background-color: #F7AD36; 
+  border-color: #F7AD36; 
+} 
+ 
+.btn-terciary:hover, 
+.btn-terciary:focus, 
+.btn-terciary:active, 
+.btn-terciary.active, 
+.open .dropdown-toggle.btn-terciary { 
+  color: #FFFFFF; 
+  background-color: #E29418; 
+  border-color: #F7AD36; 
+} 
+ 
+.btn-terciary:active, 
+.btn-terciary.active, 
+.open .dropdown-toggle.btn-terciary { 
+  background-image: none; 
+} 
+ 
+.btn-terciary.disabled, 
+.btn-terciary[disabled], 
+fieldset[disabled] .btn-terciary, 
+.btn-terciary.disabled:hover, 
+.btn-terciary[disabled]:hover, 
+fieldset[disabled] .btn-terciary:hover, 
+.btn-terciary.disabled:focus, 
+.btn-terciary[disabled]:focus, 
+fieldset[disabled] .btn-terciary:focus, 
+.btn-terciary.disabled:active, 
+.btn-terciary[disabled]:active, 
+fieldset[disabled] .btn-terciary:active, 
+.btn-terciary.disabled.active, 
+.btn-terciary[disabled].active, 
+fieldset[disabled] .btn-terciary.active { 
+  background-color: #F7AD36; 
+  border-color: #F7AD36; 
+} 
+ 
+.btn-terciary .badge { 
+  color: #F7AD36; 
+  background-color: #FFFFFF; 
+}
+/* fim botão bootstrap customizado [BTN-TERCIARY] */
+ 
+
+
+input[type=text]:focus, input[type=number]:focus, input[type=email]:focus, input[type=tel]:focus, input[type="password"]:focus, textarea:focus, select:focus, option:focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 1px solid rgba(81, 203, 238, 1) !important;
+}
+
+.borda-branca { 
+  border: 1px solid #ffffff; 
+} 
+
+.letra-maiuscula {
+    text-transform: uppercase;
+}
+
+.letra-azul-claro {
+    color: #4286f4;
+}
+
+.letra-vermelho-claro {
+    color: #f45942;
+}
+
+.letra-verde-medio {
+    color: #6daf6e;
+}
+
+.letra-preta {
+    color: #3f4042;
+}
+
+.v-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.pt-0 {
+    padding-top: 0px;
+}
+
+.mt-0 {
+    margin-top: 0px;
+}
+
+/* Correção da barra de rolagem vertical para datatable responsiva */
+.table-responsive {
+    overflow-x: inherit;
+}
+
+/* mascara para colocar caracteres em caixa alta */
+.caixa_alta {
+    text-transform: uppercase;
+}
+
+/* mascara para colocar caracteres em caixa baixa */
+.caixa_baixa {
+    text-transform: lowercase;
+}
+
+/* estilo para tooltip amarelo */
+.yellow-tooltip + .tooltip.top .tooltip-inner {
+    background-color: #f2f2b5;
+    color: #555;
+}
+.yellow-tooltip + .tooltip.top .tooltip-arrow {
+    border-top-color: #f2f2b5;
+}
+.yellow-tooltip + .tooltip.bottom .tooltip-inner {
+    background-color: #f2f2b5;
+    color: #555;
+}
+.yellow-tooltip + .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #f2f2b5;
+}
+.yellow-tooltip + .tooltip.left .tooltip-inner {
+    background-color: #f2f2b5;
+    color: #555;
+}
+.yellow-tooltip + .tooltip.left .tooltip-arrow {
+    border-left-color: #f2f2b5;
+}
+.yellow-tooltip + .tooltip.right .tooltip-inner {
+    background-color: #f2f2b5;
+    color: #555;
+}
+.yellow-tooltip + .tooltip.right .tooltip-arrow {
+    border-right-color: #f2f2b5;
+}
+
+/* estilo para tooltip cinza */
+.gray-tooltip + .tooltip.top .tooltip-inner {
+    background-color: #d6d6cb;
+    color: #555;
+}
+.gray-tooltip + .tooltip.top .tooltip-arrow {
+    border-top-color: #d6d6cb;
+}
+.gray-tooltip + .tooltip.bottom .tooltip-inner {
+    background-color: #d6d6cb;
+    color: #555;
+}
+.gray-tooltip + .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #d6d6cb;
+}
+.gray-tooltip + .tooltip.left .tooltip-inner {
+    background-color: #d6d6cb;
+    color: #555;
+}
+.gray-tooltip + .tooltip.left .tooltip-arrow {
+    border-left-color: #d6d6cb;
+}
+.gray-tooltip + .tooltip.right .tooltip-inner {
+    background-color: #d6d6cb;
+    color: #555;
+}
+.gray-tooltip + .tooltip.right .tooltip-arrow {
+    border-right-color: #d6d6cb;
+}
+
+/* estilo para tooltip azul claro */
+.lightblue-tooltip + .tooltip.top .tooltip-inner {
+    background-color: #b3cde2;
+    color: #555;
+}
+.lightblue-tooltip + .tooltip.top .tooltip-arrow {
+    border-top-color: #b3cde2;
+}
+.lightblue-tooltip + .tooltip.bottom .tooltip-inner {
+    background-color: #b3cde2;
+    color: #555;
+}
+.lightblue-tooltip + .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #b3cde2;
+}
+.lightblue-tooltip + .tooltip.left .tooltip-inner {
+    background-color: #b3cde2;
+    color: #555;
+}
+.lightblue-tooltip + .tooltip.left .tooltip-arrow {
+    border-left-color: #b3cde2;
+}
+.lightblue-tooltip + .tooltip.right .tooltip-inner {
+    background-color: #b3cde2;
+    color: #555;
+}
+.lightblue-tooltip + .tooltip.right .tooltip-arrow {
+    border-right-color: #b3cde2;
+}
+
+/* estilo para botão desativado */
+.botao_desativado {
+    cursor: not-allowed !important;
+    pointer-events: all !important;
+    background-color: #e3e7ed;
+    border-color: #e3e7ed;
+    color: #555555 !important;
+}
+.botao_desativado:hover {
+    background-color: #e3e7ed !important;
+    border-color: #e3e7ed !important;
+    color: #555555 !important;
+}
+
+/* estilo para caixa azul de filtro */
+.box_caixa_filtro {
+    padding: 15px;
+    padding-bottom: 0px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #14335e;
+    background-color: #c9defc;
+    border-color: #6489bc;
+}
+
+/* estilo para caixa amarela de instruções */
+.box_alerta_amarelo {
+    padding: 10px;
+    color: #666;
+    background-color: #ffffcc;
+    border: 1px solid #ffcc00;
+    position: relative;
+}
+
+/* estilo para caixa azul de instruções */
+.box_alerta_azul {
+    padding: 10px;
+    color: #666;
+    background-color: #c9d3e2;
+    border: 1px solid #929ba8;
+    position: relative;
+}
+
+/* estilo para caixa verde de instruções */
+.box_alerta_verde {
+    padding: 10px;
+    color: #666;
+    background-color: #d4ffcc;
+    border: 1px solid #54ff00;
+    position: relative;
+}
+
+/* estilo para caixa vermelha de instruções */
+.box_alerta_vermelho {
+    padding: 10px;
+    color: #666;
+    background-color: #ffcccc;
+    border: 1px solid #ff0000;
+    position: relative;
+}
+
+/* estilo para caixa vermelha de erro */
+.box_alerta_erro {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_alerta_erro h4 {
+    margin-top: 0px;
+}
+.box_alerta_erro_pf {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_alerta_erro_pf h4 {
+    margin-top: 0px;
+}
+.box_alerta_erro_pj {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_alerta_erro_pj h4 {
+    margin-top: 0px;
+}
+
+/* estilo para caixa azul da mensagem processando/carregando */
+.box_alerta_carregando {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #14335e;
+    background-color: #c9defc;
+    border-color: #6489bc;
+}
+.box_alerta_carregando h4 {
+    margin-top: 0px;
+}
+.box_alerta_carregando_pj {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #14335e;
+    background-color: #c9defc;
+    border-color: #6489bc;
+}
+.box_alerta_carregando_pj h4 {
+    margin-top: 0px;
+}
+
+/* estilo customizado para bootstrap tabs (abas) */
+.tab_content_customizado {
+    padding: 10px;
+    border-left: 1px solid #dddddd; 
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+.nav-tabs > li > a:hover {
+    background-color: #f4f5f7;
+}
+
+/* estilo customizado para caixa de pessoa da página 'cadastrar pessoa fisica' */
+.panel_pessoa .panel-body {
+    padding: 7px;
+}
+.subpanel_pessoa {
+    margin-bottom: 4px;
+}
+.subpanel_pessoa_b {
+    margin-bottom: 11px;
+}
+
+/* estilo de cor customizado para plano de fundo */
+
+.bg-branco {
+  background-color: #fff; 
+}
+
+/* estilo das carterinhas template customizadas */
+
+/* font padrão para todas os cards */
+.card .font-10-pt {
+        font-size: 10pt;
+ }
+
+.card .font-9-pt {
+        font-size: 9pt;
+ }
+ 
+ /* padding padrão para todas os card */
+ 
+ .card .padding-bottom-03-cm {
+     padding-bottom: 0.3cm;
+ }
+
+/* caixa_modelo */ 
+.caixa-modelo {
+    width: 8.7cm; 
+    float: left;
+}
+
+.caixa-modelo:nth-child(2n+2) {
+    margin: 0 0.55cm 0 0.55cm;
+}
+
+ /* caixa opção padrão para todas as cards */
+ .caixa-modelo > .caixa-opcao {
+        width: 99%;
+        margin-left: 0.5%;
+        float: left;
+        background: #f1f1f1;
+        text-align: center;
+        margin-bottom: 0.1cm;
+ }
+  
+
+/* Tamanho dos cards 1, 2 e 3 */
+.card1, .card2, .card3 {
+    width: 8.7cm; 
+    height: 5.5cm;
+    float: left;
+    margin-bottom: 5px; 
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding-top: 0.5cm;
+    border: 0.5px solid #000000;
+ }
+
+/* customizando individualmente o card 1 */
+
+.card1 > .caixa-empresa {
+   width: 100%; 
+   float: left;
+   padding-left: 5px; 
+   line-height: 12px;
+   margin-top: -0.2cm  /* descontando o padding do car */
+}
+
+.card1 > .caixa-foto {
+   width: 2.7cm; 
+   height: 4.9cm;
+   float: left;
+   padding-left: 5px; 
+   line-height: 12px;
+ 
+}
+	
+.card1 > .caixa-foto > img {
+   width: 100%; 
+   height: 3cm;
+   margin-bottom: 5px
+}
+
+.card1 > .caixa-linha {
+   width: 5.9cm;
+   height: 4.9cm;
+   float: right;
+   padding: 0 0.1cm 0 0.1cm;
+   line-height: 12px;
+}
+
+.card1 > .caixa-linha > .linha{
+   width: 100%;
+   float: left;
+   padding-bottom: 0.3cm;
+}
+
+.card1 > .caixa-linha .linha > .coluna-1 {
+   width: 100%;
+   float: left;
+}
+
+.card1 > .caixa-linha > .linha > .coluna-2 {
+   width: 33.3%;
+   float: left;
+}
+	
+/* customizando individualmente o card 2 */
+
+.card2 > .caixa-empresa {
+   width: 100%; 
+   float: left;
+   padding-left: 5px; 
+   line-height: 12px;
+    margin-top: -0.2cm  /* descontando o padding do car */
+ 
+}
+
+.card2 > .caixa-linha {
+   width: 8.65cm;
+   height: 4.9cm;
+   float: right;
+   padding: 0 0.1cm 0 0.1cm;
+   line-height: 12px;
+}
+
+.card2 > .caixa-linha > .linha{
+   width: 100%;
+   float: left;
+   padding-bottom: 0.3cm;
+}
+
+.card2 > .caixa-linha .linha > .coluna-1 {
+   width: 100%;
+   float: left;
+}
+
+.card2 > .caixa-linha > .linha > .coluna-2 {
+   width: 33.3%;
+   float: left;
+}
+
+/* customizando individualmente o card 3 */
+
+.card3 > .caixa-empresa {
+   width: 100%; 
+   float: left;
+   padding-left: 5px; 
+   line-height: 12px;
+   margin-top: -0.2cm  /* descontando o padding do car */
+}
+
+.card3 > .caixa-foto {
+   width: 2.7cm; 
+   height: 4.9cm;
+   float: right;
+   padding-right: 5px; 
+   line-height: 12px;
+ 
+}
+	
+.card3 > .caixa-foto > img {
+   width: 100%; 
+   height: 3cm;
+   margin-bottom: 5px
+}
+
+.card3 > .caixa-linha {
+   width: 5.9cm;
+   height: 4.9cm;
+   float: left;
+   padding: 0 0.1cm 0 0.1cm;
+   line-height: 12px;
+}
+
+.card3 > .caixa-linha > .linha{
+   width: 100%;
+   float: left;
+   padding-bottom: 0.3cm;
+}
+
+.card3 > .caixa-linha .linha > .coluna-1 {
+   width: 100%;
+   float: left;
+}
+
+.card3 > .caixa-linha .linha > .coluna-2 {
+   width: 33.3%;
+   float: left;
+}
+
+/* Preparando modelo card para impressao */
+@media print {
+ 
+    .caixa-modelo > .caixa-opcao {
+        display: none;
+        
+    }
+
+    .page-title {
+            display: none;
+    }
+
+    .nav {
+            display: none;
+    }
+
+    .nav-tabs{
+           display: none;
+    }
+
+    footer {
+            display: none;
+    }
+
+    .x_panel {
+            border: 0;
+    }
+
+    .breadcrumb {
+            display: none;
+    }
+
+    .print {
+            display: none;
+    }
+
+    html body {
+        width: 21cm;
+        height: 29.7cm; 
+    }
+        
+	
+/* Tamanho dos cards 1, 2 e 3 */	
+
+    .card {
+        width: 8.7cm; 
+        height: 5.5cm;
+        padding-top: 0.5cm;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        border: 0.5px solid #000000;
+        margin: 0;
+        clear: left
+    }
+}
+
+/* ######################################################################## */
+/* ESTILIZANDO O CALENDÁRIO DO MÉDICO NA PAGINA GERENCIAR AGENDA MÉDICO */
+
+.calendario {
+    background-color: #f6f6f6; 
+}
+
+.calendario table {
+    border: 5px;
+}
+
+.calendario table thead {
+    font-size: 1.1em;
+    background: #ededed; 
+}
+
+.calendario table thead tr th {
+    padding: 0.5% 0;
+    text-align: center;
+    border: 0.1em solid #b7b7b7;
+}   
+ 
+
+.calendario table tbody {
+    font-size: 1.1em;
+    /*background-image: linear-gradient(to bottom, #f4fbff, #f2f9ff, #cef4fd);*/
+}
+
+.calendario table tbody tr {
+    padding: 0.5% 0;
+    text-align: center;
+    border-bottom: 0.1em solid #b7b7b7;
+}
+
+.calendario table tbody tr td {
+    padding: 0.5% 0;
+    text-align: center;
+    border-right: 0.1em solid #b7b7b7;
+    min-height: 150px;
+}
+
+.calendario table tbody tr td.manha, .calendario table tbody tr td.tarde {
+    border-left: 0.1em solid #b7b7b7;
+    font-weight: bold;
+    /*background: #99ffff;*/
+}
+
+.calendario table tbody tr td.tarde {
+    border-left: 0.1em solid #b7b7b7;
+    font-weight: bold;
+    /*background: #3366ff;*/
+}
+
+.calendario table tbody tr td.aberta {
+    background: #fcfcfc;
+    cursor: pointer;
+    font-size: 0.7em;
+    text-align: center;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif; 
+}
+
+.calendario table tbody tr td.editar {
+    background: #fcf8e3;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+
+.calendario table tbody tr td.fechada {
+    background: #ededed;
+    font-size: 0.8em;
+}
+
+.calendario table tbody tr td.aberta .caixa-evento {
+    background:'#fcf8e3'; 
+    margin: 0.5%;
+}
+
+
+/* ######################################################################## */
+/* ESTILIZANDO O FULLCALENDAR*/
+
+.fc-widget-content {
+    /*background: #cfcfcf !important; */
+}
+
+/*.fc-axis:nth-child(even) {
+    background-color: blue !important;
+}*/
+
+/* Aplica cor de fundo na primeira metade da coluna */
+.fc-slats table tbody tr:nth-child(n+1) td.fc-time {
+    /*color: #ffffff;
+    background-color: #5bc0de;*/
+}
+
+/* Aplica cor de fundo na segunda metade da coluna */
+.fc-slats table tbody tr:nth-child(n+8) td.fc-time {
+    /*color: #ffffff;
+    background-color: #398439;*/
+}
+
+/* Remove cor de fundo do dia de hoje na agenda de semana */
+#calendar .fc-agenda-view .fc-today {
+   background-color: #ffffff;
+}
+
+.cx_arquivo_documento, .preview-documento, .preview-documento-webcam {
+    cursor: pointer;
+}
+
+
+/* ######################################################################## */
+/* LAYER DE MENSAGEM DE 'CARREGANDO' */
+#msg_processando {
+   display: none;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: fixed;
+   opacity: 0.7;
+   background-color: #555;
+   z-index: 1111;
+   text-align: center;
+}
+#txt_msg_processando {
+   font-size: 20px;
+   color: #fff;
+   background-color: #4d7bc6;
+   width: 300px;
+   margin: 0 auto;
+   margin-top: 20%;
+   z-index: 100;
+}
+#loading_spinner_processando {
+   font-size: 20px;
+   color: #fff;
+   width: 300px;
+   margin: 0 auto;
+   margin-top: 10%;
+   z-index: 100;
+}
+
+#msg_processando_contrato {
+   display: none;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   position: fixed;
+   opacity: 0.7;
+   background-color: #555;
+   z-index: 99;
+   text-align: center;
+}
+#txt_msg_processando_contrato {
+   font-size: 20px;
+   color: #fff;
+   background-color: #4d7bc6;
+   width: 300px;
+   margin: 0 auto;
+   margin-top: 20%;
+   z-index: 100;
+}
+#loading_spinner_processando_contrato {
+   font-size: 20px;
+   color: #fff;
+   width: 300px;
+   margin: 0 auto;
+   margin-top: 10%;
+   z-index: 100;
+}
+
+
+/* ######################################################################## */
+/* ESTILIZANDO CAIXA DE PACIENTE NA PAGINA DASHBOARD DO MÓDULO DE AGENDAMENTO */
+.cxp_header {
+    font-size: 17px;
+}
+
+.cxp_status_financeiro, .cxp_sexo, .cxp_idade, .cxp_data_nascimento {
+    font-size: 15px;
+}
+
+/* estilo para caixa vermelha de erro de carregamento de agenda (módulo agendamento) */
+.box_erro_carregamento_agenda {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_erro_carregamento_agenda h4 {
+    margin-top: 0px;
+}
+
+/* estilo para caixa vermelha de erro de carregamento de agenda (módulo atendimento) */
+.box_erro_carregamento_agenda_atendimento {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_erro_carregamento_agenda_atendimento h4 {
+    margin-top: 0px;
+}
+
+/* estilo para caixa vermelha de erro de agenda vazia (módulo agendamento) */
+.box_erro_agenda_vazia {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_erro_agenda_vazia h4 {
+    margin-top: 0px;
+}
+
+/* estilo para caixa vermelha de erro de agenda vazia (módulo atendimento) */
+.box_erro_agenda_atendimento_vazia {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_erro_agenda_atendimento_vazia h4 {
+    margin-top: 0px;
+}
+
+/* estilo para caixa vermelha de erro de agenda vazia (módulo agendamento) */
+.box_erro_agenda_unidade_medico_vazia {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_erro_agenda_unidade_medico_vazia h4 {
+    margin-top: 0px;
+}
+
+/* estilo para caixa de aviso de agendamento em transferência */
+.aviso_em_transferencia {
+    /*border-left: 1px solid #2d632c;
+    border-right: 1px solid #2d632c;
+    border-bottom: 1px solid #2d632c;*/
+    background-color: #26B99A;
+    color: #ffffff;
+    width: 80%; /* original 70% */
+    position: fixed;
+    top: 0;
+    left: 12%; /* original 15% */
+    z-index: 99;
+    padding: 7px;
+    border-radius: 0px 0px 8px 8px;
+}
+
+
+/* inicio label bootstrap customizado [LABEL-SUCCESS-LIGHTER] */
+.label-success-lighter {
+  background-color: #79BD8F;
+}
+.label-success-lighter[href]:hover,
+.label-success-lighter[href]:focus {
+  background-color: #659E78;
+}
+
+/* inicio label bootstrap customizado [LABEL-INFO-PURPLE] */
+.label-info-purple {
+  background-color: #9b59b6;
+}
+.label-info-purple[href]:hover,
+.label-info-purple[href]:focus {
+  background-color: #8e44ad;
+}
+
+/* inicio label bootstrap customizado [LABEL-INFO-BLACK] */
+.label-info-black {
+  background-color: #555555;
+}
+.label-info-black[href]:hover,
+.label-info-black[href]:focus {
+  background-color: #555555;
+}
+
+/* estilo para caixa vermelha de erro de lista de medicos de hoje vazia (módulo atendimento) */
+.box_sem_medicos_hoje {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_sem_medicos_hoje h4 {
+    margin-top: 0px;
+}
+
+/* estilo para caixa vermelha de erro de lista de pacientes de hoje vazia (módulo atendimento) */
+.box_sem_pacientes_hoje {
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_sem_pacientes_hoje h4 {
+    margin-top: 0px;
+}
+
+/* correção de css para datatable (tds com span dentro) */
+.tabela td span {
+    line-height: 0px;
+}
+
+
+/* ######################################################################## */
+/* PEQUENAS CORREÇÕES DE ESTILIZAÇÃO */
+
+/* Cor de fundo da caixa onde fica a logo na SIDEBAR */
+.nav_title {
+    background-color: #dcdcdc;
+}
+
+/* Customização do box-acessible */
+.span-box-acessible {
+    background-color: #1ba0ef;
+    color: #ffffff;
+    border-radius: 3px;
+    height: 33px;
+    width: 49px;
+    padding: 2px;
+    cursor: pointer;
+}

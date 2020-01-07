@@ -1,0 +1,56 @@
+/* ---------------------------------------------------- */
+/* CSS DA PÁGINA INDEX.BLADE.PHP               */
+/* ---------------------------------------------------- */
+
+/* customização do CSS do plugin autocomplete */
+.autocomplete-suggestion:hover { background: #d1d4d6; }
+
+/* estilo para caixa amarela */
+.box_pendencias_cliente_agendamento {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #666;
+    background-color: #ffffcc;
+    border: 1px solid #ffcc00;
+    position: relative;
+}
+
+/* estilo para caixa amarela de instruções */
+.box_alerta_amarelo_2 {
+    padding: 10px;
+    color: #666;
+    background-color: #ffffcc;
+    border: 1px solid #ffcc00;
+    position: relative;
+}
+
+/* estilo customizado para bootstrap tabs (abas) */
+.tab_conteudo_customizado {
+	background-color: #ffffff;
+    padding: 10px;
+    border-left: 1px solid #dddddd; 
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+.nav-tabs > li > a:hover {
+    background-color: #f4f5f7;
+}
+
+.box_alerta_erro_paciente {
+	padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.box_alerta_erro_paciente h4 {
+    margin-top: 0px;
+}
+
+.botao_desativado_atendimento {
+    
+   padding: 5px;
+   background: #cfcfcf;
+  
+}

@@ -1,0 +1,34 @@
+/* ---------------------------------------------------- */
+/* CSS DE PÁGINA                                        */
+/* ---------------------------------------------------- */
+
+/* === CAIXA DE ERROS === */
+.erro_prontuario_secao {
+    display: none;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.erro_prontuario_secao h4 {
+    margin-top: 0px;
+}
+
+/* === CUSTOMIZANDO CAMPO AUTOCOMPLETE === */
+.select2 {
+    width: 100%!important;
+}
+
+/* === CUSTOMIZANDO INPUT DISABLED COM TIPO DO PARENTE === */
+.tipo-parente {
+    font-weight: bold;
+}
+
+/* === CUSTOMIZANDO LINHAS COM CHECKBOXES DE DOENÇAS FAMILIARES === */
+.row-doencas-familiares {
+    margin-bottom: 10px;
+}

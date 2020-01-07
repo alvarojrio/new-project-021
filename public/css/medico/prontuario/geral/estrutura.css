@@ -1,0 +1,479 @@
+/* ---------------------------------------------------- */
+/* CSS DE PÁGINA                                        */
+/* ---------------------------------------------------- */
+
+    /* 
+    ======================================
+    GERAL 
+    ====================================== 
+    */
+
+        body {
+            -webkit-overflow-scrolling: touch;
+        }
+
+
+
+
+    /* 
+    ======================================
+    ESTRUTURAS DE APOIO
+    ====================================== 
+    */
+    
+        /* === X_PANEL CUSTOMIZADO / ESPECIAL === */
+        .x_panel.x_panel_especial {
+            border: 1px solid #cccccc;
+        }
+
+        /* === CAIXA DE ERROS === */
+        .erro_prontuario_geral {
+            display: none;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+
+        .erro_prontuario_geral h4 {
+            margin-top: 0px;
+        }
+        
+        /* === CUSTOMIZAÇÃO DE HR (utilizada dentro de panels das seções do prontuário) === */
+        hr.divisora_prontuario {
+            border-top: 1px solid #cccccc; 
+            margin-top: 15px; 
+            margin-bottom: 20px;
+        }
+        
+        /* === ROW FLEX (Colunas dentro desta row terão suas alturas sendo colocadas iguais automaticamente) === */
+        .row.is-flex {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }
+
+        .row.is-flex > [class*='col-'] {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+
+        /* === TAGS DE FAVORITOS === */
+        .chip {
+            display: inline-block;
+            height: 32px; /* 32px */
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(0,0,0,.6);
+            line-height: 32px;
+            padding: 0 12px;
+            -webkit-border-radius: .25em;
+            border-radius: .25em;
+            margin-bottom: 1rem;
+            margin-right: 1rem;
+            -webkit-transition: all .3s linear;
+            -o-transition: all .3s linear;
+            transition: all .3s linear;
+            cursor: pointer;
+        }
+
+        .chip a:link, .chip a:visited, .chip a:hover, .chip a:active {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .chip.chip-verde {
+            background-color: #7dc17d;
+            color: #ffffff;
+        }
+
+        .chip.chip-verde:hover {
+            background-color: #72af72;
+        }
+
+        .chip .chip-fechar {
+            cursor: pointer;
+            float: right;
+            font-size: 14px;
+            line-height: 32px;
+            padding-left: 8px;
+            -webkit-transition: all .1s linear;
+            -o-transition: all .1s linear;
+            transition: all .1s linear;
+        }
+
+        /* === ESTRELA DE FAVORITOS === */
+        .star-checked { /* estrela marcada */
+            color: #e8da61;
+        }
+
+
+
+
+
+    /* 
+    ======================================
+    SIDEBAR DIREITA
+    ====================================== 
+    */
+
+        .sidebar-auxiliar-prontuario {
+            /* nothing here */
+        }
+
+        .sidebar-auxiliar-prontuario .panel-aux-pront .panel-heading {
+            background-color: #ffffff;
+        }
+
+
+
+
+
+    /* 
+    ======================================
+    NAVEGAÇÃO MOBILE DO PRONTUÁRIO [SÓ EXIBE EM TELAS PEQUENAS] [ESTE MENU FICA PRESO AO RODAPÉ DA PÁGINA]
+    Inspiração para este menu: https://www.cssscript.com/mobile-first-morphing-navigation-menu
+    ====================================== 
+    */
+
+        /* === CAIXA ONDE FICA O MOBILE-FIRST MORPHING HAMBURGER MENU === */
+        .caixa-para-hamburger {
+            box-sizing: border-box;
+            width: 100%;
+            color: #ffffff;
+
+            display: flex;
+            justify-content: center;
+
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 10000;
+        }
+        
+
+        /* === ESTRUTURA DO MENU === */
+        .menu {
+            box-sizing: border-box;
+            width: 100%;
+            padding-bottom: 55px;
+
+            height: 0;
+            transform: translate3d(0, -100%, 0);
+            opacity: 0;
+
+            display: flex;
+            align-items: flex-end;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .menu__list {
+            box-sizing: border-box;
+            width: 100%;
+            max-height: 100%;
+            display: none;
+
+            padding-top: 30px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .menu__group {
+            padding: .5rem 3rem; 
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .menu__group a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        .menu__group_active {
+            background-color: #ffffff;
+            color: #222;
+        }
+
+        .menu__group ul {
+            list-style-type: none;
+            margin: 10px;
+            margin-top: 10px;
+            margin-bottom: 4px;
+            margin-left: 30px;
+            padding: 0px;
+        }
+
+        .menu__item {
+            padding: 8px 25px;
+            display: block;
+        }
+
+
+        /* === ESTRUTURA DO HAMBURGER === */
+        .hamburger {
+            position: relative;
+            line-height: 1;
+            padding-bottom: .5em;
+        }
+
+        .hamburger:before {
+            content :"";
+            width: 100px;
+            height: 100px;
+            background-color: #2A3F54;
+            border-radius: 50%;
+
+            position: absolute;
+            bottom: -55px;
+            left: -35px;
+        }
+
+        .hamburger__button {
+            width: 1.4em;
+            height: 1em;
+            font-size: 20px;
+
+            position: relative;
+            text-indent: -9999px;
+            z-index: 2;
+        }
+
+        .hamburger__button:before, .hamburger__button:after, .hamburger__label {
+            width: 100%;
+            height: 20%;
+            border-radius: 5px;
+            background-color: currentColor;
+
+            position: absolute;
+            left: 0;
+        }
+
+        .hamburger__button:before, .hamburger__button:after {
+            content:"";
+        }
+
+        .hamburger__button:before {
+            top: 0;
+        }
+
+        .hamburger__button:after {
+            bottom: 0;
+        }
+
+        .hamburger__button:focus {
+            outline: none;
+        }
+
+        .hamburger__label {
+            margin-top: -.1em;
+            top: 50%;
+        }
+
+
+        /* === ESTILOS DO ESTADO ATIVO DO MENU HAMBURGER === */
+        .js-menu_activated {
+            overflow: hidden;
+        }
+
+        .js-menu_activated .menu {
+            height: 100%;
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+
+        .js-menu_activated .hamburger:before {
+            width: 100vh;
+            height: 100vh;
+            transform: translate3d(-50vh, -50vh, 0) scale(5);
+        }
+
+        .js-menu_activated .menu__list {
+            display: block;
+        }
+
+        .js-menu_activated .hamburger__button:before {
+            transform: translate3d(0, -50%, 0) rotate(45deg);
+            top: 50%;
+        }
+
+        .js-menu_activated .hamburger__button:after {
+            transform: translate3d(0, -50%, 0) rotate(135deg);
+            top: 50%;
+        }
+
+        .js-menu_activated .hamburger__label {
+            transform: rotate(-45deg) translate3d(-5.71429px,-6px,0);
+            opacity: 0;
+        }
+
+
+        /* === ESTILOS DE ANIMAÇÃO MOBILE === */
+        .menu {
+            transition: opacity .2s ease-out;
+        }
+
+        .js-menu_activated .menu {
+            will-change: opacity;
+            transition-duration: .2s;
+            transition-delay: .3s;
+        }
+
+        .hamburger:before {
+            will-change: width, height;
+            transition: transform .3s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+            width .3s cubic-bezier(0.04, -0.1, 0.29, 0.98),
+            height .3s cubic-bezier(0.04, -0.1, 0.29, 0.98);
+        }
+
+        .js-menu_activated .hamburger:before {
+            transition-duration: 1s;
+        }
+
+        .hamburger__button:before, .hamburger__button:after {
+            transition-property: transform;
+        }
+
+        .hamburger__button:before, .hamburger__button:after, .hamburger__label {
+            transition-timing-function: ease;
+            transition-duration: .15s;
+        }
+
+        .hamburger__label {
+            transition-property: transform, opacity;
+        }
+        
+
+        /* === ESTILOS AUXILIARES DO MENU HAMBURGER === */
+        .button {
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            font-family: inherit;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        .button.hamburger__button {
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+            border-top: 0;
+            padding: 0;
+        }
+
+        .link {
+            color: inherit;
+        }
+
+        .list {
+            padding-left: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+
+
+
+
+    /* 
+    ======================================
+    CONTEUDO [TOPO]
+    ====================================== 
+    */
+
+        /* 
+        ======================================
+        CABEÇALHO GERAL DO PRONTUARIO
+        ====================================== 
+        */
+
+            /* === CAIXA DE PACIENTE === */
+            .caixa-paciente {
+                padding: 10px;
+            }
+
+            .caixa-paciente.caixa-paciente-verde {
+                background-color: #abccb3;
+                color: #416049;
+            }
+
+            .caixa-paciente h5 {
+                font-size: 17px;
+            }
+
+            .caixa-paciente .img-circle.profile_img {
+                margin-left: 0px;
+            }
+
+            .caixa-paciente .prontuario_foto_paciente {
+                background: #ffffff;
+                padding: 4px;
+                max-height: 130px;
+            }
+
+            /* === RELOGIO === */
+            .well-relogio {
+                margin-bottom: 10px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            .well-relogio .well-icone-relogio {
+                font-size: 35px;
+                color: #ccc9c9;
+                margin-right: 5px;
+            }
+
+            .well-relogio .well-horas {
+                font-size: 35px;
+            }
+
+            
+            /* === BOTÕES DE CONTROLE DO ATENDIMENTO === */
+            #btn_iniciar_atendimento {
+                border: 1px solid #ffffff;
+            }
+
+            #btn_pausar_atendimento {
+                border: 1px solid #ffffff;
+            }
+
+            #btn_finalizar_atendimento {
+                border: 1px solid #ffffff;
+            }
+
+        /* 
+        ======================================
+        PANELS DE SEÇÃO DO PRONTUARIO
+        ====================================== 
+        */
+
+            .panel_prontuario {
+                border-color: #98b8a0;
+            }
+
+            .panel_prontuario > .panel-heading {
+                background-color: #abccb3;
+                border-color: #98b8a0;
+                color: #416049;
+            }

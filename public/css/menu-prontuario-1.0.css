@@ -1,0 +1,44 @@
+/* ---------------------------------------------------- */
+/* CSS DE PÁGINA                                        */
+/* ---------------------------------------------------- */
+
+.menu_prontuario {
+    background: #2A3F54;
+    display: inline-block;
+    white-space: nowrap;
+    width: 50px;
+    transition: width .5s;
+}
+
+.menu_prontuario:hover {
+    width: 250px;
+}
+
+.menu_prontuario .fas {
+    margin: 15px;
+    width: 20px;
+    color: #fff;
+}
+
+.item_menu_prontuario {
+    height: 50px;
+    overflow: hidden;
+    color: #fff;
+    padding-left: 14px;
+}
+
+.item_menu_prontuario:hover {
+    background-color: #222;
+}
+
+.item_menu_prontuario a:link, 
+.item_menu_prontuario a:visited, 
+.item_menu_prontuario a:hover, 
+.item_menu_prontuario a:active {
+    color: #fff;
+}
+
+.item_menu_prontuario i.fas {
+    font-size: 17px;
+    vertical-align: middle !important;
+}

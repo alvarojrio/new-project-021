@@ -1,0 +1,24 @@
+/* ---------------------------------------------------- */
+/* CSS DE PÁGINA                                        */
+/* ---------------------------------------------------- */
+
+/* === CAIXA DE ERROS === */
+.erro_prontuario_secao {
+    display: none;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.erro_prontuario_secao h4 {
+    margin-top: 0px;
+}
+
+/* === CAIXA DE TAGS DE SINTOMAS === */
+.caixa-tags-sintomas {
+    /* Nothing here */
+}

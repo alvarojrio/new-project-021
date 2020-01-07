@@ -1,0 +1,5 @@
+
+ORIGEM
+
+https://www.jqueryscript.net/time-clock/Count-Up-Timer-Stopwatch-jQuery-Countimer.html
+https://github.com/envynoiz/countimer#readme

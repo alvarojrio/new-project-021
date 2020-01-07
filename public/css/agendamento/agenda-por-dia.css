@@ -1,0 +1,23 @@
+/* ---------------------------------------------------- */
+/* CSS DA PÁGINA AGENDA-POR-DIA.BLADE.PHP               */
+/* ---------------------------------------------------- */
+
+.row-com-margin-bottom {
+    margin-bottom: 14px;
+}
+
+/* Estilo da linha onde ficam os pacientes */
+.linha-lista-pacientes {
+    padding: 0.5% 0;
+}
+
+/* Estilos para mini-caixas de pacientes */
+.paciente-odd {
+    border-bottom: 0.3em solid #71a3f2; 
+    font-size: 11px;
+}
+
+.paciente-even {
+    border-bottom: 0.3em solid #1a3e77; 
+    font-size: 11px;
+}

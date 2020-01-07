@@ -1,0 +1,41 @@
+/* ---------------------------------------------------- */
+/* CSS DE PÁGINA                                        */
+/* ---------------------------------------------------- */
+
+/* === CAIXA DE ERROS === */
+.erro_prontuario_secao {
+    display: none;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.erro_prontuario_secao h4 {
+    margin-top: 0px;
+}
+
+/* === CAIXAS COM FIELDSETS === */
+fieldset.fieldset-custom {
+    border: 1px solid #b0cbe8 !important; /* 73879C */
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    border-radius: 10px;
+}
+
+legend.fieldset-custom {
+	font-size: 1.1em !important;
+	font-weight: bold !important;
+	text-align: left !important;
+	width: auto;
+	padding: 0 10px;
+	border-bottom: none;
+}
+
+/* === CUSTOMIZAÇÃO DE PANELS DE SEÇÕES DO RESUMO === */
+.panel-heading .btn-group {
+    margin-top: -5px;
+}

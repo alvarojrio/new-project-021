@@ -1,0 +1,87 @@
+#calendar {
+	/*max-width: 900px;
+	margin: 0 auto;*/
+}
+
+/* mudar a cor da celula sabado e domingo
+.fc-sat, .fc-sun {
+   background-color: #f3f3f3 !important;
+   border: 1px solid black;
+}*/
+
+/* Deixa a letra do cabeçalho do fullcalendar em maiuscula */
+.fc-toolbar {
+   text-transform: uppercase;
+}
+
+.vagas_livres {
+   background: green;
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}
+
+.vagas_livres_manha {
+   background: green;
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}
+
+.vagas_livres_tarde {
+   background: #42a557;
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}
+
+.vagas_encaixes {
+   background: #286090; /* primeira versão: #dbc775; */
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}
+
+.vagas_encaixes_manha {
+   background: #286090; /* primeira versão: #dbc775; */
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}
+
+.vagas_encaixes_tarde {
+   background: #488bc4; /* primeira versão: #dbc775; */
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}
+
+.vagas_bloqueios {
+   background: #e8a233; /* primeira versão: #e29418; */
+   color: #ffffff;
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}
+
+.vagas_feriados {
+   background: #6d5b1e;
+   color: #ffffff;
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}
+
+.sem_vagas_livres {
+   background: #adabab;
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}
+
+.sem_vagas_encaixes {
+   background: #cc4f4f;
+   border: 0;
+   text-align: center;
+   font-size: 0.9em;
+}

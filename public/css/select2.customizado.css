@@ -1,0 +1,12 @@
+/* ---------------------------------------------------- */
+/* CSS CUSTOMIZADO DO SELECT2                        */
+/* ---------------------------------------------------- */
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: #73879C;
+    color: #ffffff;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    color: #ffffff;
+}
