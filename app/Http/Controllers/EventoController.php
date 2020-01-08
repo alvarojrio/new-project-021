@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Evento;
+use App\Ingresso;
 class EventoController extends Controller
 {
     /**
@@ -96,9 +97,11 @@ class EventoController extends Controller
     public function step_one_tickets($id)
     {
         
-        $evento = Evento::find($id);
 
-        return view('admin.eventos.editar.step_one_tickets')->with('dados', $evento);
+        $ingresso = Ingresso::where('cod_evento', '=', $id)->get();
+
+        return view('admin.eventos.editar.step_one_tickets')->with('dados', $ingresso)->with('id_evento', $id);
+
 
     }
 

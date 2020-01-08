@@ -13,7 +13,40 @@ $.ajaxSetup({
  *                    */  
 
 
+function ExibirShowModal(id_ingr){
 
+
+ $.ajax({
+      cache: false,
+      type: "POST",
+      url:  URL_INGRESSO_SHOW,
+      data: { 
+          "cod_ingresso": id_ingr
+      },
+      beforeSend: function() {
+
+      },
+      success: function(response) {
+
+         //var resultado = JSON.parse(response);
+            var resultado = JSON.parse(response);
+        if(resultado.status_requisicao == "sucesso"){
+          
+
+          }else{
+            alert("qmerda")
+          }
+
+
+
+       }
+
+    });
+
+
+ //onsole.log("editar.show");
+  return false;
+}
 function salvarTicket(){
 
 //////////////////
@@ -60,6 +93,8 @@ if(iniciar_quando == 1){
             "horario_inicio": horario_inicio,
             "data_fim": data_fim,
             "horario_fim": horario_fim,
+            "cod_evento": ID_INGRESSO,
+
         },
         beforeSend: function() {
 
@@ -67,8 +102,16 @@ if(iniciar_quando == 1){
         success: function(response) {
 
           // var resultado = JSON.parse(response);
-          console.log(response);  
+              if(response == true){
+                   
+                     alert("Ingresso cadastro com sucesso !");
+               
+                }else{
+                    
+                     alert("Ops, Houve alguma problema ao cadastro o ingresso, por favor entre em contato com o suporte. !");
 
+
+              }
          }
 
       });

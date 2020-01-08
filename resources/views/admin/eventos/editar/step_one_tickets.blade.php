@@ -50,7 +50,7 @@ CMRJ | Sala de espera | Cadastrar
                         <!-- INICIO DO PANEL-HEADER -->
                         <div class="panel-heading">
                            
-                           <i class="fas fa-weight"></i> Cadastrar Ticke
+                           <i class="fas fa-weight"></i> Cadastrar Ticket
                         </div>
                         <!-- FIM DO PANEL-HEADER -->
 
@@ -71,21 +71,32 @@ CMRJ | Sala de espera | Cadastrar
                                                 <th>Ação</th>
                                             </tr>
                                         </thead>
+                                       
                                         <tbody>
-                                            <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                               
-                                            </tr>
-                                            <tr>
-                                                <td>Garrett Winters</td>
-                                                <td>Accountant</td>
-                                                <td>Tokyo</td>
-                                                <td>63</td>
-                                                
-                                            </tr>
+                                            
+                                            <?php
+                                             if(count($dados) > 0){
+                                                foreach ($dados  as $key) {
+                                               ?>
+                                                 <tr>
+                                                      <td> <?=$key['nome']?> </td>
+                                                      <td> <?=$key['nome']?> </td>
+                                                      <td> <?=$key['nome']?> </td>
+                                                      <td> 
+
+                                                        <a href="#"  onclick="ExibirShowModal(<?=$key['cod_ingresso']?> )">EDITAR</a>
+                                                        
+                                                      </td>
+                                                     
+                                                  </tr>
+                                           
+                                            <?php
+                                            
+                                              }
+                                            }
+                                            
+                                            ?>
+
                                                                          
                                        </tbody>
                                    </table>
@@ -289,7 +300,8 @@ CMRJ | Sala de espera | Cadastrar
 <script type="text/javascript">
   var URL_INGRESSO = '<?php echo url('ingresso/showTickets'); ?>';
   var URL_INGRESSO_CREATE = '<?php echo url('ingresso/createTicket'); ?>';
-  var ID_INGRESSO = 9;
+  var URL_INGRESSO_SHOW = '<?php echo url('ingresso/showTicketsid'); ?>';
+  var ID_INGRESSO = '<?php echo $id_evento ?>';;
 
   console.log(URL_INGRESSO);
 </script>

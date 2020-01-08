@@ -58,3 +58,6 @@ Route::post('/ingresso/createTicket', array(
 ))->name('createTicket');
 
 
+Route::post('/ingresso/showTicketsid', array(
+	  'uses' =>'IngressosController@showTicketsid'
+))->name('showTicketsid');
