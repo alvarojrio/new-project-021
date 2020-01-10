@@ -13,6 +13,8 @@ $.ajaxSetup({
  *                    */  
 
 
+
+//exibe o ingresso no modal
 function ExibirShowModal(id_ingr){
 
 
@@ -34,7 +36,7 @@ function ExibirShowModal(id_ingr){
         if(resultado.status_requisicao == "sucesso"){
            
             $('#meuModal').modal('show');
-           
+              console.log(resultado.dados);
             var nome = $("#nome").val(resultado.dados[0].nome);
             var valor = $("#valor").val(resultado.dados[0].preco);
             var quantidade = $("#quantidade").val(resultado.dados[0].quantidade);
@@ -48,7 +50,7 @@ function ExibirShowModal(id_ingr){
             //var iniciar_quando = $("#trocar_html option:selected").val(resultado.dados[0].regra_inicio);
 
                   
-            if(troca == 'data'){
+           if(troca == 'data'){
 
             $(".inicio-produto-html").css("display","none");
             $(".inicio-html").css("display","block");
@@ -62,7 +64,10 @@ function ExibirShowModal(id_ingr){
              $(".inicio-produto-html").css("display","block");
              $(".inicio-html").css("display","none");
 
-            }
+            } 
+
+            $(".bnt-controller").append('<button type="button" class="btn btn-primary" onclick="editarticket('+resultado.dados[0].cod_ingresso+')">Salvar Mudança</button>');
+            $(".bnt_salvar_ticket").css("display","none");
 
 
           }else{
@@ -79,6 +84,89 @@ function ExibirShowModal(id_ingr){
  //onsole.log("editar.show");
   return false;
 }
+
+
+//editar o ingresso
+function editarticket(id_ticket){
+
+//////////////////
+var nome = $("#nome").val();
+var valor = $("#valor").val();
+var quantidade = $("#quantidade").val();
+//inicio 
+var data_inicio = $("#data_inicio").val();
+var horario_inicio = $("#horario_inicio").val();
+//fim
+var data_fim = $("#data_fim").val();
+var horario_fim = $("#horario_fim").val();
+
+var iniciar_quando = $("#trocar_html option:selected").val();
+////////////////
+
+console.log(horario_inicio.length);
+console.log(data_inicio.length);
+if(   nome.length < 0 || valor.length < 0 || quantidade.length < 0 ||  data_fim.length < 0  || horario_fim.length < 0  ){
+      alert("Digite todas as informação necessária para criação do ingresso.")
+return false;
+} 
+
+if(iniciar_quando == 1){
+
+ if(data_inicio.length < 0    || horario_inicio.length < 0 ){
+   alert("Digite todas as informação necessária para criação do ingresso.")
+     return false;
+}
+
+}
+
+
+
+$.ajax({
+        cache: false,
+        type: "POST",
+        url:  URL_INGRESSO_UPDATE,
+        data: { 
+            "nome": nome,
+            "valor": valor,
+            "quantidade": quantidade,
+            "iniciar_quando": iniciar_quando,
+            "data_inicio": data_inicio,
+            "horario_inicio": horario_inicio,
+            "data_fim": data_fim,
+            "horario_fim": horario_fim,
+            "cod_evento": ID_INGRESSO,
+            "id_ticket": id_ticket,
+
+        },
+        beforeSend: function() {
+
+        },
+        success: function(response) {
+
+          // var resultado = JSON.parse(response);
+              if(response == true){
+                   
+                     alert("Ingresso cadastro com sucesso !");
+                           $('#meuModal').modal('hide');
+                           location.reload();
+
+
+                }else{
+                    
+                     alert("Ops, Houve alguma problema ao cadastro o ingresso, por favor entre em contato com o suporte. !");
+
+
+              }
+         }
+
+      });
+
+
+  return false;
+}
+
+
+//cadastra o ingresso
 function salvarTicket(){
 
 //////////////////

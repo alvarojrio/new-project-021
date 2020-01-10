@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Ingresso;
+use App\Biblioteca\FuncoesGlobais;
 
 class IngressosController extends Controller
 {
@@ -40,9 +41,11 @@ class IngressosController extends Controller
          $id_igr = $request->input('cod_ingresso');
         
          $ig = Ingresso::where('cod_ingresso', '=',  $id_igr)->get();
+          $ig[0]['preco'] = FuncoesGlobais::formatarMoedaParaFront($ig[0]['preco']); 
 
        if (count($ig) > 0) {
 
+             
             // Retorno
             return json_encode(array(
                 'status_requisicao' => 'sucesso',
@@ -63,6 +66,56 @@ class IngressosController extends Controller
     }
 
 
+
+ public function updateTicket(Request $request){
+
+                $nome           = $request->input('nome');
+                $valor          = $request->input('valor');
+                $quantidade     = $request->input('quantidade');
+                $iniciar_quando = $request->input('iniciar_quando');
+                $data_inicio    =  $request->input('data_inicio');
+                $horario_inicio =  $request->input('horario_inicio');
+                $data_fim       =  $request->input('data_fim');
+                $horario_fim    =  $request->input('horario_fim');
+                $cod_evento    =  $request->input('cod_evento');
+                $id_ticket    =  $request->input('id_ticket');
+
+                if($iniciar_quando == 1){ $p = 'vendas'; }else{  $p = 'data';}
+
+
+              //  $ingresso = new Ingresso;
+
+               /* 
+                $ingresso->nome           =  $nome;
+                $ingresso->preco          =  $valor;
+                $ingresso->quantidade     =  $quantidade;
+                $ingresso->cod_evento     =  $cod_evento;
+               
+
+                $ingresso->data_inicio    =  $data_inicio;
+                $ingresso->horario_inicio =  $horario_inicio;
+
+                $ingresso->data_fim       =  $data_fim;
+                $ingresso->horario_fim    =  $horario_fim;
+                $ingresso->regra_inicio   =  $p;
+                */
+
+                $return = Ingresso::where('cod_ingresso', $id_ticket)->update(
+                                 [
+                                   'nome' => $nome,
+                                   'preco' =>  FuncoesGlobais::formatarMoedaParaDatabase($valor),
+                                   'quantidade' => $quantidade,
+                                   'cod_evento' => $cod_evento,
+                                   'data_inicio' => $data_inicio,
+                                   'hora_inicio' => $horario_inicio,
+                                   'data_fim' => $data_fim,
+                                   'hora_fim' => $horario_fim,
+                                   'regra_inicio' => $p,
+                                 ]);
+
+                echo  $return;
+
+    }
 
 /*array:8 [
   "nome" => "ALVARO DE CARVALHO SANTOS"
@@ -98,10 +151,10 @@ class IngressosController extends Controller
                
 
                 $ingresso->data_inicio    =  $data_inicio;
-                $ingresso->horario_inicio =  $horario_inicio;
+                $ingresso->hora_inicio =  $horario_inicio;
 
                 $ingresso->data_fim       =  $data_fim;
-                $ingresso->horario_fim    =  $horario_fim;
+                $ingresso->hora_fim    =  $horario_fim;
                 $ingresso->regra_inicio   =  $p;
 
                 $return = $ingresso->save();

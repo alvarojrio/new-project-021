@@ -34,8 +34,6 @@ Route::get('/evento/basico/{edit}', array(
 	  'uses' =>'EventoController@step_one'
 ))->name('start-step');
 
-
-
 Route::get('/evento/detalhe/{edit}', array(
 	  'uses' =>'EventoController@step_two_detais'
 ))->name('step_two_detais');
@@ -58,6 +56,11 @@ Route::post('/ingresso/createTicket', array(
 ))->name('createTicket');
 
 
+Route::post('/ingresso/updateTicket', array(
+	  'uses' =>'IngressosController@updateTicket'
+))->name('updateTicket');
+
+//
 Route::post('/ingresso/showTicketsid', array(
 	  'uses' =>'IngressosController@showTicketsid'
 ))->name('showTicketsid');

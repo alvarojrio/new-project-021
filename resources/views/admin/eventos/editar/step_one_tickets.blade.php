@@ -287,9 +287,9 @@ CMRJ | Sala de espera | Cadastrar
 
       </div>
 
-      <div class="modal-footer">
+      <div class="modal-footer bnt-controller">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary bnt_salvar_ticket" onclick="salvarTicket()">Salvar mudanças</button>
+        <button type="button" class="btn btn-primary bnt_salvar_ticket" onclick="salvarTicket()">Criar</button>
       </div>
     </div>
 
@@ -300,6 +300,7 @@ CMRJ | Sala de espera | Cadastrar
 <script type="text/javascript">
   var URL_INGRESSO = '<?php echo url('ingresso/showTickets'); ?>';
   var URL_INGRESSO_CREATE = '<?php echo url('ingresso/createTicket'); ?>';
+  var URL_INGRESSO_UPDATE = '<?php echo url('ingresso/updateTicket'); ?>';
   var URL_INGRESSO_SHOW = '<?php echo url('ingresso/showTicketsid'); ?>';
   var ID_INGRESSO = '<?php echo $id_evento ?>';;
 
@@ -309,7 +310,7 @@ CMRJ | Sala de espera | Cadastrar
 
 @section('includes_no_body')
 <script src="{{ asset('js/jquery.mask.min.js') }}"></script>    
-<script src="{{ asset('js/funcoes_forms.js?time=09000') }}"></script>    
+<script src="{{ asset('js/funcoes_forms.js?time=54545') }}"></script>    
 <script src="{{ asset('plugins/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="{{asset('plugins/toast-kamranahmed/jquery.toast.min.js')}}"></script>
 <script src="{{ asset('plugins/timepicker/bootstrap-timepicker.js') }}"></script>
@@ -359,7 +360,11 @@ $('.tempo').timepicker({
     minuteStep: 1
 });   
     $(function() {
-    $('.currency').maskMoney();
+    //$('.').maskMoney();
+
+    $(".currency").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
+
+
   }) 
 /*
  # FIM
