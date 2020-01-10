@@ -84,7 +84,7 @@ CMRJ | Sala de espera | Cadastrar
                                                       <td> <?=$key['nome']?> </td>
                                                       <td> 
 
-                                                        <a href="#"  onclick="ExibirShowModal(<?=$key['cod_ingresso']?> )">EDITAR</a>
+                                                        <a href="#"  onclick="ExibirShowModal(<?=$key['cod_ingresso']?>)">EDITAR</a>
                                                         
                                                       </td>
                                                      
@@ -309,7 +309,7 @@ CMRJ | Sala de espera | Cadastrar
 
 @section('includes_no_body')
 <script src="{{ asset('js/jquery.mask.min.js') }}"></script>    
-<script src="{{ asset('js/funcoes_forms.js?time=321123') }}"></script>    
+<script src="{{ asset('js/funcoes_forms.js?time=09000') }}"></script>    
 <script src="{{ asset('plugins/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="{{asset('plugins/toast-kamranahmed/jquery.toast.min.js')}}"></script>
 <script src="{{ asset('plugins/timepicker/bootstrap-timepicker.js') }}"></script>

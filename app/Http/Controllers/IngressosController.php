@@ -39,7 +39,7 @@ class IngressosController extends Controller
 
          $id_igr = $request->input('cod_ingresso');
         
-         $ig = Ingresso::where('cod_evento', '=',  $id_igr)->get();
+         $ig = Ingresso::where('cod_ingresso', '=',  $id_igr)->get();
 
        if (count($ig) > 0) {
 
@@ -48,6 +48,8 @@ class IngressosController extends Controller
                 'status_requisicao' => 'sucesso',
                 'dados' => $ig
             ));
+
+            
 
         } else {
 

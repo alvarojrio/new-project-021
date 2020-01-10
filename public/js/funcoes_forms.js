@@ -30,14 +30,46 @@ function ExibirShowModal(id_ingr){
 
          //var resultado = JSON.parse(response);
             var resultado = JSON.parse(response);
+
         if(resultado.status_requisicao == "sucesso"){
-          
+           
+            $('#meuModal').modal('show');
+           
+            var nome = $("#nome").val(resultado.dados[0].nome);
+            var valor = $("#valor").val(resultado.dados[0].preco);
+            var quantidade = $("#quantidade").val(resultado.dados[0].quantidade);
+            //fim 
+            var data_fim = $("#data_fim").val(resultado.dados[0].data_fim);
+            var horario_fim = $("#horario_fim").val(resultado.dados[0].hora_fim);
+           
+            ///inicio troca selected
+            var troca = resultado.dados[0].regra_inicio;
+
+            //var iniciar_quando = $("#trocar_html option:selected").val(resultado.dados[0].regra_inicio);
+
+                  
+            if(troca == 'data'){
+
+            $(".inicio-produto-html").css("display","none");
+            $(".inicio-html").css("display","block");
+
+             var data_inicio    = $("#data_inicio").val(resultado.dados[0].data_inicio);
+             var horario_inicio = $("#horario_inicio").val(resultado.dados[0].hora_inicio);
+
+            }else{
+
+             htmlLoppingIngressos();
+             $(".inicio-produto-html").css("display","block");
+             $(".inicio-html").css("display","none");
+
+            }
+
 
           }else{
-            alert("qmerda")
+
+             alert("qmerda")
+
           }
-
-
 
        }
 
@@ -60,7 +92,7 @@ var horario_inicio = $("#horario_inicio").val();
 var data_fim = $("#data_fim").val();
 var horario_fim = $("#horario_fim").val();
 
-  var iniciar_quando = $("#trocar_html option:selected").val();
+var iniciar_quando = $("#trocar_html option:selected").val();
 
 ////////////////
 
