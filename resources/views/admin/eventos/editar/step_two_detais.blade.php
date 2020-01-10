@@ -7,6 +7,8 @@ CMRJ | Sala de espera | Cadastrar
 @section('includes_no_head')
 <link href="{{ asset('plugins/select2/dist/css/select2.min.css') }}" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="<?php echo asset('plugins/toast-kamranahmed/jquery.toast.min.css'); ?>">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+
 @stop
 
 @section('conteudo')
@@ -34,10 +36,6 @@ CMRJ | Sala de espera | Cadastrar
                 
             <div class="row">
    
-           <form action="<?php echo url('/evento/create'); ?>" method="post">
-
-               @csrf
-
              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                
                      <!-- INICIO PANEL -->
@@ -45,7 +43,6 @@ CMRJ | Sala de espera | Cadastrar
 
                         <!-- INICIO DO PANEL-HEADER -->
                         <div class="panel-heading">
-                           
                            <i class="fas fa-weight"></i> Sala de espera
                         </div>
                         <!-- FIM DO PANEL-HEADER -->
@@ -56,22 +53,22 @@ CMRJ | Sala de espera | Cadastrar
                            <!-- INICIO DA LINHA -->
                            <div class="row">
                                
+                               
                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <!-- INICIO DA COLUNA -->
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alert alert-danger" id="append_erro_x" style="display: none">
-
                                        <!-- Erro preenchido dinamicamento -->
-
                                    </div>
                                    <!-- FIM DA COLUNA -->
                                </div>   
-                               
                                
                               <!-- INICIO DA COLUNA -->
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                                  <div class="form-group">
-                                     <label class="control-label">Upload de Arquivo <span class="required-red">*</span></label>
+                                     <label class="control-label"><h2>Imagem principal do evento</h2>
+Esta é a primeira imagem que os seus participantes verão no início da sua página. Use uma imagem de alta qualidade: 2160x1080px (proporção 2:1)
+                                      <span class="required-red">*</span></label>
                                      <input type="file" class="form-control caixa_alta" name="file" required="required">
                                  </div>
 
@@ -85,20 +82,19 @@ CMRJ | Sala de espera | Cadastrar
 
                                  <div class="form-group">
                                      <label class="control-label"> Titulo  <span class="required-red">*</span></label>
-                                     <input type="text" class="form-control" name="file" required="required">
+                                     <input type="text" class="form-control" name="subtitulo" required="required">
                                  </div>
 
                               </div>
                               <!-- FIM DA COLUNA -->
 
 
-                 <!-- INICIO DA COLUNA -->
+                              <!-- INICIO DA COLUNA -->
                               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                                  <div class="form-group">
                                      <label class="control-label"> Descrição  <span class="required-red">*</span></label>
                                      <textarea class="form-control caixa_alta" name="detalhe" required="required">
-                                       
                                      </textarea>  
                                  </div>
 
@@ -114,17 +110,7 @@ CMRJ | Sala de espera | Cadastrar
                            </div>
                            <!-- FIM DA LINHA -->
 
-                           <!-- INICIO DA LINHA -->
-                           <div class="row">
-
-                              <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id='caixa_especialidades' style="display: none">
-
-                                 <!-- Consultórios preenchido dinamicamente via javascript -->
-
-                              </div>
-
-                           </div>
-                           <!-- INICIO DA LINHA -->
+                         
 
                         </div>    
                         <!-- FIM DO PANEL-BODY -->
@@ -133,7 +119,7 @@ CMRJ | Sala de espera | Cadastrar
 
                            <br/><br/>
 
-                           <button type="submit" class="btn btn-success pull-right" id="btn_salvar_sala_espera"><i class="far fa-save"></i> Salvar</button>
+                           <button type="submit" class="btn btn-success pull-right" id="salvar_detalhe" onclick="salvar_detalhe()"><i class="far fa-save"></i> Salvar</button>
 
                            <a href="" class="btn btn-default pull-right"><i class="fas fa-arrow-circle-left"></i> Voltar</a>
 
@@ -141,7 +127,6 @@ CMRJ | Sala de espera | Cadastrar
 
                      </div>
                      <!-- FIM DO PANEL -->
-</form>
                </div>    
 
             </div>
@@ -155,18 +140,24 @@ CMRJ | Sala de espera | Cadastrar
 
 </div>
 <!-- FIM DA LINHA -->
+<script type="text/javascript">
+  var URL_DETALHE = '<?php echo url('evento/updateDetalhe'); ?>';
+  var ID_INGRESSO = '7';
 
+</script>
 @stop
 
 @section('includes_no_body')
+<script src="{{ asset('js/funcoes_forms.js?time=4444') }}"></script>    
+
 <script src="{{ asset('js/jquery.mask.min.js') }}"></script>    
 <script src="{{ asset('plugins/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="{{asset('plugins/toast-kamranahmed/jquery.toast.min.js')}}"></script>
 <script src="{{ asset('plugins/timepicker/bootstrap-timepicker.js') }}"></script>
                 <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
- <script>
-                        CKEDITOR.replace( 'detalhe' );
-                </script>
+<script>
+CKEDITOR.replace( 'detalhe' );
+</script>
 <script type="text/javascript">
     
 /*

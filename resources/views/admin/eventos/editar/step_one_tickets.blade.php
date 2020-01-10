@@ -144,6 +144,7 @@ CMRJ | Sala de espera | Cadastrar
 <div class="modal" tabindex="-1" role="dialog" id="meuModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+     
       <div class="modal-header">
         <h5 class="modal-title">Título do modal</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
@@ -255,7 +256,9 @@ CMRJ | Sala de espera | Cadastrar
 
                                  <div class="form-group">
 
-                                     <label class="control-label"> Data fim <span class="required-red">*</span></label>
+                                     <label class="control-label"> Data fim 
+                                      <span class="required-red">*</span>
+                                     </label>
                                      
                                     <input type="date" class="form-control" name="data_fim" id="data_fim" 
                                      placeholder="Data Ínicio" value="1992-10-10"  autofocus="off" autocomplete="off" required="required">
@@ -291,7 +294,9 @@ CMRJ | Sala de espera | Cadastrar
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="button" class="btn btn-primary bnt_salvar_ticket" onclick="salvarTicket()">Criar</button>
       </div>
+    
     </div>
+
 
     </form>
 
@@ -302,6 +307,7 @@ CMRJ | Sala de espera | Cadastrar
   var URL_INGRESSO_CREATE = '<?php echo url('ingresso/createTicket'); ?>';
   var URL_INGRESSO_UPDATE = '<?php echo url('ingresso/updateTicket'); ?>';
   var URL_INGRESSO_SHOW = '<?php echo url('ingresso/showTicketsid'); ?>';
+  var URL_INGRESSO_DELETE = '<?php echo url('ingresso/excluirTickets'); ?>';
   var ID_INGRESSO = '<?php echo $id_evento ?>';;
 
   console.log(URL_INGRESSO);
@@ -310,7 +316,7 @@ CMRJ | Sala de espera | Cadastrar
 
 @section('includes_no_body')
 <script src="{{ asset('js/jquery.mask.min.js') }}"></script>    
-<script src="{{ asset('js/funcoes_forms.js?time=54545') }}"></script>    
+<script src="{{ asset('js/funcoes_forms.js?time=4444') }}"></script>    
 <script src="{{ asset('plugins/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="{{asset('plugins/toast-kamranahmed/jquery.toast.min.js')}}"></script>
 <script src="{{ asset('plugins/timepicker/bootstrap-timepicker.js') }}"></script>

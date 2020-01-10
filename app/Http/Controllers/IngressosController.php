@@ -66,6 +66,15 @@ class IngressosController extends Controller
     }
 
 
+//excluir
+ public function excluirTickets(Request $request){
+
+                 $id_ticket    =  $request->input('id_ticket');
+                 
+                 $return = Ingresso::where('cod_ingresso', $id_ticket)->delete();
+
+                echo  $return;
+}
 
  public function updateTicket(Request $request){
 

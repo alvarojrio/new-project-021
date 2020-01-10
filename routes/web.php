@@ -64,3 +64,7 @@ Route::post('/ingresso/updateTicket', array(
 Route::post('/ingresso/showTicketsid', array(
 	  'uses' =>'IngressosController@showTicketsid'
 ))->name('showTicketsid');
+//
+Route::post('/ingresso/excluirTickets', array(
+	  'uses' =>'IngressosController@excluirTickets'
+))->name('excluirTickets');

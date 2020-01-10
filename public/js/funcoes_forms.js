@@ -12,11 +12,36 @@ $.ajaxSetup({
  * CONFIGURA DE TOKEN *
  *                    */  
 
+//exibe o ingresso no modal
+function ExcluirIngresso(id_ingr){
 
+
+ $.ajax({
+      cache: false,
+      type: "POST",
+      url:  URL_INGRESSO_DELETE,
+      data: { 
+          "id_ticket": id_ingr
+      },
+      beforeSend: function() {
+      },
+      success: function(response) {
+
+         //var resultado = JSON.parse(response);
+            //var resultado = JSON.parse(response);
+              if(response == "1"){
+                alert("excluido com sucesso");
+               location.reload();
+              }
+          } 
+    });
+
+ //console.log("editar.show");
+  return false;
+}
 
 //exibe o ingresso no modal
 function ExibirShowModal(id_ingr){
-
 
  $.ajax({
       cache: false,
@@ -49,7 +74,7 @@ function ExibirShowModal(id_ingr){
 
             //var iniciar_quando = $("#trocar_html option:selected").val(resultado.dados[0].regra_inicio);
 
-                  
+                 console.log(troca);  
            if(troca == 'data'){
 
             $(".inicio-produto-html").css("display","none");
@@ -101,13 +126,13 @@ var data_fim = $("#data_fim").val();
 var horario_fim = $("#horario_fim").val();
 
 var iniciar_quando = $("#trocar_html option:selected").val();
-////////////////
 
+/////( --  -- )//////
 console.log(horario_inicio.length);
 console.log(data_inicio.length);
 if(   nome.length < 0 || valor.length < 0 || quantidade.length < 0 ||  data_fim.length < 0  || horario_fim.length < 0  ){
       alert("Digite todas as informação necessária para criação do ingresso.")
-return false;
+      return false;
 } 
 
 if(iniciar_quando == 1){
@@ -146,9 +171,9 @@ $.ajax({
           // var resultado = JSON.parse(response);
               if(response == true){
                    
-                     alert("Ingresso cadastro com sucesso !");
-                           $('#meuModal').modal('hide');
-                           location.reload();
+                  alert("Ingresso cadastro com sucesso !");
+                  $('#meuModal').modal('hide');
+                  location.reload();
 
 
                 }else{
@@ -294,3 +319,61 @@ $.ajax({
     });
 
 }
+
+
+
+/** FORMULÁRIO  DE DETALHES **/
+
+
+
+function salvar_detalhe(){
+
+
+//////////////////
+var titulo     = $("#nome").val();
+var arquivo    = $("#valor").val();
+var descricao  = $("#quantidade").val();
+
+if(   titulo.length < 0 ){
+      alert("Digite todas as informação necessária para criação do ingresso.")
+      return false;
+} 
+
+  
+  $.ajax({
+        cache: false,
+        type: "POST",
+        url:  URL_INGRESSO_CREATE,
+        data: { 
+            "titulo": titulo,
+            "arquivo": arquivo,
+            "descricao": descricao,
+            "cod_evento": ID_INGRESSO,
+
+        },
+        beforeSend: function() {
+
+        },
+        success: function(response) {
+
+          // var resultado = JSON.parse(response);
+              if(response == true){
+                   
+                     alert("Ingresso cadastro com sucesso !");
+               
+                }else{
+                    
+                     alert("Ops, Houve alguma problema ao cadastro o ingresso, por favor entre em contato com o suporte. !");
+
+
+              }
+         }
+
+      });
+
+
+  
+  return false;
+}
+
+
