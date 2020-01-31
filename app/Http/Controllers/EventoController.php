@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Evento;
 use App\Ingresso;
+use App\EventoDetalhes;
+
 class EventoController extends Controller
 {
     /**
@@ -28,8 +30,39 @@ class EventoController extends Controller
         //
     }
 
+       public function detalhesCreate(Request $request){
+         // dd($request->all());
+        $file = $request->file;
+       
+        // Se informou o arquivo, retorna um boolean
+      
+           if($request->hasFile('file') == true){
+                 if($request->file('file')->isValid() == true){
+                        /*// Retorna mime type do arquivo (Exemplo image/png)
+                        $request->imagem->getMimeType()
+
+                        // Retorna o nome original do arquivo
+                        $request->imagem->getClientOriginalName() 
+
+                        // Extensão do arquivo
+                        $request->imagem->getClientOriginalExtension()
+                        $request->imagem->extension()
+
+                        // Tamanho do arquivo
+                        $request->imagem->getClientSize()*/
+
+                        $upload = $request->file->store('imagens');
+                        
+                        echo $upload;
+
+                 }
+            } 
+       
+      }
+ 
+
     /**
-     * Store a newly created resource in storage.
+     * Store a bnewly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -81,8 +114,8 @@ class EventoController extends Controller
      */
     public function step_two_detais($id)
     {
-        
-        $evento = Evento::find($id);
+      
+        $evento = DB::table('eventos_detalhes')->where('cod_evento', '=', $id)->get();
 
         return view('admin.eventos.editar.step_two_detais')->with('dados', $evento);
 

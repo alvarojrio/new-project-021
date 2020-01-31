@@ -15,7 +15,7 @@ CMRJ | Sala de espera | Cadastrar
 
 <div class="page-title">
   <div class="title_left">
-    <h3>Cadastrar Sala de espera</h3>
+    <h3>Cadastrar Detalhes</h3>
   </div>
 </div>
 
@@ -35,7 +35,9 @@ CMRJ | Sala de espera | Cadastrar
         
                 
             <div class="row">
-   
+      
+             <form id="formulario" method="post" enctype="multipart/form-data">
+                
              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                
                      <!-- INICIO PANEL -->
@@ -119,7 +121,9 @@ Esta é a primeira imagem que os seus participantes verão no início da sua pá
 
                            <br/><br/>
 
-                           <button type="submit" class="btn btn-success pull-right" id="salvar_detalhe" onclick="salvar_detalhe()"><i class="far fa-save"></i> Salvar</button>
+                           <button type="submit" class="btn btn-success pull-right" id="salvar_detalhe" ><i class="far fa-save"></i> Salvar</button>
+           
+              </form>
 
                            <a href="" class="btn btn-default pull-right"><i class="fas fa-arrow-circle-left"></i> Voltar</a>
 
@@ -165,7 +169,33 @@ CKEDITOR.replace( 'detalhe' );
  #  Definição de mascaras
  #  
 */
-    
+    $("#formulario").submit(function() {
+    var formData = new FormData(this);
+           
+    $.ajax({
+        url: '<?php echo url('evento/detalhes/create'); ?>',
+        type: 'POST',
+        data: formData,
+        success: function(data) {
+           console.log(data);
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+        xhr: function() { // Custom XMLHttpRequest
+            var myXhr = $.ajaxSettings.xhr();
+            if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                myXhr.upload.addEventListener('progress', function() {
+                    /* faz alguma coisa durante o progresso do upload */
+                }, false);
+            }
+            return myXhr;
+        }
+    });
+
+   return false;
+
+});
 // Campo Tempo Médio
 $('.tempo').timepicker({
     timeFormat: 'HH',

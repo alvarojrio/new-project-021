@@ -92,23 +92,6 @@ class IngressosController extends Controller
                 if($iniciar_quando == 1){ $p = 'vendas'; }else{  $p = 'data';}
 
 
-              //  $ingresso = new Ingresso;
-
-               /* 
-                $ingresso->nome           =  $nome;
-                $ingresso->preco          =  $valor;
-                $ingresso->quantidade     =  $quantidade;
-                $ingresso->cod_evento     =  $cod_evento;
-               
-
-                $ingresso->data_inicio    =  $data_inicio;
-                $ingresso->horario_inicio =  $horario_inicio;
-
-                $ingresso->data_fim       =  $data_fim;
-                $ingresso->horario_fim    =  $horario_fim;
-                $ingresso->regra_inicio   =  $p;
-                */
-
                 $return = Ingresso::where('cod_ingresso', $id_ticket)->update(
                                  [
                                    'nome' => $nome,
@@ -154,25 +137,26 @@ class IngressosController extends Controller
                 $ingresso = new Ingresso;
 
                 $ingresso->nome           =  $nome;
-                $ingresso->preco          =  $valor;
+                $ingresso->preco          =  FuncoesGlobais::formatarMoedaParaDatabase($valor); 
                 $ingresso->quantidade     =  $quantidade;
                 $ingresso->cod_evento     =  $cod_evento;
                
 
                 $ingresso->data_inicio    =  $data_inicio;
-                $ingresso->hora_inicio =  $horario_inicio;
+                $ingresso->hora_inicio    =  $horario_inicio;
 
                 $ingresso->data_fim       =  $data_fim;
-                $ingresso->hora_fim    =  $horario_fim;
+                $ingresso->hora_fim       =  $horario_fim;
                 $ingresso->regra_inicio   =  $p;
+
 
                 $return = $ingresso->save();
 
-                if($return){
+               // if($return){
                      return true;
-                }else{
-                     return false;
-                }
+               // }else{
+                    // return false;
+                //}
 
     }
 

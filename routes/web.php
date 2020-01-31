@@ -38,6 +38,10 @@ Route::get('/evento/detalhe/{edit}', array(
 	  'uses' =>'EventoController@step_two_detais'
 ))->name('step_two_detais');
 
+Route::post('/evento/detalhes/create', array(
+	  'uses' =>'EventoController@detalhesCreate'
+))->name('detalhesCreate');
+
 
 
 Route::get('/evento/tickets/{edit}', array(

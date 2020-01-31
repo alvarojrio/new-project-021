@@ -80,11 +80,13 @@ CMRJ | Sala de espera | Cadastrar
                                                ?>
                                                  <tr>
                                                       <td> <?=$key['nome']?> </td>
-                                                      <td> <?=$key['nome']?> </td>
+                                                      <td> <?=$key['quantidade']?> </td>
                                                       <td> <?=$key['nome']?> </td>
                                                       <td> 
 
                                                         <a href="#"  onclick="ExibirShowModal(<?=$key['cod_ingresso']?>)">EDITAR</a>
+                                                    
+                                                        <a href="#"  onclick="ExcluirIngresso(<?=$key['cod_ingresso']?>)">EXCLUIR</a>
                                                         
                                                       </td>
                                                      
