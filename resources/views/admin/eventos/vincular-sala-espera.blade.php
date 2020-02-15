@@ -1,4 +1,4 @@
-@extends('layouts.administracao.layout')
+﻿@extends('layouts.administracao.layout')
 
 @inject('permissoes','drclub\models\Permissoes')
 
@@ -16,7 +16,7 @@ CMRJ | Sala de espera | Vincular
 
 <div class="page-title">
   <div class="title_left">
-    <h3>Vincular sala de espera</h3>
+    <h3>EVENTO = GRUPO 021 </h3>
   </div>
 </div>
 
