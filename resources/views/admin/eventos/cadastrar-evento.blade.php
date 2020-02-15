@@ -1,4 +1,4 @@
-@extends('layouts.administracao.layout')
+﻿@extends('layouts.administracao.layout')
 
 @section('titulo_pagina')
 CMRJ | Sala de espera | Cadastrar
@@ -22,7 +22,7 @@ CMRJ | Sala de espera | Cadastrar
 <!-- INICIO DA LINHA -->
 <div class="row">
     
-   <!-- INICIO DA COLUNA --> 
+   <!-- INICIO DA COLUNA UI DAS COLUNAS--> 
    <div class="col-xs-12">
     
         
