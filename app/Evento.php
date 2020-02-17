@@ -24,4 +24,11 @@ class Evento extends Model
             'data_inicio', 
             'hora_inicio'	
 	];
+
+    //Relacionamento.
+    public function detalhes()
+    {
+        //     $this->hasOne(relacao, chave estrangeira, primary key);
+        return $this->hasOne(EventoDetalhes::class, 'cod_evento');
+    }
 }

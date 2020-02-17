@@ -1,7 +1,7 @@
 @extends('layouts.administracao.layout')
 
 @section('titulo_pagina')
-CMRJ | Sala de espera | Cadastrar
+GRUPO021 | Eventos | Cadastrar
 @stop
 
 @section('includes_no_head')
@@ -13,7 +13,7 @@ CMRJ | Sala de espera | Cadastrar
 
 <div class="page-title">
   <div class="title_left">
-    <h3>Cadastrar Sala de espera</h3>
+    <h3> Informação Básica do Evento.</h3>
   </div>
 </div>
 
@@ -34,7 +34,7 @@ CMRJ | Sala de espera | Cadastrar
                 
             <div class="row">
    
-           <form action="<?php echo url('/evento/create'); ?>" method="post">
+           <form action="<?php echo url('/evento/update'); ?>" method="post">
 
                @csrf
 
@@ -46,7 +46,7 @@ CMRJ | Sala de espera | Cadastrar
                         <!-- INICIO DO PANEL-HEADER -->
                         <div class="panel-heading">
                            
-                           <i class="fas fa-weight"></i> Sala de espera
+                           <i class="fas fa-weight"></i> Evento
                         </div>
                         <!-- FIM DO PANEL-HEADER -->
 
@@ -66,13 +66,16 @@ CMRJ | Sala de espera | Cadastrar
                                    <!-- FIM DA COLUNA -->
                                </div>   
                                
+                          
+
+                               
                                
                               <!-- INICIO DA COLUNA -->
                               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
                                  <div class="form-group">
                                      <label class="control-label">Nome <span class="required-red">*</span></label>
-                                     <input type="text" class="form-control caixa_alta" name="nome_sala_espera" id="nome_sala_espera" placeholder="Nome da sala de espera"  value="909090"  autofocus="off" autocomplete="off" required="required">
+                                     <input type="text" class="form-control caixa_alta" name="nome_sala_espera" id="nome_sala_espera" placeholder="Nome da sala de espera"  value="<?=$dados['nome_evento']?>"  autofocus="off" autocomplete="off" required="required">
                                  </div>
 
                               </div>
@@ -110,7 +113,9 @@ CMRJ | Sala de espera | Cadastrar
                                      <label class="control-label"> Data ínicio <span class="required-red">*</span></label>
                                      
                                     <input type="date" class="form-control" name="data_inicio" id="horario_inicio" 
-                                     placeholder="Data Ínicio"  value="1992-10-10"  autofocus="off" autocomplete="off" required="required">
+                                     placeholder="Data Ínicio"   autofocus="off"
+
+                                      value="<?=$dados['data_inicio']?>" autocomplete="off" required="required">
 
 
                                  </div>
@@ -128,7 +133,7 @@ CMRJ | Sala de espera | Cadastrar
                                      <label class="control-label"> Horário inicio <span class="required-red">*</span></label>
 
                                      <input type="text" class="form-control tempo" name="horario_inicio" id="horario_inicio" 
-                                     placeholder="Horario" value="10:00"  autofocus="off" autocomplete="off" required="required">
+                                     placeholder="Horario" value="<?=$dados['hora_inicio']?>"  autofocus="off" autocomplete="off" required="required">
 
                                  </div>
 
@@ -144,7 +149,7 @@ CMRJ | Sala de espera | Cadastrar
                                      <label class="control-label"> Data fim <span class="required-red">*</span></label>
                                      
                                     <input type="date" class="form-control" name="data_fim" id="data_fim" 
-                                     placeholder="Data Ínicio" value="1992-10-10"  autofocus="off" autocomplete="off" required="required">
+                                     placeholder="Data Ínicio"  value="<?=$dados['data_fim']?>"  autofocus="off" autocomplete="off" required="required">
 
 
                                  </div>
@@ -162,7 +167,7 @@ CMRJ | Sala de espera | Cadastrar
                                      <label class="control-label"> Horário fim <span class="required-red">*</span></label>
 
                                      <input type="text" class="form-control tempo" name="horario_fim" id="horario_fim" 
-                                     placeholder="Horario"  value="10:00" autofocus="off" autocomplete="off" required="required">
+                                     placeholder="Horario"  value="<?=$dados['hora_fim']?>" autofocus="off" autocomplete="off" required="required">
 
                                  </div>
 
@@ -176,17 +181,7 @@ CMRJ | Sala de espera | Cadastrar
                            </div>
                            <!-- FIM DA LINHA -->
 
-                           <!-- INICIO DA LINHA -->
-                           <div class="row">
-
-                              <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12' id='caixa_especialidades' style="display: none">
-
-                                 <!-- Consultórios preenchido dinamicamente via javascript -->
-
-                              </div>
-
-                           </div>
-                           <!-- INICIO DA LINHA -->
+                        
 
                         </div>    
                         <!-- FIM DO PANEL-BODY -->

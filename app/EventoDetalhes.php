@@ -19,7 +19,6 @@ class EventoDetalhes extends Model
 	 
 	protected $fillable = [
             'cod_evento',
-            'cod_local',
             'imagem',
             'descricao', 
             'titulo'	

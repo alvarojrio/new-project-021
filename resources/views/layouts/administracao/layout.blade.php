@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <title>@yield('titulo_pagina')</title>
     <meta charset="utf-8" />
@@ -84,7 +85,27 @@
         <!-- INICIO LEFT COL -->
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
+                <?php if ( 
+
+                 Route::getCurrentRoute()->getName()  === 'start-step' OR
+                 Route::getCurrentRoute()->getName()  === 'step_two_detais' OR
+                 Route::getCurrentRoute()->getName()  === 'step_one_tickets' 
+             ){?>
+
                 @include('layouts.administracao.sidebar')
+
+<?php
+                }else{
+
+        ?>
+                @include('layouts.administracao.sidebar-admin')
+
+        <?php
+      }
+
+             ?>
+
+
             </div>
         </div>
         <!-- FIM LEFT COL -->

@@ -17,7 +17,10 @@ class EventoController extends Controller
      */
     public function index()
     {
-        //
+             $eventos = Evento::with('detalhes')->get();
+             return view('admin.eventos.listar')
+              ->with('dados', $eventos);
+
     }
 
     /**
@@ -30,12 +33,55 @@ class EventoController extends Controller
         //
     }
 
-       public function detalhesCreate(Request $request){
+
+
+ 
+ public function detalhesCreate(Request $request){
+        
+
+
          // dd($request->all());
-        $file = $request->file;
+    
+        $subtitulo = $request->input('subtitulo');
+        $detalhe = $request->input('detalhe');
+        $id = $request->input('id');
+
+        $verificar = EventoDetalhes::where('cod_evento','=',$id)->get();
+
+        if($verificar):
        
-        // Se informou o arquivo, retorna um boolean
-      
+
+            $vetorUpdate = array(
+              'titulo' => $subtitulo,
+              'descricao' => $detalhe
+             );
+
+             if($request->hasFile('file') == true){
+                 if($request->file('file')->isValid() == true){
+
+                         $upload = $request->file->store('imagens');
+                         $vetorUpdate = array('imagem' => $upload ) + $vetorUpdate;
+                         
+                 }
+            }
+
+            $update = EventoDetalhes::where('cod_evento','=',$id)->update($vetorUpdate);
+         
+           
+            if($update):
+                      return 1;
+             else:
+                     return 0;
+            endif;
+
+          
+
+        else:
+       
+        $file = $request->file;
+
+        $upload = 'imagens/sem-imagem.png';
+
            if($request->hasFile('file') == true){
                  if($request->file('file')->isValid() == true){
                         /*// Retorna mime type do arquivo (Exemplo image/png)
@@ -53,10 +99,23 @@ class EventoController extends Controller
 
                         $upload = $request->file->store('imagens');
                         
-                        echo $upload;
-
                  }
             } 
+
+            $Detalhes = new EventoDetalhes;
+            $Detalhes->titulo = $subtitulo;
+            $Detalhes->descricao = $detalhe;
+            $Detalhes->imagem = $upload;
+            $Detalhes->cod_evento = $id;
+            $i = $Detalhes->save();
+            if($i){
+                return 1;
+            }else{
+               return 0;
+            }
+
+         endif;
+
        
       }
  
@@ -72,11 +131,13 @@ class EventoController extends Controller
         //
        $evento =  new Evento;
 
-       $evento->nome_evento =  $request->input('evento_nome');
-       $evento->cod_local =  $request->input('select-localidade');
-     //  $evento->data_inicio =   date('Y-m-d')//$request->input('data_comeco');
-      // $evento->hora_inicio =  $request->input('horario_comeco');
-    //   $evento->nome_evento =  $request->input('data_fim');
+       $evento->nome_evento =  $request->input('nome_sala_espera');
+       $evento->cod_local   =   $request->input('btn_unidade');
+       $evento->data_inicio =  $request->input('data_inicio');
+       $evento->hora_inicio =  $request->input('horario_inicio');
+       $evento->data_fim    =  $request->input('data_fim');
+       $evento->hora_fim    =  $request->input('horario_fim');
+
        $r = $evento->save();
         
        if($r){
@@ -98,9 +159,12 @@ class EventoController extends Controller
     public function step_one($id)
     {
         
-         $evento = Evento::find($id);
-       
-         return view('admin.eventos.editar.step_one_basic')->with('dados', $evento);
+         $evento = Evento::find($id)->toArray();
+             
+
+         return view('admin.eventos.editar.step_one_basic')
+                  ->with('dados', $evento)
+                  ->with('getMenu', $id);
 
     }
 
@@ -115,9 +179,11 @@ class EventoController extends Controller
     public function step_two_detais($id)
     {
       
-        $evento = DB::table('eventos_detalhes')->where('cod_evento', '=', $id)->get();
+        $evento = DB::table('eventos_detalhes')->where('cod_evento', '=', $id)->first();
 
-        return view('admin.eventos.editar.step_two_detais')->with('dados', $evento);
+        return view('admin.eventos.editar.step_two_detais')
+                   ->with('dados', $evento)                  
+                   ->with('getMenu', $id);
 
     }
      
@@ -133,7 +199,10 @@ class EventoController extends Controller
 
         $ingresso = Ingresso::where('cod_evento', '=', $id)->get();
 
-        return view('admin.eventos.editar.step_one_tickets')->with('dados', $ingresso)->with('id_evento', $id);
+        return view('admin.eventos.editar.step_one_tickets')
+              ->with('dados', $ingresso)
+              ->with('id_evento', $id)
+              ->with('getMenu', $id);
 
 
     }

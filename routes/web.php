@@ -11,14 +11,19 @@
 |
 */
 
-Route::get('/', function () {
+
+Route::get('/admin', function () {
       return view('index');
 })->name('home');
 
-Route::get('/', function () {
+
+Route::get('/admin', function () {
       return view('admin.index');
 })->name('admin');
 
+
+//pagina de cadastro
+Route::get('/evento/listar', 'EventoController@index');
 
 //pagina de cadastro
 Route::get('/evento', function () {
@@ -29,14 +34,22 @@ Route::get('/evento', function () {
 //cadastro o evento
 Route::post('/evento/create', 'EventoController@store');
 
+
+
 //pagina de view evento
 Route::get('/evento/basico/{edit}', array(
 	  'uses' =>'EventoController@step_one'
 ))->name('start-step');
 
+
 Route::get('/evento/detalhe/{edit}', array(
 	  'uses' =>'EventoController@step_two_detais'
 ))->name('step_two_detais');
+
+Route::get('/evento/tickets/{edit}', array(
+	  'uses' =>'EventoController@step_one_tickets'
+))->name('step_one_tickets');
+
 
 Route::post('/evento/detalhes/create', array(
 	  'uses' =>'EventoController@detalhesCreate'
@@ -44,9 +57,6 @@ Route::post('/evento/detalhes/create', array(
 
 
 
-Route::get('/evento/tickets/{edit}', array(
-	  'uses' =>'EventoController@step_one_tickets'
-))->name('step_one_tickets');
 
 
 //js

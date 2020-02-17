@@ -10,7 +10,10 @@ CMRJ | Sala de espera | Cadastrar
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 @stop
+<?php
 
+ 
+?>
 @section('conteudo')
 
 <div class="page-title">
@@ -37,7 +40,7 @@ CMRJ | Sala de espera | Cadastrar
             <div class="row">
       
              <form id="formulario" method="post" enctype="multipart/form-data">
-                
+                <input type="hidden" name="id" value="<?=$dados->cod_evento?>">
              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                
                      <!-- INICIO PANEL -->
@@ -84,7 +87,8 @@ Esta é a primeira imagem que os seus participantes verão no início da sua pá
 
                                  <div class="form-group">
                                      <label class="control-label"> Titulo  <span class="required-red">*</span></label>
-                                     <input type="text" class="form-control" name="subtitulo" required="required">
+                                     <input type="text" class="form-control" name="subtitulo" required="required" value="<?=$dados->titulo?>
+">
                                  </div>
 
                               </div>
@@ -97,6 +101,7 @@ Esta é a primeira imagem que os seus participantes verão no início da sua pá
                                  <div class="form-group">
                                      <label class="control-label"> Descrição  <span class="required-red">*</span></label>
                                      <textarea class="form-control caixa_alta" name="detalhe" required="required">
+                                     <?=$dados->descricao?>
                                      </textarea>  
                                  </div>
 
