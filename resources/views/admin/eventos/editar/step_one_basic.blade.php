@@ -37,6 +37,8 @@ GRUPO021 | Eventos | Cadastrar
            <form action="<?php echo url('/evento/update'); ?>" method="post">
 
                @csrf
+<input type="hidden"  value="<?=$getMenu?>" name="id" required="required">
+
 
              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                

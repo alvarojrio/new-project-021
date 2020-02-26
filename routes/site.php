@@ -11,10 +11,32 @@
 |
 */
 
+
 Route::get('/', function () {
-      return view('site.index');
+     // return view('site.index');
+          echo 'nenhum pacote selecionada';
 })->name('web');
 
+
+//checkout page
+Route::get('/pacote/{id}', 'WebSiteController@index')->name('checkout');
+
+
+//busca os tipos de ingressos pf ou grupo
+Route::post('/buscar-tipos-ingresso', 'WebSiteController@buscarTipoIngressos')->name('buscarajax');
+
+//busca os ingressos pfs
+Route::post('/buscar-ingressos-pf', 'WebSiteController@buscarIngressosPf')->name('
+buscar-ingressos-pf');
+
+//busca os ingressos pfs
+Route::post('/add-cart', 'WebSiteController@addCart')->name('
+buscar-ingressos-pf');
+
+
+
+
+//page checkout
 Route::get('/checkout', function () {
       return view('site.checkout');
 })->name('checkout');

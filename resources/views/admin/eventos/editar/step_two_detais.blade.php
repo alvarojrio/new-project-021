@@ -39,7 +39,7 @@ CMRJ | Sala de espera | Cadastrar
                 
             <div class="row">
       
-             <form id="formulario" method="post" enctype="multipart/form-data">
+             <form id="formulario" action="#" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?=$dados->cod_evento?>">
              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                
@@ -74,7 +74,7 @@ CMRJ | Sala de espera | Cadastrar
                                      <label class="control-label"><h2>Imagem principal do evento</h2>
 Esta é a primeira imagem que os seus participantes verão no início da sua página. Use uma imagem de alta qualidade: 2160x1080px (proporção 2:1)
                                       <span class="required-red">*</span></label>
-                                     <input type="file" class="form-control caixa_alta" name="file" required="required">
+                                     <input type="file" id="file" class="form-control caixa_alta" name="file" >
                                  </div>
 
                               </div>
@@ -87,7 +87,7 @@ Esta é a primeira imagem que os seus participantes verão no início da sua pá
 
                                  <div class="form-group">
                                      <label class="control-label"> Titulo  <span class="required-red">*</span></label>
-                                     <input type="text" class="form-control" name="subtitulo" required="required" value="<?=$dados->titulo?>
+                                     <input type="text" class="form-control" id="subtitulo" name="subtitulo" required="required" value="<?=$dados->titulo?>
 ">
                                  </div>
 
@@ -159,11 +159,13 @@ Esta é a primeira imagem que os seus participantes verão no início da sua pá
 @section('includes_no_body')
 <script src="{{ asset('js/funcoes_forms.js?time=4444') }}"></script>    
 
-<script src="{{ asset('js/jquery.mask.min.js') }}"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha384-FzT3vTVGXqf7wRfy8k4BiyzvbNfeYjK+frTVqZeNDFl8woCbF0CYG6g2fMEFFo/i" crossorigin="anonymous"></script>
+<script src="{{ asset('js/jquery.form.js') }}"></script>    
 <script src="{{ asset('plugins/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="{{asset('plugins/toast-kamranahmed/jquery.toast.min.js')}}"></script>
 <script src="{{ asset('plugins/timepicker/bootstrap-timepicker.js') }}"></script>
-                <script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+
 <script>
 CKEDITOR.replace( 'detalhe' );
 </script>
@@ -174,33 +176,37 @@ CKEDITOR.replace( 'detalhe' );
  #  Definição de mascaras
  #  
 */
-    $("#formulario").submit(function() {
-    var formData = new FormData(this);
-           
-    $.ajax({
+
+  
+
+
+  $("#formulario").submit(function() {
+   
+     
+      var detalhe  = CKEDITOR.instances['detalhe'].getData();
+      var titulo   = $("#subtitulo").val();
+      var file     = $("#file").val();
+
+      $('#formulario').ajaxSubmit({ 
+       
         url: '<?php echo url('evento/detalhes/create'); ?>',
         type: 'POST',
-        data: formData,
+        data: {'detalhe':detalhe,'titulo':titulo,'file':file},
         success: function(data) {
            console.log(data);
-        },
-        cache: false,
-        contentType: false,
-        processData: false,
-        xhr: function() { // Custom XMLHttpRequest
-            var myXhr = $.ajaxSettings.xhr();
-            if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
-                myXhr.upload.addEventListener('progress', function() {
-                    /* faz alguma coisa durante o progresso do upload */
-                }, false);
-            }
-            return myXhr;
         }
-    });
+
+       });
+
+
+   
 
    return false;
 
 });
+
+
+
 // Campo Tempo Médio
 $('.tempo').timepicker({
     timeFormat: 'HH',

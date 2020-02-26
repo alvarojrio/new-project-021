@@ -40,7 +40,6 @@ class EventoController extends Controller
         
 
 
-         // dd($request->all());
     
         $subtitulo = $request->input('subtitulo');
         $detalhe = $request->input('detalhe');
@@ -50,26 +49,33 @@ class EventoController extends Controller
 
         if($verificar):
        
-
+           
             $vetorUpdate = array(
-              'titulo' => $subtitulo,
-              'descricao' => $detalhe
-             );
+               
+                      'titulo' => $subtitulo,
+                      'descricao' => $detalhe,
+               );
 
              if($request->hasFile('file') == true){
                  if($request->file('file')->isValid() == true){
 
                          $upload = $request->file->store('imagens');
-                         $vetorUpdate = array('imagem' => $upload ) + $vetorUpdate;
+                         
+                        $vetorUpdate = array('imagem' => $upload ) + $vetorUpdate;
                          
                  }
             }
 
-            $update = EventoDetalhes::where('cod_evento','=',$id)->update($vetorUpdate);
+
+            
+
+         //  $update =  DB::table('eventos_detalhes')->where('cod_evento',$id)->update($vetorUpdate);
+         $update = EventoDetalhes::where('cod_evento', $id)->update($vetorUpdate);
          
-           
+
             if($update):
-                      return 1;
+                     
+                       return 1;
              else:
                      return 0;
             endif;
@@ -242,10 +248,31 @@ class EventoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
-    }
+          // dd($request->all());
+
+      $evento = array();
+
+       $id                    =  $request->input('id');
+       $evento['nome_evento'] =  $request->input('nome_sala_espera');
+       $evento['cod_local']   =   $request->input('btn_unidade');
+       $evento['data_inicio'] =  $request->input('data_inicio');
+       $evento['hora_inicio'] =  $request->input('horario_inicio');
+       $evento['data_fim']    =  $request->input('data_fim');
+       $evento['hora_fim']    =  $request->input('horario_fim');
+
+
+         //dd($evento);
+     $update = Evento::where('cod_evento', $id)->update($evento);
+    if($update){
+        
+            return redirect()->route('start-step', ['param' => $id]);
+       }
+
+
+}
 
     /**
      * Remove the specified resource from storage.

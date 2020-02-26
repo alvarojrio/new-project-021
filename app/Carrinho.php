@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ingresso extends Model
+class Carrinho extends Model
 {
     //
-    protected $table = 'eventos_ingressos'; // nome da tabela
-    protected $primaryKey = 'cod_ingresso'; // chave primária
+    protected $table = 'carrinho'; // nome da tabela
+    protected $primaryKey = 'cod_carrinho'; // chave primária
     public $incrementing = true; // indica se os IDs são auto-incremento
     public $timestamps = true; // ativa os campos created_at e updated_at
 
@@ -18,10 +18,10 @@ class Ingresso extends Model
      */
 	 
 	protected $fillable = [
-            'cod_ingresso',
-            'cod_local',
-            'tipo_ingresso',
-            'nome', 
-            'preco'	
+            'cod_produto',
+            'cod_evento',
+            'valor',
+            'quantidade', 
+            'uuid'	
 	];
 }

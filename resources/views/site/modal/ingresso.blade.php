@@ -11,30 +11,8 @@
                 </button>
             </div>
             <div class="modal-body p-3">
-                <div class="accordion" id="accordionExample">
-                    <div class="card">
-                        <div class="card-header bg-white" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="modal"
-                                    data-target="#modal-ingresso2" data-dismiss="modal" aria-expanded="true"
-                                    aria-controls="collapseOne">
-                                    Pessoa Física
-                                </button>
-                            </h2>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-header bg-white" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="modal"
-                                    data-target="#modal-ingresso2" data-dismiss="modal" aria-expanded="true"
-                                    aria-controls="collapseOne">
-                                    Grupo
-                                </button>
-                            </h2>
-                        </div>
-                    </div>
+                <div class="accordion add-tipo-ingresso" id="accordionExample">
+                    
 
                 </div>
             </div>

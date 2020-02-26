@@ -34,6 +34,9 @@ Route::get('/evento', function () {
 //cadastro o evento
 Route::post('/evento/create', 'EventoController@store');
 
+//cadastro o update
+Route::post('/evento/update', 'EventoController@update');
+
 
 
 //pagina de view evento
