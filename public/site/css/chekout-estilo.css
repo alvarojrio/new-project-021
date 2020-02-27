@@ -1,0 +1,35 @@
+
+header {
+    box-shadow: 1px 1px 2px #ccc;
+}
+
+.texto-logo {
+    
+    font-weight:bold;
+    font-size: 1.5em;
+    color:#F05537 !important;
+
+}
+
+.texto-pequeno {
+
+    font-size:13px;
+}
+
+.cor-fundo {
+    border-top: #4B4D63 solid 6px;
+    background-color: #333;
+    clear: both;
+    color:#8d8d8d;
+}
+
+
+.lista-estilo {
+    list-style-type: none;   
+}
+
+.lista-estilo li a {
+    color:white;
+    font-size: 12px;
+}
+

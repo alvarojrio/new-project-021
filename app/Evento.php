@@ -10,7 +10,7 @@ class Evento extends Model
     protected $table = 'eventos'; // nome da tabela
     protected $primaryKey = 'cod_evento'; // chave primária
     public $incrementing = true; // indica se os IDs são auto-incremento
-    public $timestamps = false; // ativa os campos created_at e updated_at
+    public $timestamps = true; // ativa os campos created_at e updated_at
 
     /* fillable possibilitará criar novos registros simplesmente usando
      * o método create e outros da classe Model passando
@@ -24,4 +24,11 @@ class Evento extends Model
             'data_inicio', 
             'hora_inicio'	
 	];
+
+    //Relacionamento.
+    public function detalhes()
+    {
+        //     $this->hasOne(relacao, chave estrangeira, primary key);
+        return $this->hasOne(EventoDetalhes::class, 'cod_evento');
+    }
 }
