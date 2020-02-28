@@ -20,7 +20,14 @@ CMRJ | Sala de espera | Cadastrar
 @section('conteudo')
 
 
+ <?php
+  
+  if(!Auth::guard('cliente')->check()){
+     header("Location: " . URL::to('/login?checkout=true'), true, 302);
+     exit();
+  }
 
+  ?>
 <body>
 
     <header>

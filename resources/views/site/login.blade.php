@@ -14,6 +14,15 @@ CMRJ | Sala de espera | Cadastrar
 
 @section('conteudo')
 
+<?php
+/*if(Auth::guard('cliente')->check())
+     php
+        header("Location: " . URL::to('/'), true, 302);
+        exit();
+    endphp
+ endif*/
+
+ ?>
 
 
 <body>
@@ -70,7 +79,17 @@ CMRJ | Sala de espera | Cadastrar
         </div>
 
 
+        <!--@if(isset($errors) && count($errors) > 0 )
+             @$foreach($errors->all() as $erro)
+                 {{$erro}}
+             @$endforeach;
+          
+        @endif-->
+      
+        <div class="p-3 mb-2 bg-danger text-white msg-error" style="display: none"> teste</div>
+
         <hr class="mt-0">
+
         <section class="row mt-3">
 
             <div class="col-md-5 col-sm-12 col-12 mb-5">
@@ -78,7 +97,7 @@ CMRJ | Sala de espera | Cadastrar
                 <div class="card">
 
                     <div class="card-body">
-                        <form action="">
+                        <form action="" id="form" method="post" >
 
                             <div class="form-group">
                                 <label for="usuario" class="texto-label">DIGITE SEU E-MAIL/USUÁRIO</label>
@@ -93,7 +112,7 @@ CMRJ | Sala de espera | Cadastrar
                             </div>
 
                             <a href="#" class="btn-link texto-pequeno">Esqueci minha senha</a>
-                            <button type="submit" class="btn btn-success float-right">Entrar</button>
+                            <button type="submit" class="btn btn-success float-right bnt-block">Entrar</button>
                         </form>
 
                     </div>
@@ -137,5 +156,85 @@ CMRJ | Sala de espera | Cadastrar
 
 </html>
 
+<?php 
 
+    if(!empty( app('request')->input('checkout') )){ 
+       $checkout = 1; 
+     }else{ 
+       $checkout = 0; 
+    } 
+
+
+
+
+?>
+<script type="text/javascript">
+  
+let redirectType = <?=$checkout?>
+
+console.log(redirectType);
+
+$("#form").submit(function() {
+     
+    let login = $("#usuario").val();
+    let senha = $("#senha").val();
+
+    $(".bnt-block").prop('disabled', true);
+
+  if(login.length < 3 && senha.length < 3  ){
+   
+     $(".msg-error").css("display","block");
+     $(".msg-error").html(" ");
+     $(".msg-error").html("Digite as informação corretamente  ! ");
+     return false;
+  }
+
+  $.ajax({
+      cache: false,
+      type: "POST",
+      url: "<?php echo url('/loginuser'); ?>",
+      data: { 
+          "usuario": login,
+          "senha": senha
+      },
+      beforeSend: function() {  
+            //loand
+      },
+      success: function(response) {
+            
+              console.log(response);
+    $(".bnt-block").prop('disabled', false);
+
+            if(response == 1){
+             
+                 alert("Login realizado com sucesso ");
+
+                 if(redirectType == 1){
+                   
+                    window.location= "<?php echo url('/checkout?login=true'); ?>";
+                 
+                   }else{
+
+                    window.location= "<?php echo url('/'); ?>";
+
+                   }
+
+            }else{
+
+                   $(".msg-error").css("display","block");
+                   $(".msg-error").html(" ");
+                   $(".msg-error").html("Ops.. Senha e/ou Login invalidos ! ");
+
+            }
+
+        }
+
+  });
+            
+
+
+                return false;
+  });
+
+</script>
 @stop

@@ -63,92 +63,41 @@ class WebSiteController extends Controller
 
     public function UpdateCart($quantidade,$produto){
 
-        $items = $request->session()->get('cart');
+        $items = session('carrinhob');
+          
+            for ($i=0; $i < count($items) ; $i++) { 
+                  if($items[$i][0]['cod_produto'] == $produto){
+                     
+                       $items[$i][0]['quantidade'] = $quantidade;
 
-			foreach ($items as &$item) {
-			  if ($item['product_id'] == $produto) {
-			      $item['quantidade'] = $quantidade;
-			    }
-			}
+                   }   
+               }
 
-		  $request->session()->put('cart', $items);
+         
+          Session(['carrinhob' => $items]);
 
     }
 
-   public function VerificaProdutoCarrinho($produto){
-            $items  =  session('cart', []);
-          
-            dd($items );
-			foreach ($items as $item) {
-			   print_r($item);
-			}
 
-          return false;
+   public function VerificaProdutoCarrinho($produto){
+            
+            echo 'verificacaoo';
+            $items = session('carrinhob');
+            for ($i=0; $i < count($items) ; $i++) { 
+                  if($items[$i][0]['cod_produto'] == $produto){
+                     return $items[$i][0]['cod_produto'];
+                   }   
+               }
+
+             return false;
+            
 
     }
 
     
 
 
-     //verifica se o evento tem disponivel, tipo de ingresso grupo ou/e pf
-     public function addCart(Request $request){
-
-     	  $evento             = $request->input('id_evento');
-          $produto            = $request->input('produto');
-          $produto_quantidade = $request->input('produto_quantidade');
-          $produto_preco      = $request->input('produto_preco');
-
-		
-	      
-		  
-		 if (!session()->has('carreto')){
-		  
-		  $produto_novo = [
-				[
-				     "cod_evento"  => $evento,
-                     "cod_produto" => $produto,
-                     "quantidade"  => $produto_quantidade,
-                     "valor"       => $produto_preco
-				]
-			];
-
-		  	session(['carreto' => $produto_novo]);
-		  	//dd(session('cart'));
-		  	echo 'session created';
-		  	
-
-		  }else{
-
-                $produto_novo   = session('carreto');
-                $produto_novo[] = [
-				[
-				     "cod_evento"  => $evento,
-                     "cod_produto" => $produto,
-                     "quantidade"  => $produto_quantidade,
-                     "valor"       => $produto_preco
-				   ]
-			    ];
-		         
-		        Session::put('carreto', $produto_novo);
-                   
-                 echo 'auto incremnet';
-
-		  }
-
-          
-
-             //add cart 
-		     //session()->put('cart', $data);
-             // session(['cart' => $data]);
-            //recupa cart
-            //$cart = $request->session()->get('cart');
-             dd(session('carreto'));
-            /// dd($request->session()->get('cart'));
-   
-           
- 
-
-     }
+    
 
        //verifica se o evento tem disponivel, tipo de ingresso grupo ou/e pf
      public function buscarIngressosPf(Request $request){

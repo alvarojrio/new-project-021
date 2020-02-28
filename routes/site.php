@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 
 //checkout page
-Route::get('/pacote/{id}', 'WebSiteController@index')->name('checkout');
+Route::get('/pacote/{id}', 'WebSiteController@index')->name('pacote');
 
 
 //busca os tipos de ingressos pf ou grupo
@@ -30,22 +30,49 @@ Route::post('/buscar-ingressos-pf', 'WebSiteController@buscarIngressosPf')->name
 buscar-ingressos-pf');
 
 //busca os ingressos pfs
-Route::post('/add-cart', 'WebSiteController@addCart')->name('
+Route::post('/add-cart', 'CarrinhoController@addCart')->name('
 buscar-ingressos-pf');
 
 
 
 
-//page checkout
-Route::get('/checkout', function () {
-      return view('site.checkout');
-})->name('checkout');
+
+
+//busca os ingressos pfs
+Route::post('/loginuser', 'LoginUsuarioController@loginUsuario')->name('loginUser');
+
+Route::post('/createuser', 'LoginUsuarioController@createUser')->name('createuser');
+
+
+Route::post('/verificaCpf', 'ClienteController@verificaCpf')->name('cadastrarUsuario');
+
+Route::post('/cadastrarUsuario', 'ClienteController@store')->name('store');
+
+
+
+Route::post('/consultarUsuarioLogado', 'LoginUsuarioController@consultarUsuarioLogado')->name('createuser');
+
+
+
+
+
 
 Route::get('/login', function () {
       return view('site.login');
 })->name('login');
 
 Route::get('/cadastro-usuario', function () {
-      return view('site.cadastro');
+      return view('site.cadastrar');
 })->name('cadastro');
 
+
+
+//somente logado..
+Route::group(array('middleware' => array('authcliente:cliente')), function() {
+		//page checkout
+		Route::get('/checkout', function () {
+		   return view('site.checkout');
+		})->name('checkout');
+
+
+});
