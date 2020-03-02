@@ -105,7 +105,9 @@ class WebSiteController extends Controller
          $id_evento = $request->input('id_evento');
 
           $evento = DB::table('eventos_ingressos')->where('cod_evento', '=', $id_evento)->get();
-         
+      
+
+      
             if($evento){
 
             	return json_encode(array(
@@ -130,6 +132,10 @@ class WebSiteController extends Controller
 
           $evento = DB::table('eventos')->where('cod_evento', '=', $id_evento)->first();
          
+           if (session()->has('carrinhob')){
+               session()->forget('carrinhob');
+            }
+
             if($evento->venda_grupo == 1){
                   return 'grupo';
             }else{

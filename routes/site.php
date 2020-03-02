@@ -70,9 +70,11 @@ Route::get('/cadastro-usuario', function () {
 //somente logado..
 Route::group(array('middleware' => array('authcliente:cliente')), function() {
 		//page checkout
-		Route::get('/checkout', function () {
-		   return view('site.checkout');
-		})->name('checkout');
+		//Route::get('/checkout', function () {
+		//})->name('checkout');
+
+       
+      Route::get('/checkout', 'CheckoutController@index')->name('checkout');
 
 
 });

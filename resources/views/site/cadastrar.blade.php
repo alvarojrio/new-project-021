@@ -374,7 +374,9 @@ CMRJ | Sala de espera | Cadastrar
  /**  CADASTRAR CLIENTE **/
          $("#cadastradocliente").submit(function(){
                
-            //  $(".bnt-block").prop('disabled', true);
+            
+
+             $(".bnt-block").prop('disabled', true);
 
              $.ajax({
                url:"<?php echo url('/cadastrarUsuario'); ?>",
@@ -383,13 +385,13 @@ CMRJ | Sala de espera | Cadastrar
                 success: function(data) {
                       
                     json = JSON.parse(data); 
-                  //$(".bnt-block").prop('disabled', false);
+                  $(".bnt-block").prop('disabled', false);
 
                     
                    if(json.status_requisicao == "sucesso"){
                        // alert("Parabéns conta criada..");
                      
-                        window.location= "<?php echo url('/login'); ?>"; 
+                        window.location = "<?php echo url('/login'); ?>"; 
 
                     }else if(json.status_requisicao == "error_form"){
                       

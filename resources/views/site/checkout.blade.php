@@ -114,7 +114,7 @@ CMRJ | Sala de espera | Cadastrar
 
         </section>
 
-        <section class="row mt-5">
+        <section class="row mt-5" style="display: none">
 
             <div class="col-md-12">
 
