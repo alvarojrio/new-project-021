@@ -14,6 +14,7 @@ CMRJ | Sala de espera | Cadastrar
 
 
 <link href="{{ asset('site/css/chekout-estilo.css') }}" rel="stylesheet">
+<link href="{{ asset('card/card.css') }}" rel="stylesheet">
 
 @stop
 
@@ -26,6 +27,7 @@ CMRJ | Sala de espera | Cadastrar
      header("Location: " . URL::to('/login?checkout=true'), true, 302);
      exit();
   }
+      
 
   ?>
 <body>
@@ -78,7 +80,7 @@ CMRJ | Sala de espera | Cadastrar
                     <div class="card-footer">
 
                         <p>
-                            <h6>Total: 00.00</h6>
+                            <h6>Total: <?=$valor_total?></h6>
                         </p>
 
                     </div>
@@ -113,6 +115,8 @@ CMRJ | Sala de espera | Cadastrar
 
 
         </section>
+
+       
 
         <section class="row mt-5" style="display: none">
 
@@ -170,21 +174,53 @@ CMRJ | Sala de espera | Cadastrar
 
         </section>
 
+      
+         <style type="text/css">
+    
+    .devtap{
+                  height: 35px;
+    background-color: #d6d5d5;
+    width: 143px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 15px;
+    cursor:  pointer
+         } 
+        .dsvt{
+                  height: 35px;
+    width: 203px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 10px;
+    cursor:  pointer
+         }
+         </style>
         <section class="row mt-5">
+           
+            <ul class="nav nav-tabs" style="width: 100%;
+    margin-left: 15px;">
+              <li class="active devtap"> CIELO CRÉDITO</li>
+              <li class="dsvt"> PAGSEGURO - CRÉDITO</li>
+              <li class="dsvt">BOLETO</li>
+            </ul>
+
 
             <div class="col-md-12">
 
                 <div class="card">
                     <div class="card-header">
 
-                        <h5>Pagamento</h5>
-                        <span class="text-danger texto-pequeno">* Campo obrigatório</span>
-                    </div>
 
-                </div>
+                    @include('site.cielo')
+
+                  </div>
                 <!--fim do card-->
-
-
             </div>
 
         </section>
@@ -195,31 +231,27 @@ CMRJ | Sala de espera | Cadastrar
             <div class="accordion" id="accordionExample">
 
                 <!-- FORMULÁRIO  Ingresso 1 - PACOTE E-SUITES (DUPLO) -->
-
+            <?php
+ 
+     for ($i=0; $i < count($produtos ); $i++) { 
+          
+      
+            ?>
                 <div class="card">
-                    <div class="card-header" id="headingOne">
+                    <div class="card-header" id="headingOne_<?php echo $i; ?>">
                         <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                                aria-expanded="true" aria-controls="collapseOne">
-                                Ingresso 1 - PACOTE E-SUITES (DUPLO)
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne_<?php echo $i; ?>"
+                                aria-expanded="true" aria-controls="collapseOne_<?php echo $i; ?>">
+                                <?=$produtos[$i]['nome']?>
                             </button>
                         </h2>
                     </div><!-- FIM DO CARD HEADER-->
 
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div id="collapseOne_<?php echo $i; ?>" class="collapse" aria-labelledby="headingOne_<?php echo $i; ?>" data-parent="#accordionExample">
                         <div class="card-body">
                             <form action="">
 
-                                <div class="form-group">
-                                    <label for="selectNomeIngresso1">Forma de tratamento (Sr., Sra., etc.): <span
-                                            class="text-danger">*</span> </label>
-                                    <select class="form-control" id="selectNomeIngresso1">
-                                        <option value="sr">Sr</option>
-                                        <option value="sra">Sra</option>
-                                        <option value="dr">Dr</option>
-                                        <option value="dra">Dra</option>
-                                    </select>
-                                </div>
+                              
 
                                 <div class="form-group">
                                     <label for="nome1">Nome:
@@ -228,13 +260,7 @@ CMRJ | Sala de espera | Cadastrar
                                     <input type="text" class="form-control" id="nome1" placeholder="digite o nome">
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="sobrenome1">Sobrenome:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" id="sobrenome1"
-                                        placeholder="digite o sobrenome">
-                                </div>
+                                
 
                                 <div class="form-group">
                                     <label for="email1">Email:
@@ -310,20 +336,7 @@ CMRJ | Sala de espera | Cadastrar
                                     </label>
                                 </div>
 
-                                <div class="form-group mt-3">
-                                    <label for="termocartao1">Titularidade de Cartão:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="termocartao1"
-                                        rows="3"> Sou o titular do cartão de crédito a ser utilizado nesta compra. Estou ciente que é indispensável a apresentação do cartão acima na entrega do produto.</textarea>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkcartao1">
-                                    <label class="form-check-label" for="checkcartao1">
-                                        Concordo com os termos adicionais acima
-                                    </label>
-                                </div>
+                             
 
                             </form>
                         </div>
@@ -331,281 +344,11 @@ CMRJ | Sala de espera | Cadastrar
                     </div><!--  FIM DA DIV COLLAPSE -->
                 </div><!-- FIM DA DIV CARD -->
 
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Ingresso 2 - PACOTE E-SUITES (DUPLO)
-                            </button>
-                        </h2>
-                    </div>
-                    <!--FIM DO CARD-HEADER-->
-
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                        <div class="card-body">
-                            <form action="">
-
-                                <div class="form-group">
-                                    <label for="selectNomeIngresso1">Forma de tratamento (Sr., Sra., etc.): <span
-                                            class="text-danger">*</span> </label>
-                                    <select class="form-control" id="selectNomeIngresso1">
-                                        <option value="sr">Sr</option>
-                                        <option value="sra">Sra</option>
-                                        <option value="dr">Dr</option>
-                                        <option value="dra">Dra</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="nome1">Nome:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" id="nome1" placeholder="digite o nome">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="sobrenome1">Sobrenome:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" id="sobrenome1"
-                                        placeholder="digite o sobrenome">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email1">Email:
-                                    </label>
-                                    <input type="email" class="form-control" id="email1" placeholder="name@example.com">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="telfixo1">Telefone Residencial:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="tel" class="form-control" id="telfixo1"
-                                        placeholder="digite seu telefone fixo">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="cel1">Celular:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="tel" class="form-control" id="cel1" placeholder="digite seu celular">
-                                </div>
-
-
-                                <h3>Outras informações</h3>
-
-                                <div class="form-group">
-                                    <label for="sexo1">Sexo:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <select class="form-control" id="sexo1">
-                                        <option>Masculino</option>
-                                        <option>Feminino</option>
-                                        <option>Outro</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="data1">Data de Nascimento
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="date" id="data1" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="oe1">RG / Órgão Emissor:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" id="oe1" placeholder="digite o orgão emissor"
-                                        class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="rc1">RG / CPF:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" id="rc1" placeholder="digite RG ou CPF" class="form-control">
-                                </div>
-
-                                <h3>Termos adicionais</h3>
-
-                                <div class="form-group">
-                                    <label for="ca1">Contrato de Adesão:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="ca1"
-                                        rows="6">REGULAMENTO PARA CONHECIMENTO PRÉVIO DO CONSUMIDOR NORMAS GERAIS DE COMPRA E PARTICIPAÇÃO LEITURA OBRIGATORIAANTES DE EFETUAR A SUA COMPRA Pelo presente instrumento, o CONTRATANTE,cadastrado s produtos, o cliente deverá apresentar o cartão de crédito utilizado na compra e assinar um termo de confirmação do reconhecimento da operação.</textarea>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="termocheck1">
-                                    <label class="form-check-label" for="termocheck1">
-                                        Concordo com os termos adicionais acima
-                                    </label>
-                                </div>
-
-                                <div class="form-group mt-3">
-                                    <label for="termocartao1">Titularidade de Cartão:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="termocartao1"
-                                        rows="3"> Sou o titular do cartão de crédito a ser utilizado nesta compra. Estou ciente que é indispensável a apresentação do cartão acima na entrega do produto.</textarea>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkcartao1">
-                                    <label class="form-check-label" for="checkcartao1">
-                                        Concordo com os termos adicionais acima
-                                    </label>
-                                </div>
-
-                            </form>
-                        </div>
-                        <!--FIM DA DIV CARD-BODY -->
-                    </div>
-                    <!--FIM DA DIV COLLAPSE-TOW-->
-                </div>
-                <!--FIM DA DIV CARD-->
-                <div class="card">
-                    <div class="card-header" id="headingThree">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Ingresso 3 - PACOTE E-SUITES (DUPLO)
-                            </button>
-                        </h2>
-                    </div>
-                    <!--FIM DO CARD-HEADER-->
-
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                        data-parent="#accordionExample">
-                        <div class="card-body">
-
-                            <form action="">
-
-                                <div class="form-group">
-                                    <label for="selectNomeIngresso1">Forma de tratamento (Sr., Sra., etc.): <span
-                                            class="text-danger">*</span> </label>
-                                    <select class="form-control" id="selectNomeIngresso1">
-                                        <option value="sr">Sr</option>
-                                        <option value="sra">Sra</option>
-                                        <option value="dr">Dr</option>
-                                        <option value="dra">Dra</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="nome1">Nome:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" id="nome1" placeholder="digite o nome">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="sobrenome1">Sobrenome:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" id="sobrenome1"
-                                        placeholder="digite o sobrenome">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email1">Email:
-                                    </label>
-                                    <input type="email" class="form-control" id="email1" placeholder="name@example.com">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="telfixo1">Telefone Residencial:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="tel" class="form-control" id="telfixo1"
-                                        placeholder="digite seu telefone fixo">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="cel1">Celular:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="tel" class="form-control" id="cel1" placeholder="digite seu celular">
-                                </div>
-
-
-                                <h3>Outras informações</h3>
-
-                                <div class="form-group">
-                                    <label for="sexo1">Sexo:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <select class="form-control" id="sexo1">
-                                        <option>Masculino</option>
-                                        <option>Feminino</option>
-                                        <option>Outro</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="data1">Data de Nascimento
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="date" id="data1" class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="oe1">RG / Órgão Emissor:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" id="oe1" placeholder="digite o orgão emissor"
-                                        class="form-control">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="rc1">RG / CPF:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <input type="text" id="rc1" placeholder="digite RG ou CPF" class="form-control">
-                                </div>
-
-                                <h3>Termos adicionais</h3>
-
-                                <div class="form-group">
-                                    <label for="ca1">Contrato de Adesão:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="ca1"
-                                        rows="6">REGULAMENTO PARA CONHECIMENTO PRÉVIO DO CONSUMIDOR NORMAS GERAIS DE COMPRA E PARTICIPAÇÃO LEITURA OBRIGATORIAANTES DE EFETUAR A SUA COMPRA Pelo presente instrumento, o CONTRATANTE,cadastrado eletronicamente (IP) no siteFOLIASHOP (www.foliashop.com.br) celebra por meio eletrônico – internet – o presente contrato com GRUPO ZERO VINTE UM TURISMO E EVENTOS EIRELI inscritacartão de crédito, somente poderão ser efetuadas em nome do próprio titular do cartão de crédito respectivo. 15.1) Nas compras realizadas pela forma e no período acima indicados, o cliente deverá comparecer, pessoalmente, para retirar os Ingressos, abadás ou camisetas de acesso, não podendo se fazer substituir por procurador ou terceiro. Para retirar os produtos, o cliente deverá apresentar o cartão de crédito utilizado na compra e assinar um termo de confirmação do reconhecimento da operação.</textarea>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="termocheck1">
-                                    <label class="form-check-label" for="termocheck1">
-                                        Concordo com os termos adicionais acima
-                                    </label>
-                                </div>
-
-                                <div class="form-group mt-3">
-                                    <label for="termocartao1">Titularidade de Cartão:
-                                        <span class="text-danger">*</span>
-                                    </label>
-                                    <textarea class="form-control" id="termocartao1"
-                                        rows="3"> Sou o titular do cartão de crédito a ser utilizado nesta compra. Estou ciente que é indispensável a apresentação do cartão acima na entrega do produto.</textarea>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkcartao1">
-                                    <label class="form-check-label" for="checkcartao1">
-                                        Concordo com os termos adicionais acima
-                                    </label>
-                                </div>
-
-                            </form>
-                        </div>
-                        <!--FIM DA DIV CARD-BODY -->
-                    </div>
-                    <!--FIM DA DIV COLLAPSE-->
-                </div>
+              
+        
+<?php
+ }
+?>
                 <!--FIM DA DIV CARD-->
             </div>
             <!--FIM DA DIV ACCORDION-->
@@ -613,7 +356,7 @@ CMRJ | Sala de espera | Cadastrar
 
         <section class="mt-5 mb-5 bg-light border p-3 text-center">
 
-            <button type="button" class="btn btn-lg btn-success">Pagar Agora</button>
+            <button type="button" class="btn btn-lg btn-success finalizar-pagamento" onclick="finalizarpagamento()">Pagar Agora</button>
 
             <div class="p-3">
                 <p class="texto-pequeno">
@@ -675,6 +418,34 @@ CMRJ | Sala de espera | Cadastrar
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
+
+
+        <script type="text/javascript" src="{{ asset('card/payment.min.js') }}"></script> 
+        <script type="text/javascript" src="{{ asset('card/card.js') }}"></script> 
+
+<script type="text/javascript">
+            
+ new Card({
+            form: document.querySelector('.form'),
+            container: '.card-wrapper',
+      
+    placeholders: {
+        number: '•••• •••• •••• ••••',
+        name: 'NOME IMPRESSO NO CARTÃO',
+        expiry: '••/••',
+        cvc: '•••'
+        }
+        });
+
+ function finalizarpagamento(){
+
+  var data = JSON.stringify( $("#form_cieloo").serializeArray() ); 
+  
+   console.log(JSON.parse(data));
+
+   return false;
+}
+</script>
 </body>
 
 </html>
@@ -686,3 +457,6 @@ CMRJ | Sala de espera | Cadastrar
 
 
 @stop
+
+
+

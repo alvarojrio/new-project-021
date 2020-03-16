@@ -19,8 +19,8 @@
 
 
 </head>
-
-      
+@yield('includes_no_head')
+  
 
 <script type="text/javascript" src="{{ asset('jquery-3.4.1.min.js') }}"></script> 
        
@@ -37,3 +37,5 @@
 
 
 @yield('conteudo')
+
+

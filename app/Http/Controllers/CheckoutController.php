@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Ingresso;
 
 class CheckoutController extends Controller
 {
@@ -15,13 +16,28 @@ class CheckoutController extends Controller
     public function index()
     {      
 
+          $items      = session('carrinhob');
+          $produtos   = array();
+          $valor_total = 0;
+          $i=0; 
+
+          for ($i=0; $i < count($items) ; $i++) {
+
+          $id = ($items[$i][0]['cod_produto']);
+           
+             $result = Ingresso::find($id);
+            if ($result->count()){
+                $produtos[] = $result->ToArray();  
+                $valor_total +=  $result['preco'];
+              }
+          }
+        
 
 
-         $items = session('carrinhob');
 
-           //dd($items);
-
-            return view('site.checkout');
+ return view('site.checkout')
+                          ->with('produtos', $produtos)
+                          ->with('valor_total', $valor_total);
     }
 
     /**
