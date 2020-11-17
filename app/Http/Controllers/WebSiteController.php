@@ -54,7 +54,7 @@ class WebSiteController extends Controller
                                    ->with('dia_semana', $diar)
                                    ->with('mes', $mesr);
          }else{
-              echo 'laravel ta maluco';
+              echo 'PACOTE NÃO ENCONTRADO.';
          }
 
 

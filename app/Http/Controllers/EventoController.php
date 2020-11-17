@@ -8,6 +8,11 @@ use App\Evento;
 use App\Ingresso;
 use App\EventoDetalhes;
 
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+   
 class EventoController extends Controller
 {
     /**
@@ -35,6 +40,39 @@ class EventoController extends Controller
 
 
 
+public  function  login(Request $request){
+      
+      $login = $request->input('usuario');
+      $senha = $request->input('senha');
+
+
+    // Array de informações do usuário 
+            $infoUsuario = array(
+                'usuario' => $login,
+                'password' => $senha,
+                'status' => 1
+            );
+
+          //  dd($request->all());
+
+            // Efetua tentativa de login
+            $login = Auth::guard('cliente')->attempt($infoUsuario);
+
+ 
+            if($login){
+
+                Session::regenerate();
+                return redirect()->route('adminzao');
+
+            }else{
+
+                return  redirect()->route('admin-login');
+            
+         }
+
+    
+
+}
  
  public function detalhesCreate(Request $request){
         

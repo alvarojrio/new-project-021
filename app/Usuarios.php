@@ -29,7 +29,7 @@ class Usuarios extends Model implements AuthenticatableContract, CanResetPasswor
      * um array associativo as colunas da classe
      */
     protected $fillable = [
-        'cod_perfil',
+        'clientes_id',
         'tipo',
         'usuario',
         'senha',
@@ -59,7 +59,11 @@ class Usuarios extends Model implements AuthenticatableContract, CanResetPasswor
     }
 
     
-
+    public function Clientes()
+    {
+        //     $this->hasOne(relacao, chave estrangeira, primary key);
+        return $this->hasOne(Cliente::class, 'clientes_id','clientes_id');
+    }
 
 
     /*

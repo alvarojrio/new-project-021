@@ -34,6 +34,70 @@
             </li>
 
 
+
+
+
+           
+            <li>
+                <a><i class="far fa-handshake"></i> <span class="texto-menu">Clientes</span> <span class="fas fa-chevron-down navegacao-chevron"></span></a>
+                
+
+
+
+                <ul class="nav child_menu">
+                <li><a href="<?php echo url('admin/clientes/cadastrar'); ?>"> <span class="far fa-handshake"></span> Cadastrar</a></li>
+                <li><a href="<?php echo url('admin/clientes/listar'); ?>"> <span class="far fa-handshake"></span> Listar</a></li>
+                </ul>
+
+
+
+
+
+            </li>
+
+
+
+
+  
+            <li>
+                <a><i class="far fa-handshake"></i> <span class="texto-menu">Local</span> <span class="fas fa-chevron-down navegacao-chevron"></span></a>
+                
+
+
+
+                <ul class="nav child_menu">
+                <li><a href="<?php echo url('admin/local/cadastrar'); ?>"> <span class="far fa-handshake"></span> Cadastrar</a></li>
+                <li><a href="<?php echo url('admin/local/listar'); ?>"> <span class="far fa-handshake"></span> Listar</a></li>
+                </ul>
+
+
+
+
+
+            </li>
+
+
+
+
+
+
+
+
+            <li>
+                <a href="#"><i class="far fa-handshake"></i> <span class="texto-menu">Pedidos</span> <span class="fas fa-chevron-down navegacao-chevron"></span></a>
+            
+
+
+            </li>
+
+
+
+
+
+
+
+
+
         </ul>
 
     </div>

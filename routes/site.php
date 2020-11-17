@@ -21,6 +21,12 @@ Route::get('/', function () {
 //checkout page
 Route::get('/pacote/{id}', 'WebSiteController@index')->name('pacote');
 
+/*LancamentosController*/
+
+Route::get('/admin/financeiro/lancamentos', 'LancamentosController@index');
+Route::get('/admin/financeiro/lancamentos/detalhe/{id}', 'LancamentosController@detalhe')->name('detalhes-lancamento');
+
+/*LancamentosController*/
 
 //busca os tipos de ingressos pf ou grupo
 Route::post('/buscar-tipos-ingresso', 'WebSiteController@buscarTipoIngressos')->name('buscarajax');
@@ -74,7 +80,10 @@ Route::group(array('middleware' => array('authcliente:cliente')), function() {
 		//})->name('checkout');
 
        
-      Route::get('/checkout', 'CheckoutController@index')->name('checkout');
-
+            Route::get('/checkout', 'CheckoutController@index')->name('checkout');
+           
+            Route::post('/finalizar-pedido-cielo', 'FinalizarPedidoCieloController@postPagarCielo');
+            Route::post('/finalizar-pedido-pagseguro-credito', 'FinalizarPedidoPagseguroCreditoController@postPagarPagseguroCredito');
+            
 
 });

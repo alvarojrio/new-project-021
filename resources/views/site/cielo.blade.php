@@ -1,5 +1,6 @@
 <div id="detalhes_cielo" class="bkg-gray clearfix" style="display: block;">
-                               
+<h3>Cielo</h3>
+            <hr>                   
 
          <form id="form_cieloo" class="form" name="form_cieloo" method="post">
            
@@ -46,7 +47,7 @@
             <div class="form-group">
             <label>Data Vencimento <small class="bandeira_text"></small></label>
 
-            <input placeholder="MM/YYYY" class="input-lg form-control" type="tel" id="validadecielo" name="expiry">
+            <input placeholder="MM/YYYY" class="input-lg form-control data_vencimento_cielo" type="tel" id="validadecielo" name="expiry">
 
             <!--  <input name="cartao_codigo_cielo" type="text" class="input-lgform-control cc-cvc" id="cartao_codigo_cielo" type="tel" autocomplete="cc-cvc" required>-->
             </div>
@@ -75,7 +76,7 @@
         <label>Parcelas</label>
         <div class="select-helper">
         <select name="qtd_parcelas_cielo" id="qtd_parcelas_cielo"  class="form-control" style="min-width:80px;margin-left:0px;">
-            <option value='1'>ALVARO</option>
+            <option value='1'>1</option>
         </select>
         </div>
      </div>
@@ -93,11 +94,4 @@
   </form>
 
 
-
-
-
-
-
-
-
-                    </div>
+ </div>

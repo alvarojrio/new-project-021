@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Ingresso;
+use App\Usuarios;
+use App\Evento;
 
+use Auth;
 class CheckoutController extends Controller
 {
     /**
@@ -16,28 +19,71 @@ class CheckoutController extends Controller
     public function index()
     {      
 
+    
+
           $items      = session('carrinhob');
           $produtos   = array();
           $valor_total = 0;
           $i=0; 
+          $cod_evento = $items[0][0]['cod_evento'];
 
+   
           for ($i=0; $i < count($items) ; $i++) {
 
           $id = ($items[$i][0]['cod_produto']);
            
+             
              $result = Ingresso::find($id);
             if ($result->count()){
                 $produtos[] = $result->ToArray();  
-                $valor_total +=  $result['preco'];
+                $valor_total +=  $result['preco'] * $items[$i][0]['quantidade'];
               }
           }
+
         
 
 
+        
+         // $buscar_cliente = Usuarios::with('Clientes')->find(Auth::guard('cliente')->user()->cod_usuario);
+         $event = Evento::with('detalhes')->where('eventos.status', '=', 1)->find($cod_evento);
+        
+         $array = $event->toArray();
 
+          $dia   = array('Dom', 'Seg', 'Ter', 'Quar', 'Qui', 'Sex', 'Sab');
+
+          $meses = array(
+			    '01'=>'Janeiro',
+			    '02'=>'Fevereiro',
+			    '03'=>'Março',
+			    '04'=>'Abril',
+			    '05'=>'Maio',
+			    '06'=>'Junho',
+			    '07'=>'Julho',
+			    '08'=>'Agosto',
+			    '09'=>'Setembro',
+			    '10'=>'Outubro',
+			    '11'=>'Novembro',
+			    '12'=>'Dezembro'
+			);
+
+          $mes  = substr($array['data_inicio'], 5, 2);
+          $mesr = $meses[$mes];
+
+          $d    =  date('w', strtotime($array['data_inicio']));
+          $diar = $dia[$d]; 
+
+
+         /***
+          * quando adicionar um produto extra, adiciona o puto dentro o vetor session, no  session('carrinhob')
+          */
+         
  return view('site.checkout')
                           ->with('produtos', $produtos)
-                          ->with('valor_total', $valor_total);
+                          ->with('valor_total', $valor_total)
+                          ->with('dados', $array)
+                          ->with('cod_evento', $cod_evento)
+                          ->with('dia_semana', $diar)
+                          ->with('mes', $mesr);
     }
 
     /**

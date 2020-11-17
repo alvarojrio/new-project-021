@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="google" value="notranslate" />
     <meta name="dcterms.audience" content="Global" />
-    <meta name="dcterms.rights" content="(c) {{ date('Y') }} Dr.Club" /> 
+    <meta name="dcterms.rights" content="(c) {{ date('Y') }} CMRJ" /> 
 
     <!-- FAVICON --> 
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" />
@@ -35,13 +35,7 @@
               <h4>Acesso do </h4>
               <h1>Administrador</h1>
 
-              @if(session('success') != null)
-              <div class="alert alert-success">{{ session('success') }}</div>
-              @endif
-
-              @if(session('error') != null)
-              <div class="alert alert-danger">{{ session('error') }}</div>
-              @endif
+           
 
               <div>
                 <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuário" value="{{ old('usuario') }}" autocomplete="off" required />
@@ -64,8 +58,8 @@
 
               <div class="separator">
                 <div>
-                  <h1>Clínica Rio de Janeiro</h1>
-                  <p style="font-size: 11px;">© {{ date('Y') }} Todos direitos reservados - Clínicas Integradas Rio de Janeiro</p>
+                  <h1>SISTEMA LANCHAS</h1>
+                  <p style="font-size: 11px;">© {{ date('Y') }} Todos direitos reservados - LANCHAS</p>
                 </div>
               </div>
 

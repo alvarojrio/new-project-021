@@ -43,7 +43,7 @@ class LoginUsuarioController extends Controller
 
 public function consultarUsuarioLogado(){
 
-           dd( Auth::guard('cliente')->user()->usuario );
+           return  Auth::guard('cliente')->user() ;
 }
 
  
@@ -73,15 +73,13 @@ public function consultarUsuarioLogado(){
          
          $senha = Hash::make($senha);
 
-         $usuario->cod_perfil =  $cod_cliente;
+         $usuario->clientes_id =  $cod_cliente;
          $usuario->tipo = 1;
          $usuario->usuario = $login;
          $usuario->senha   = $senha;
          $usuario->email = 1;
         
-         $usuario->save();
-
-
+         return $usuario->save();
  
 
     }

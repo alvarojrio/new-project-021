@@ -12,6 +12,24 @@
 */
 
 
+Route::get('/admin/login', function () {
+      return view('index');
+})->name('admin-login');
+
+Route::get('/admin/logar', function () {
+      return view('admin.login.index');
+})->name('admin-login');
+
+Route::post('/admin/action', 'EventoController@login')->name('admin-logar');
+
+
+
+
+
+
+Route::group(array('middleware' => array('authcliente:cliente')), function() {
+	
+
 Route::get('/admin', function () {
       return view('index');
 })->name('home');
@@ -19,7 +37,7 @@ Route::get('/admin', function () {
 
 Route::get('/admin', function () {
       return view('admin.index');
-})->name('admin');
+})->name('adminzao');
 
 
 //pagina de cadastro
@@ -55,8 +73,44 @@ Route::get('/evento/tickets/{edit}', array(
 
 
 Route::post('/evento/detalhes/create', array(
-	  'uses' =>'EventoController@detalhesCreate'
+	'uses' =>'EventoController@detalhesCreate'
 ))->name('detalhesCreate');
+
+
+
+
+Route::get('/admin/clientes/listar', array(
+	'uses' =>'ClientesController@listar'
+))->name('clientes-listar');
+
+
+
+Route::get('/admin/clientes/editar/{id}', array(
+	'uses' =>'ClientesController@editar'
+))->name('clientes-editar');
+
+Route::post('/admin/clientes/acaoEditar', array(
+	'uses' =>'ClientesController@acaoEditar'
+))->name('clientes-acaoEditar');
+
+
+
+
+Route::get('/admin/clientes/cadastrar', array(
+	'uses' =>'ClientesController@getCriarUsuario'
+))->name('clientes-cadastrar');
+
+Route::post('/admin/clientes/acaoCreate', array(
+	'uses' =>'ClientesController@createUser'
+))->name('clientes-acaoCreate');
+
+
+
+
+
+Route::post('/admin/clientes/ajaxListar', array(
+	'uses' =>'ClientesController@ajaxListar'
+))->name('clientesajaxListar');
 
 
 
@@ -86,3 +140,13 @@ Route::post('/ingresso/showTicketsid', array(
 Route::post('/ingresso/excluirTickets', array(
 	  'uses' =>'IngressosController@excluirTickets'
 ))->name('excluirTickets');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/local/listar', 'LocalController@getLocal')->name('local-index');
+Route::get('/admin/local/cadastrar', 'LocalController@getLocalCadastrar')->name('local-cadastrar');
+Route::get('/admin/local/editar', 'LocalController@getLocalEditar')->name('local-editar');
+
+});

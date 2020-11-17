@@ -34,7 +34,6 @@ class ClienteFormStoreRequest extends FormRequest
                   'endereco' => 'required',
                   'numero' => 'required',
                   'complemento' => 'required',
-
                   'bairro' => 'required',
                   'senha' => 'required',
         ];

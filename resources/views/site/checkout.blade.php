@@ -12,10 +12,36 @@ CMRJ | Sala de espera | Cadastrar
 <link rel="shortcut icon"
         href="https://cdn.evbstatic.com/s3-build/perm_001/471d17/django/images/favicons/favicon.ico">
 
+        <script type="text/javascript" src="{{ PagSeguro::getUrl()['javascript'] }}"></script>
+
+       
+
 
 <link href="{{ asset('site/css/chekout-estilo.css') }}" rel="stylesheet">
 <link href="{{ asset('card/card.css') }}" rel="stylesheet">
+<style type="text/css">
+    
+.active{
+    background-color: #f7f7f7 !important;
+    color: #000000 !important;
+    font-weight: 600;
+    border: 1px solid #dee2e6;
+} 
+.dsvt{
+height: 35px;
+width: 203px;
+text-align: center;
+margin: 0px;
+padding: 0px;
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
+margin-right: 10px;
+cursor: pointer;
+background-color: #e6e6e6;
+color: #565656;
+}
 
+     </style>
 @stop
 
 @section('conteudo')
@@ -28,8 +54,11 @@ CMRJ | Sala de espera | Cadastrar
      exit();
   }
       
+   //dd($evento);
 
   ?>
+
+
 <body>
 
     <header>
@@ -52,11 +81,17 @@ CMRJ | Sala de espera | Cadastrar
         <section class="row">
 
             <div class="col-md-8 mb-3">
-                <h3>VILLA MIX BH 2019</h3>
-                <p class="lead">Terça-feira, 3 de setembro de 2019 das 15:00 às 18:00 (Horário Padrão de Brasília
-                    Horário Brasil (São Paulo))
+                <h3><?=$dados['nome_evento']?></h3>
+                <p class="lead"><?=$dia_semana?>, <?=substr($dados['data_inicio'], 8, 6)?> de <?=$mes?> de <?=substr($dados['data_inicio'], 0, 4)?> (Horário Padrão de Brasília
+                    Horário Brasil <?=substr($dados['hora_inicio'], 0, 5)?> – 
+<?=substr($dados['hora_fim'], 0, 5)?> 
                     São José, MG</p>
             </div>
+
+
+
+
+
 
             <div class="col-md-4">
                 <img src="{{asset('site/img/logo-mini.jpg')}}" class="img-fluid" alt="Villa Mix BH">
@@ -175,53 +210,49 @@ CMRJ | Sala de espera | Cadastrar
         </section>
 
       
-         <style type="text/css">
-    
-    .devtap{
-                  height: 35px;
-    background-color: #d6d5d5;
-    width: 143px;
-    text-align: center;
-    margin: 0px;
-    padding: 0px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    margin-right: 15px;
-    cursor:  pointer
-         } 
-        .dsvt{
-                  height: 35px;
-    width: 203px;
-    text-align: center;
-    margin: 0px;
-    padding: 0px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    margin-right: 10px;
-    cursor:  pointer
-         }
-         </style>
+         
         <section class="row mt-5">
            
-            <ul class="nav nav-tabs" style="width: 100%;
-    margin-left: 15px;">
-              <li class="active devtap"> CIELO CRÉDITO</li>
-              <li class="dsvt"> PAGSEGURO - CRÉDITO</li>
-              <li class="dsvt">BOLETO</li>
+            <ul class="nav nav-tabs" style="width: 100%;margin-left: 15px;">
+              <li class="dsvt active" onclick="activeCielo()"> CIELO CRÉDITO</li>
+              <li class="dsvt"        onclick="activePagseguro()"> PAGSEGURO - CRÉDITO</li>
+              <li class="dsvt"        onclick="activeBoleto()">BOLETO</li>
             </ul>
 
 
-            <div class="col-md-12">
+            <div class="col-md-12 view-cielo">
 
-                <div class="card">
+                <div class="card ">
                     <div class="card-header">
-
-
-                    @include('site.cielo')
+                     
+                       @include('site.cielo')
 
                   </div>
                 <!--fim do card-->
             </div>
+
+
+
+
+
+            <div class="col-md-12 view-pagseguro" style="display:none">
+
+                <div class="card">
+                    <div class="card-header">
+                     
+                       @include('site.pagseguro')
+
+                  </div>
+                <!--fim do card-->
+            </div>
+
+
+
+
+
+
+
+            
 
         </section>
 
@@ -231,13 +262,17 @@ CMRJ | Sala de espera | Cadastrar
             <div class="accordion" id="accordionExample">
 
                 <!-- FORMULÁRIO  Ingresso 1 - PACOTE E-SUITES (DUPLO) -->
-            <?php
- 
-     for ($i=0; $i < count($produtos ); $i++) { 
-          
+                
+
+  <?php
+ // dd($produtos;
+     for ($i=0; $i < count($produtos); $i++) { 
+
       
             ?>
                 <div class="card">
+                <input type="hidden" id="produto_idt" value="<?=$produtos[$i]['cod_ingresso']?>">
+             
                     <div class="card-header" id="headingOne_<?php echo $i; ?>">
                         <h2 class="mb-0">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne_<?php echo $i; ?>"
@@ -249,7 +284,7 @@ CMRJ | Sala de espera | Cadastrar
 
                     <div id="collapseOne_<?php echo $i; ?>" class="collapse" aria-labelledby="headingOne_<?php echo $i; ?>" data-parent="#accordionExample">
                         <div class="card-body">
-                            <form action="">
+                            
 
                               
 
@@ -257,7 +292,7 @@ CMRJ | Sala de espera | Cadastrar
                                     <label for="nome1">Nome:
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="text" class="form-control" id="nome1" placeholder="digite o nome">
+                                    <input type="text" class="form-control" id="nome1" name="nome" require="true" placeholder="digite o nome">
                                 </div>
 
                                 
@@ -265,7 +300,7 @@ CMRJ | Sala de espera | Cadastrar
                                 <div class="form-group">
                                     <label for="email1">Email:
                                     </label>
-                                    <input type="email" class="form-control" id="email1" placeholder="name@example.com">
+                                    <input type="email" class="form-control" id="email1" name="email" placeholder="name@example.com">
                                 </div>
 
                                 <div class="form-group">
@@ -280,7 +315,7 @@ CMRJ | Sala de espera | Cadastrar
                                     <label for="cel1">Celular:
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="tel" class="form-control" id="cel1" placeholder="digite seu celular">
+                                    <input type="tel" class="form-control" id="cel1" name="celular" placeholder="digite seu celular">
                                 </div>
 
 
@@ -301,7 +336,7 @@ CMRJ | Sala de espera | Cadastrar
                                     <label for="data1">Data de Nascimento
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <input type="date" id="data1" class="form-control">
+                                    <input type="date" id="nascimento1" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -319,6 +354,8 @@ CMRJ | Sala de espera | Cadastrar
                                     <input type="text" id="rc1" placeholder="digite RG ou CPF" class="form-control">
                                 </div>
 
+                              
+                              
                                 <h3>Termos adicionais</h3>
 
                                 <div class="form-group">
@@ -330,7 +367,7 @@ CMRJ | Sala de espera | Cadastrar
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="termocheck1">
+                                    <input class="form-check-input"  type="checkbox" value="" id="termocheck1">
                                     <label class="form-check-label" for="termocheck1">
                                         Concordo com os termos adicionais acima
                                     </label>
@@ -338,7 +375,7 @@ CMRJ | Sala de espera | Cadastrar
 
                              
 
-                            </form>
+                      
                         </div>
                         <!--FIM DA DIV CARD-BODY -->
                     </div><!--  FIM DA DIV COLLAPSE -->
@@ -348,7 +385,8 @@ CMRJ | Sala de espera | Cadastrar
         
 <?php
  }
-?>
+?>      
+
                 <!--FIM DA DIV CARD-->
             </div>
             <!--FIM DA DIV ACCORDION-->
@@ -356,7 +394,19 @@ CMRJ | Sala de espera | Cadastrar
 
         <section class="mt-5 mb-5 bg-light border p-3 text-center">
 
-            <button type="button" class="btn btn-lg btn-success finalizar-pagamento" onclick="finalizarpagamento()">Pagar Agora</button>
+         <div class="view-cielo"  style="display:block">
+              <button type="button" class="btn btn-lg btn-success finalizar-pagamento" onclick="FinalizarPagamentoCielo()">Pagar Agora</button>
+          </div>
+          
+          <div class="view-pagseguro"  style="display:none">
+              <button type="button" class="btn btn-lg btn-success finalizar-pagamento" onclick="FinalizarPagamentoPagseguroCredito()">Pagar Agora</button>
+          </div>
+
+          <div class="view-boleto" style="display:none">
+              <button type="button" class="btn btn-lg btn-success finalizar-pagamento" onclick="FinalizarPagamentoPagseguroBoleto()">Pagar Agora</button>
+          </div>
+
+
 
             <div class="p-3">
                 <p class="texto-pequeno">
@@ -408,43 +458,367 @@ CMRJ | Sala de espera | Cadastrar
             </div>
         </section>
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+   
+   
+     <input type="hidden" id="valor_total_checkout" value="<?=$valor_total?>">
+               
+   
 
 
         <script type="text/javascript" src="{{ asset('card/payment.min.js') }}"></script> 
         <script type="text/javascript" src="{{ asset('card/card.js') }}"></script> 
 
+
+
+
+
 <script type="text/javascript">
-            
- new Card({
-            form: document.querySelector('.form'),
-            container: '.card-wrapper',
-      
-    placeholders: {
-        number: '•••• •••• •••• ••••',
-        name: 'NOME IMPRESSO NO CARTÃO',
-        expiry: '••/••',
-        cvc: '•••'
-        }
-        });
 
- function finalizarpagamento(){
+const cod_evento = <?=$cod_evento?>;
+console.log(cod_evento);
+$(document).ready(function(){
+    
+    PagSeguroDirectPayment.setSessionId('{{ PagSeguro::startSession() }}'); //PagSeguroRecorrente tem um método identico, use o que preferir neste caso, não tem diferença.
 
-  var data = JSON.stringify( $("#form_cieloo").serializeArray() ); 
+    $('.pagseguro_cc_card_num').keyup(function(){
+        pagseguroValidateCard(this, false);
+    });
+    $('.pagseguro_cc_card_num').focusout(function(){
+        pagseguroValidateCard(this, true);
+    });
+    $('input.pagseguro_radio').change(function(){
+        $('.pagseguro-form').hide();
+        $('.pagseguro-' + $('input.pagseguro_radio:checked').val() ).show();
+    });
+});
+
+
+
+
+
+var paymentModule = 'pagseguro_app';
+
+
+
+function pagseguroValidateCard (element, bypassLengthTest) {
+   
+   // $('input[name=tokencard]').val('');
+    var cardNum = $(element).val().replace(/[^\d.]/g, '');
+    var card_invalid = 'Validamos os primeiros 6 números do seu cartão de crédito e está inválido. Por favor esvazie o campo e tente digitar de novo.';
+
+    if (cardNum.length == 6 || (bypassLengthTest && cardNum.length >= 6)) {
+        console.log(cardNum);
+        PagSeguroDirectPayment.getBrand({
+        cardBin: cardNum.substr(0, 6),
+        success: function(response) {
+            if (typeof response.brand.name != 'undefined') {
+                $('#band').val(response.brand.name);
+                let valor_total = $('#valor_total_checkout').val();
+              
+                PagSeguroDirectPayment.getInstallments({
+                    amount: valor_total,
+                    brand: response.brand.name,
+                    success: function(response1) {
+                        $('select[name=pagseguroParcelas]').html('');
+                        $.each(response1.installments[response.brand.name], function(key, value){
+                            $('select[name=pagseguroParcelas]').append('<option value="'+value.quantity+'x'+value.installmentAmount.toFixed(2)+'">'+value.quantity+' vezes R$: '+value.installmentAmount.toFixed(2).replace('.', ',')+' (Total: '+value.totalAmount.toFixed(2).replace('.', ',')+') - ' + response.brand.name.toUpperCase() + '</option>');
+                             // console.log('<option value="'+value.quantity+'x'+value.installmentAmount.toFixed(2)+'">'+value.quantity+' vezes {{ ('currency_symbol') }} '+value.installmentAmount.toFixed(2).replace('.', ',')+' (Total: '+value.totalAmount.toFixed(2).replace('.', ',')+') - ' + response.brand.name.toUpperCase() + '</option>');
+                        });
+                       // $('.pagseguro-installments').show();
+                       // $('.pagseguro-installments-info').hide();
+                    },
+                    error: function(){
+                        alert(card_invalid);
+                    }
+                });
+
+            }else{
+                alert(card_invalid);
+            }
+        },
+        error: function(response) {
+            alert(card_invalid);
+        }});
+    }
+}
+
+
+
+</script>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+function activeCielo(){
+   
+    $(".view-cielo").css('display','block');
+    $(".view-pagseguro").css('display','none');
+    $(".view-boleto").css('display','none');
+
+    return false;
+
+}
+function activePagseguro(){
+   
+    $(".view-cielo").css('display','none');
+    $(".view-pagseguro").css('display','block');
+    $(".view-boleto").css('display','none');
+
+    return false;
+}
+
+
+     
+
+       
+$( document ).ready(function() {
+   
+    setTimeout(function(){ 
+        //alert(PagSeguroDirectPayment.getSenderHash()); 
+        $('#senderHash').val(PagSeguroDirectPayment.getSenderHash()); 
+
+   }, 3000);
+
+});
   
-   console.log(JSON.parse(data));
+
+//cielo
+new Card({
+    form: document.querySelector('.form'),
+            container: '.card-wrapper',
+
+placeholders: {
+    number: '•••• •••• •••• ••••',
+    name: 'NOME IMPRESSO NO CARTÃO',
+    expiry: '••/••',
+    cvc: '•••'
+}
+});
+
+//pagseguro
+new Card({
+    form: document.querySelector('.form2'),
+            container: '.card-wrapper2',
+
+placeholders: {
+    number: '•••• •••• •••• ••••',
+    name: 'NOME IMPRESSO NO CARTÃO',
+    expiry: '••/••',
+    cvc: '•••'
+}
+});
+
+
+
+//etapa 1 papgseguro
+
+function FinalizarPagamentoPagseguroCredito(){
+   
+    let InfoAdicionais = [];
+
+    let nome_cartao =      $("#titular_pagseguro").val();
+    let numero_cartao =    $(".numero_cartao_pagseguro").val();
+    let cod_seguranca =    $("#cod_cartao_pagseguro").val();
+    let data_vencimento =  $("#validade_pagseguro").val();
+    let qnt_parcelas =     $("#pagseguroParcelas").val();
+    let band =     $("#band").val();
+    
+    var mes_ano = data_vencimento.split('/');
+    
+    pagseguroCheckout(band,numero_cartao.trim(),cod_seguranca,mes_ano[0].trim(),mes_ano[1].trim());
+   
+  return false;
+
+}
+
+
+//etapa 2 pagseguro
+ function pagseguroCheckout(bandeira,cartao,cvv,mes,ano) {
+  
+       var param = {
+                brand: bandeira,
+                cardNumber: cartao,
+                cvv: cvv,
+                expirationMonth: mes,
+                expirationYear: ano,
+                success: function(response) {
+                   
+                    $('input[name=tokencard]').val(response.card.token);
+                    //exe a requisição
+                     actionAjaxPagseguro();
+
+                },
+                error: function(response) {
+                   
+                    alert('Cartão de crédito inválido. Não conseguimos processar seu pedido.');
+                    return false;
+
+                }
+            }
+           
+            PagSeguroDirectPayment.createCardToken(param);
+
+}
+
+
+//ultima etapa pagseguro
+function actionAjaxPagseguro(){
+ 
+    let InfoAdicionais = [];
+
+    let nome_cartao =      $("#titular_pagseguro").val();
+    let numero_cartao =    $(".numero_cartao_pagseguro").val();
+    let cod_seguranca =    $("#cod_cartao_pagseguro").val();
+    let data_vencimento =  $("#validade_pagseguro").val();
+    let qnt_parcelas =     $("#pagseguroParcelas").val();
+    let valor_total = $('#valor_total_checkout').val();
+
+    ///gerador apos
+    let senderHash =     $("#senderHash").val();
+    let band       =     $("#band").val();
+    let tokencard  =     $("#tokencard").val();
+
+    var mes_ano = data_vencimento.split('/');
+
+
+    $.ajax({
+        cache: false,
+        type: "POST",
+        url: "<?php echo url('/finalizar-pedido-pagseguro-credito'); ?>",
+        data: { 
+            "nome_cartao": nome_cartao,
+            "numero_cartao": numero_cartao,
+            "cod_seguranca": cod_seguranca,
+            "mes_vencimento":mes_ano[0].trim(),
+            "ano_vencimento":mes_ano[1].trim(),
+            "qnt_parcelas": qnt_parcelas,
+            'valor_total': valor_total,
+            "senderHash": senderHash,
+            "band": band,
+            "cod_evento": cod_evento,
+            "tokencard": tokencard,
+        },
+        beforeSend: function() {  
+            //loand
+        },
+        success: function(response) {
+
+            console.log(response);
+
+        }
+    });
+
+
+}
+
+ function FinalizarPagamentoCielo(){
+   
+      let InfoAdicionais = [];
+
+      let nome_cartao =      $("#titular_cielo").val();
+      let numero_cartao =    $("#cc-number").val();
+      let cod_seguranca =    $("#cartao_codigo_cielo").val();
+      let data_vencimento =  $("#validadecielo").val();
+      let qnt_parcelas =     $("#qtd_parcelas_cielo").val();
+     
+      
+      $('.accordion > .card').each(function() {
+        
+        
+            //"termocheck1 = $('#termocheck1', this).val();
+
+            cpf_do_beneficiario = $('#nome1', this).val();
+            email1 = $('#email1', this).val();
+            telfixo1 = $('#telfixo1', this).val();
+            cel1 = $('#cel1', this).val();
+            sexo1 = $('#sexo1', this).val();
+            nascimento1 = $('#nascimento1', this).val();
+            oe1 = $('#oe1', this).val();
+            rc1 = $('#rc1', this).val();
+            produto_id = $('#produto_idt', this).val();
+            
+            console.log(produto_id);
+            texto = 'INFORMAÇÃO ADICIONAIS<br>';
+            texto += 'CPF'+ cpf_do_beneficiario;
+            texto += '<br>E-MAIL: '+ email1;
+            texto += '<br>TELEFONE FIXO: '+ telfixo1;
+            texto += '<br>CELULAR: '+ cel1;
+            texto += '<br>SEXO: '+ sexo1;
+            texto += '<br>DATA NASCIMENTO: '+ nascimento1;
+            texto += '<br>Orgão Exp: '+ oe1;
+            texto += 'CPF/RG: '+ rc1;
+            
+           infos = {
+            "produto_id": produto_id,
+			"texto": texto
+		    }
+
+		  InfoAdicionais.push(infos);
+          infos = null;
+
+      });
+
+      let valor_total = $('#valor_total_checkout').val();
+
+        
+
+    
+  $.ajax({
+      cache: false,
+      type: "POST",
+      url: "<?php echo url('/finalizar-pedido-cielo'); ?>",
+      data: { 
+          "nome_cartao": nome_cartao,
+          "numero_cartao": numero_cartao,
+          "cod_seguranca": cod_seguranca,
+          "data_vencimento": data_vencimento,
+          "qnt_parcelas": qnt_parcelas,
+          "total": valor_total,
+          "cod_evento": cod_evento,
+          "info_dados": InfoAdicionais
+      },
+      beforeSend: function() {  
+            //loand
+      },
+      success: function(response) {
+
+          console.log(response);
+
+      }
+  });
 
    return false;
 }
+
+function FinalizarPagamentoBoleto(){
+
+var data = JSON.stringify( $("#form_cieloo").serializeArray() ); 
+
+ console.log(JSON.parse(data));
+
+ return false;
+
+ 
+}
+
+function FinalizarPagamentoPagseguro(){
+
+var data = JSON.stringify( $("#form_cieloo").serializeArray() ); 
+
+ console.log(JSON.parse(data));
+
+ return false;
+
+ 
+}
+
 </script>
 </body>
 

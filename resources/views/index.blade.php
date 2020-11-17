@@ -320,10 +320,10 @@ hr {
                 </a>
                 <div class="circle-tile-content dark-blue">
                     <div class="circle-tile-description text-faded">
-                        <a href="javascript:void(null);" class="link-fake"> FUNCIONÁRIOS </a>
+                        <a href="javascript:void(null);" class="link-fake"> ADMINISTRADOR </a>
                     </div>
-                    <div class="circle-tile-subdescription">Para membros da equipe funcionários</div>
-                    <a class="circle-tile-footer" href=""> 
+                    <div class="circle-tile-subdescription">Para membros da equipe de administração</div>
+                    <a class="circle-tile-footer" href="<?php URL('/logar');?>"> 
                         <b>ACESSAR</b> <i class="fa fa-chevron-circle-right"></i>
                     </a>
                 </div>
