@@ -38,10 +38,11 @@
     34 => 'Yajra\\DataTables\\HtmlServiceProvider',
     35 => 'Yajra\\DataTables\\DataTablesServiceProvider',
     36 => 'Artistas\\PagSeguro\\PagSeguroServiceProvider',
-    37 => 'App\\Providers\\AppServiceProvider',
-    38 => 'App\\Providers\\AuthServiceProvider',
-    39 => 'App\\Providers\\EventServiceProvider',
-    40 => 'App\\Providers\\RouteServiceProvider',
+    37 => 'Yajra\\DataTables\\DataTablesServiceProvider',
+    38 => 'App\\Providers\\AppServiceProvider',
+    39 => 'App\\Providers\\AuthServiceProvider',
+    40 => 'App\\Providers\\EventServiceProvider',
+    41 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -66,10 +67,11 @@
     18 => 'Yajra\\DataTables\\HtmlServiceProvider',
     19 => 'Yajra\\DataTables\\DataTablesServiceProvider',
     20 => 'Artistas\\PagSeguro\\PagSeguroServiceProvider',
-    21 => 'App\\Providers\\AppServiceProvider',
-    22 => 'App\\Providers\\AuthServiceProvider',
-    23 => 'App\\Providers\\EventServiceProvider',
-    24 => 'App\\Providers\\RouteServiceProvider',
+    21 => 'Yajra\\DataTables\\DataTablesServiceProvider',
+    22 => 'App\\Providers\\AppServiceProvider',
+    23 => 'App\\Providers\\AuthServiceProvider',
+    24 => 'App\\Providers\\EventServiceProvider',
+    25 => 'App\\Providers\\RouteServiceProvider',
   ),
   'deferred' => 
   array (

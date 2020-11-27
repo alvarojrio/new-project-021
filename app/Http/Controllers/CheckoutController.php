@@ -75,10 +75,37 @@ class CheckoutController extends Controller
 
          /***
           * quando adicionar um produto extra, adiciona o puto dentro o vetor session, no  session('carrinhob')
-          */
+          "cod_evento" => 12
+    "cod_local" => 1
+    "data_inicio" => "2020-01-02"
+    "data_fim" => "2020-02-03"
+    "hora_inicio" => "10:00:00"
+    "hora_fim" => "23:00:00"
+    "nome_evento" => "VILLA MIX BH 2019"
+    "updated_at" => "2020-02-25 21:36:53"
+    "created_at" => "2020-02-25 21:36:53"
+    "status" => 1
+    "venda_grupo" => 0
+    "tipo_grupo" => 0
          
- return view('site.checkout')
+          "cod_evento" => 12
+          "cod_local" => 1
+          "data_inicio" => "2020-01-02"
+          "data_fim" => "2020-02-03"
+          "hora_inicio" => "10:00:00"
+          "hora_fim" => "23:00:00"
+          "nome_evento" => "VILLA MIX BH 2019"
+          "updated_at" => "2020-02-25 21:36:53"
+          "created_at" => "2020-02-25 21:36:53"
+          "status" => 1
+          "venda_grupo" => 0
+          "tipo_grupo" => 0
+          "detalhes"
+        //  dd( $event->nome_evento);
+         dd($array); */
+         return view('site.checkout')
                           ->with('produtos', $produtos)
+                          ->with('total_produto', count($produtos))
                           ->with('valor_total', $valor_total)
                           ->with('dados', $array)
                           ->with('cod_evento', $cod_evento)

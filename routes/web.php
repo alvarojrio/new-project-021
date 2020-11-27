@@ -147,6 +147,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin/local/listar', 'LocalController@getLocal')->name('local-index');
 Route::get('/admin/local/cadastrar', 'LocalController@getLocalCadastrar')->name('local-cadastrar');
+Route::post('/admin/local/cadastrar', 'LocalController@postLocalCadastrar')->name('local-cadastrar');
 Route::get('/admin/local/editar', 'LocalController@getLocalEditar')->name('local-editar');
+Route::post('/admin/local/editar', 'LocalController@getLocalEditar')->name('local-editar');
 
 });

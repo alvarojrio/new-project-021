@@ -220,6 +220,7 @@ $.ajaxSetup({
     }
 });
 
+
 function addAoCarrinho(select, valor, preco, ingresso){
     
     let produto_valor   =   valor;
@@ -227,7 +228,9 @@ function addAoCarrinho(select, valor, preco, ingresso){
     
     let produto_id      =   ingresso;
     let quantidade      = $(select).val();
-
+ 
+    $("#button-ingresso").attr("disabled", false);
+    $("#button-ingresso").removeClass("disabled");
 
  $.ajax({
       cache: false,

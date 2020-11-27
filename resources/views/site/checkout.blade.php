@@ -105,10 +105,10 @@ color: #565656;
 
                     <div class="card-body">
 
-                        <p> TIPO DE INGRESSO: <span class="text-primary">Valor aqui</span></p>
-                        <p>PREÇO: <span class="text-primary">Valor aqui</span></p>
-                        <p>TAXA: <span class="text-primary">Valor aqui</span></p>
-                        <p>QUANTIDADE: <span class="text-primary">Valor aqui</span></p>
+                        <!--<p> TIPO DE INGRESSO: <span class="text-primary">Valor aqui</span></p>-->
+                        <p>PREÇO: <span class="text-primary"><?=$valor_total?></span></p>
+                        <!--<p>TAXA: <span class="text-primary">Valor aqui</span></p>-->
+                        <p>QUANTIDADE: <span class="text-primary"><?=$total_produto?></span></p>
 
                     </div>
 

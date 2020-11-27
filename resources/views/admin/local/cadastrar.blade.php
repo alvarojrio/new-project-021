@@ -18,18 +18,20 @@ GRUPO021 | EVENTOS | Cadastrar
 
 <div class="page-title">
     <div class="title_left">
-        <h3>Cadastrar Bandeira</h3>
+        <h3>Cadastrar Local</h3>
     </div>
 </div>
 <div class="clearfix"></div>
-
+@if(session('success'))
+    <h1>{{session('success')}}</h1>
+@endif
                             
                             <div class="row" id="credito">
                                 
                                 <!-- INICIO PANEL-DEFAULT -->						
                                 <div class="panel panel-default">
                                     
-                                    <div class="panel-heading"><i class="far fa-credit-card"></i> Configurações de crédito</div>
+                                    <div class="panel-heading"><i class="far fa-credit-card"></i> Configurações de Local</div>
                                     <!-- INICIO PANEL-BODY -->							
                                     
                                     <div class="panel-body">                                        
@@ -37,41 +39,45 @@ GRUPO021 | EVENTOS | Cadastrar
                                         <div class="row">
                                             
                                             <div class="col-xs-12">
-                                                
+
+         <form method="POST" action="<?php echo url('admin/local/cadastrar') ?>">                                     
  <div class="row">
 
         <div class="col-md-6">
 
             <div class="form-group">
 
-                <label>Email:</label>
+                <label>Local Google Maps:</label>
 
-                <input name="email" type="email" class="form-control text-lowercase" id="email"   required="">
-
-            </div>
-
-        </div>
-
-
-        <div class="col-md-3">
-
-            <div class="form-group">
-
-                <label>Crie uma senha:</label>
-
-                <input name="senha" type="password" class="form-control text-lowercase" id="senha" value=""  required="">
+                <input name="localizacao" type="text" class="form-control text-lowercase" id="text"   required="">
 
             </div>
 
         </div>
 
-        <div class="col-md-3">
+
+        <div class="col-md-6">
 
             <div class="form-group">
 
-                <label>Repita sua senha:</label>
+                <label>Complemento (Opticional)</label>:</label>
 
-                <input name="repitasenha" type="password" class="form-control text-lowercase" id="repitasenha"  value=""  required="">
+                <input name="complemento" type="text" class="form-control text-lowercase" id="senha" value=""  required="">
+
+            </div>
+
+        </div>
+
+        <div class="col-md-12">
+
+            <div class="form-group">
+
+                <label>Descrição do Local e Hora:</label>
+
+                <textarea class="form-control caixa_alta" name="detalhe" required="required">            
+                
+                </textarea>
+                
 
             </div>
 
@@ -142,7 +148,11 @@ GRUPO021 | EVENTOS | Cadastrar
 <script src="{{ asset('plugins/timepicker/bootstrap-timepicker.js') }}"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
-
+<script src="https://cdn.ckeditor.com/4.13.0/standard/ckeditor.js"></script>
+<script src="{{ asset('js/funcoes_forms.js?time=15721415') }}"></script>    
+<script>
+CKEDITOR.replace( 'detalhe' );
+</script>
 <script type="text/javascript">
     
  /**  CADASTRAR CLIENTE **/

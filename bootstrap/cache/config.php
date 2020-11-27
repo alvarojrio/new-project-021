@@ -37,10 +37,11 @@
       20 => 'Illuminate\\Validation\\ValidationServiceProvider',
       21 => 'Illuminate\\View\\ViewServiceProvider',
       22 => 'Artistas\\PagSeguro\\PagSeguroServiceProvider',
-      23 => 'App\\Providers\\AppServiceProvider',
-      24 => 'App\\Providers\\AuthServiceProvider',
-      25 => 'App\\Providers\\EventServiceProvider',
-      26 => 'App\\Providers\\RouteServiceProvider',
+      23 => 'Yajra\\DataTables\\DataTablesServiceProvider',
+      24 => 'App\\Providers\\AppServiceProvider',
+      25 => 'App\\Providers\\AuthServiceProvider',
+      26 => 'App\\Providers\\EventServiceProvider',
+      27 => 'App\\Providers\\RouteServiceProvider',
     ),
     'aliases' => 
     array (
@@ -82,6 +83,7 @@
       'URL' => 'Illuminate\\Support\\Facades\\URL',
       'Validator' => 'Illuminate\\Support\\Facades\\Validator',
       'View' => 'Illuminate\\Support\\Facades\\View',
+      'DataTables' => 'Yajra\\DataTables\\Facades\\DataTables',
     ),
   ),
   'auth' => 
@@ -189,7 +191,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\xampp\\htdocs\\new-project-021\\storage\\framework/cache/data',
+        'path' => 'C:\\wamp64\\www\\new-project-021\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -328,6 +330,57 @@
       ),
     ),
   ),
+  'datatables-buttons' => 
+  array (
+    'namespace' => 
+    array (
+      'base' => 'DataTables',
+      'model' => '',
+    ),
+    'pdf_generator' => 'snappy',
+    'snappy' => 
+    array (
+      'options' => 
+      array (
+        'no-outline' => true,
+        'margin-left' => '0',
+        'margin-right' => '0',
+        'margin-top' => '10mm',
+        'margin-bottom' => '10mm',
+      ),
+      'orientation' => 'landscape',
+    ),
+    'parameters' => 
+    array (
+      'dom' => 'Bfrtip',
+      'order' => 
+      array (
+        0 => 
+        array (
+          0 => 0,
+          1 => 'desc',
+        ),
+      ),
+      'buttons' => 
+      array (
+        0 => 'create',
+        1 => 'export',
+        2 => 'print',
+        3 => 'reset',
+        4 => 'reload',
+      ),
+    ),
+    'generator' => 
+    array (
+      'columns' => 'id,add your columns,created_at,updated_at',
+      'buttons' => 'create,export,print,reset,reload',
+      'dom' => 'Bfrtip',
+    ),
+  ),
+  'debug-server' => 
+  array (
+    'host' => 'tcp://127.0.0.1:9912',
+  ),
   'filesystems' => 
   array (
     'default' => 'local',
@@ -337,12 +390,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\new-project-021\\storage\\app',
+        'root' => 'C:\\wamp64\\www\\new-project-021\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\xampp\\htdocs\\new-project-021\\storage\\app/public',
+        'root' => 'C:\\wamp64\\www\\new-project-021\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -388,13 +441,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\xampp\\htdocs\\new-project-021\\storage\\logs/laravel.log',
+        'path' => 'C:\\wamp64\\www\\new-project-021\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\xampp\\htdocs\\new-project-021\\storage\\logs/laravel.log',
+        'path' => 'C:\\wamp64\\www\\new-project-021\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -458,10 +511,17 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\xampp\\htdocs\\new-project-021\\resources\\views/vendor/mail',
+        0 => 'C:\\wamp64\\www\\new-project-021\\resources\\views/vendor/mail',
       ),
     ),
     'log_channel' => NULL,
+  ),
+  'pagseguro' => 
+  array (
+    'sandbox' => true,
+    'email' => 'alvarodejunior@gmail.com',
+    'token' => '57A35C7D5F364AAD9D717EF87A8BDD5B',
+    'notificationURL' => 'https://grupo021.com.br/021/php/notificacoes.php',
   ),
   'queue' => 
   array (
@@ -540,7 +600,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\xampp\\htdocs\\new-project-021\\storage\\framework/sessions',
+    'files' => 'C:\\wamp64\\www\\new-project-021\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -560,18 +620,152 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\new-project-021\\resources\\views',
+      0 => 'C:\\wamp64\\www\\new-project-021\\resources\\views',
     ),
-    'compiled' => 'C:\\xampp\\htdocs\\new-project-021\\storage\\framework\\views',
+    'compiled' => 'C:\\wamp64\\www\\new-project-021\\storage\\framework\\views',
   ),
-  'debug-server' => 
+  'excel' => 
   array (
-    'host' => 'tcp://127.0.0.1:9912',
+    'exports' => 
+    array (
+      'chunk_size' => 1000,
+      'pre_calculate_formulas' => false,
+      'csv' => 
+      array (
+        'delimiter' => ',',
+        'enclosure' => '"',
+        'line_ending' => '
+',
+        'use_bom' => false,
+        'include_separator_line' => false,
+        'excel_compatibility' => false,
+      ),
+    ),
+    'imports' => 
+    array (
+      'read_only' => true,
+      'heading_row' => 
+      array (
+        'formatter' => 'slug',
+      ),
+      'csv' => 
+      array (
+        'delimiter' => ',',
+        'enclosure' => '"',
+        'escape_character' => '\\',
+        'contiguous' => false,
+        'input_encoding' => 'UTF-8',
+      ),
+    ),
+    'extension_detector' => 
+    array (
+      'xlsx' => 'Xlsx',
+      'xlsm' => 'Xlsx',
+      'xltx' => 'Xlsx',
+      'xltm' => 'Xlsx',
+      'xls' => 'Xls',
+      'xlt' => 'Xls',
+      'ods' => 'Ods',
+      'ots' => 'Ods',
+      'slk' => 'Slk',
+      'xml' => 'Xml',
+      'gnumeric' => 'Gnumeric',
+      'htm' => 'Html',
+      'html' => 'Html',
+      'csv' => 'Csv',
+      'tsv' => 'Csv',
+      'pdf' => 'Dompdf',
+    ),
+    'value_binder' => 
+    array (
+      'default' => 'Maatwebsite\\Excel\\DefaultValueBinder',
+    ),
+    'transactions' => 
+    array (
+      'handler' => 'db',
+    ),
+    'temporary_files' => 
+    array (
+      'local_path' => 'C:\\Users\\ALVARO~1.RJ\\AppData\\Local\\Temp',
+      'remote_disk' => NULL,
+      'remote_prefix' => NULL,
+    ),
+  ),
+  'datatables-html' => 
+  array (
+    'table' => 
+    array (
+      'class' => 'table',
+      'id' => 'dataTableBuilder',
+    ),
+    'callback' => 
+    array (
+      0 => '$',
+      1 => '$.',
+      2 => 'function',
+    ),
+    'script' => 'datatables::script',
+    'editor' => 'datatables::editor',
+  ),
+  'datatables' => 
+  array (
+    'search' => 
+    array (
+      'smart' => true,
+      'multi_term' => true,
+      'case_insensitive' => true,
+      'use_wildcards' => false,
+      'starts_with' => false,
+    ),
+    'index_column' => 'DT_RowIndex',
+    'engines' => 
+    array (
+      'eloquent' => 'Yajra\\DataTables\\EloquentDataTable',
+      'query' => 'Yajra\\DataTables\\QueryDataTable',
+      'collection' => 'Yajra\\DataTables\\CollectionDataTable',
+      'resource' => 'Yajra\\DataTables\\ApiResourceDataTable',
+    ),
+    'builders' => 
+    array (
+    ),
+    'nulls_last_sql' => ':column :direction NULLS LAST',
+    'error' => NULL,
+    'columns' => 
+    array (
+      'excess' => 
+      array (
+        0 => 'rn',
+        1 => 'row_num',
+      ),
+      'escape' => '*',
+      'raw' => 
+      array (
+        0 => 'action',
+      ),
+      'blacklist' => 
+      array (
+        0 => 'password',
+        1 => 'remember_token',
+      ),
+      'whitelist' => '*',
+    ),
+    'json' => 
+    array (
+      'header' => 
+      array (
+      ),
+      'options' => 0,
+    ),
   ),
   'trustedproxy' => 
   array (
     'proxies' => NULL,
     'headers' => 30,
+  ),
+  'datatables-fractal' => 
+  array (
+    'includes' => 'include',
+    'serializer' => 'League\\Fractal\\Serializer\\DataArraySerializer',
   ),
   'tinker' => 
   array (

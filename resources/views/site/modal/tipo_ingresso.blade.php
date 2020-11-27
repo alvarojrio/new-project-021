@@ -13,14 +13,8 @@
                
 
                <div class="produtos"></div>
-
-
                
-
-
-                
-
-                <ul class="nav m-auto">
+               <ul class="nav m-auto">
                     <li class="nav-item">
                         <img title="mastercard" src="https://img.icons8.com/color/50/000000/mastercard.png">
                         <span></span>
@@ -47,7 +41,7 @@
 
                 <button type="button" data-toggle="modal" data-target="#modal-ingresso" data-dismiss="modal"
                     class="btn btn-danger">Voltar</button>
-                <a href="chekout.html" class="btn btn-success disabled" id="button-ingresso" role="button" disabled>Continue</a>
+                <a href="<?php echo url('/checkout'); ?>" class="btn btn-success disabled" id="button-ingresso" role="button" disabled>Continue</a>
             </div>
         </div>
     </div>
